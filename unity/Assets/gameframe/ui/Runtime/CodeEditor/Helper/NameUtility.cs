@@ -1,7 +1,7 @@
-﻿using System.Text.RegularExpressions;
-using Logger = YIUIFramework.Logger;
+﻿#if UNITY_EDITOR
+using System.Text.RegularExpressions;
 
-namespace YIUIFramework
+namespace Zeng.GameFrame.UIs.Editor
 {
     public static class NameUtility
     {
@@ -127,3 +127,4 @@ namespace YIUIFramework
         }
     }
 }
+#endif

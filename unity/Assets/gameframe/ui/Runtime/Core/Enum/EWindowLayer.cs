@@ -8,7 +8,7 @@ namespace Zeng.GameFrame.UIs
     /// 层级类型
     /// </summary>
     [LabelText("层级类型")]
-    public enum EPanelLayer
+    public enum EWindowLayer
     {
         /// <summary>
         /// 最高层  

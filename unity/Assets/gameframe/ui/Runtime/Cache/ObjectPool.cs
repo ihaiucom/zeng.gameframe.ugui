@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace YIUIFramework
+namespace Zeng.GameFrame.UIs
 {
     public class ObjectPool<T> where T : new()
     {

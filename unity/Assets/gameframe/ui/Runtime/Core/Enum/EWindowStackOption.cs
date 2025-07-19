@@ -8,7 +8,7 @@ namespace Zeng.GameFrame.UIs
     /// Panel堆栈操作
     /// </summary>
     [LabelText("堆栈操作")]
-    public enum EPanelStackOption
+    public enum EWindowStackOption
     {
         [LabelText("不操作 就叠加管理")]
         None = 0,

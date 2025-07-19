@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace Zeng.GameFrame.UIs
+namespace Zeng.GameFrame.UIs.Editor
 {
     /// <summary>
     /// 检查是否可以进行UI操作

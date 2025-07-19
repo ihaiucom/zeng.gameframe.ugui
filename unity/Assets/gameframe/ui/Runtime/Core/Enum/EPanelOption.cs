@@ -7,7 +7,7 @@ namespace Zeng.GameFrame.UIs
     //只能新增 不允许修改
     [LabelText("界面选项")]
     [Flags]
-    public enum EWindowOption
+    public enum EPanelOption
     {
         [LabelText("无")]
         None = 0,
@@ -28,14 +28,14 @@ namespace Zeng.GameFrame.UIs
         IgnoreBack = 1 << 4, //他的打开与关闭不会触发返回功能 堆栈功能
     }
 
-    public static class WindowOptionExt
+    public static class PanelOptionExt
     {
-        public static void Set(ref this EWindowOption owner, EWindowOption option)
+        public static void Set(ref this EPanelOption owner, EPanelOption option)
         {
             owner |= option;
         }
 
-        public static void Unset(ref this EWindowOption owner, EWindowOption option)
+        public static void Unset(ref this EPanelOption owner, EPanelOption option)
         {
             owner &= (~option);
         }

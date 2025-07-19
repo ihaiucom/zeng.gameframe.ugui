@@ -4,7 +4,7 @@ using Object = UnityEngine.Object;
 using UnityEditor;
 #endif
 
-namespace YIUIFramework
+namespace Zeng.GameFrame.UIs
 {
     /// <summary>
     /// 日志封装@l

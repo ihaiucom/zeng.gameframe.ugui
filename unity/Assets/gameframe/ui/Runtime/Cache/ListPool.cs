@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace YIUIFramework
+namespace Zeng.GameFrame.UIs
 {
     /// <summary>
     /// 各种列表的池

@@ -3,7 +3,7 @@ using System;
 using Object = UnityEngine.Object;
 using UnityEditor;
 
-namespace Zeng.GameFrame.UIs
+namespace Zeng.GameFrame.UIs.Editor
 {
     /// <summary>
     /// Unity提示框@sy

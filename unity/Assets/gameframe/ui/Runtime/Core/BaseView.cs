@@ -1,6 +1,6 @@
 namespace Zeng.GameFrame.UIs
 {
-    public class BaseView
+    public class BaseView : BaseUI
     {
         
     }
