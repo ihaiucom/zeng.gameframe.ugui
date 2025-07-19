@@ -1,0 +1,14 @@
+{
+    "name": "zeng.gameframe.ui",
+    "rootNamespace": "Zeng.GameFrame.UIs",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

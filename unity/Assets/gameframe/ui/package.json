@@ -1,0 +1,12 @@
+{
+    "name": "zeng.gameframe.ui",
+    "displayName": "Zeng.GameFrame.UI",
+    "author": { "name": "zengfeng", "url": "https://github.com/ihaiucom/zeng.gameframe.ugui" },
+    "version": "1.0.0",
+    "unity": "2022.3",
+    "description": "Unity UGUI Game Frame",
+    "keywords": [ ],
+    "license": "MIT",
+    "category": "gameframe",
+    "dependencies": {}
+}
