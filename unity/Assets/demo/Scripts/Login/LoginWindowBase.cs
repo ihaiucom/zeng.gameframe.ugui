@@ -1,8 +1,8 @@
-using Zeng.GameFrame.UIs;
+using Zeng.GameFrame.UIS;
 
 namespace Zeng.Demos.Login
 {
-    public class LoginWindowBase : BaseWindow
+    public class LoginWindowBase : UIWindow
     {
         
     }
