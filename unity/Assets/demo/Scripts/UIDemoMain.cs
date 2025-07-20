@@ -23,7 +23,13 @@ namespace Zeng.Demos
             if (success)
             {
                 UILoadProxyYooAsset.I.Init(package);
+                
+                await UIManager.I.InitAsync();
             }
+            
+            
+
+           
         }
     }
 }
