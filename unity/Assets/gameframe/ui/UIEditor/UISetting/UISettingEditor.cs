@@ -1,0 +1,36 @@
+#if UNITY_EDITOR
+using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Editor;
+using Sirenix.Utilities.Editor;
+using UnityEditor;
+
+namespace Zeng.GameFrame.UIS.Editor
+{
+    public class UISettingEditor  : OdinMenuEditorWindow
+    {
+        [MenuItem("Tools/UI工具")]
+        private static void OpenWindow()
+        {
+            var window = GetWindow<UISettingEditor>();
+            window.Show();
+        } 
+        
+        private static void CloseWindow()
+        {
+            GetWindow<UISettingEditor>().Close();
+        }
+
+        private OdinMenuTree           m_OdinMenuTree;
+        protected override OdinMenuTree BuildMenuTree()
+        {
+            OdinMenuTree tree = new OdinMenuTree(supportsMultiSelect: true)
+            {
+                { "UI设置",                           UISettingConfig.Instance,                           EditorIcons.SettingsCog                       },
+            };
+            return tree;
+        }
+    }
+
+}
+#endif
