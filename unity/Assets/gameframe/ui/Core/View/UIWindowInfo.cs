@@ -7,9 +7,9 @@ namespace Zeng.GameFrame.UIS
     /// </summary>
     public class UIWindowInfo
     {
-        public UIWindow Window { get; private set; }
+        public UIPanel Panel { get; private set; }
 
-        public bool ActiveSelf => Window?.ActiveSelf ?? false;
+        public bool ActiveSelf => Panel?.ActiveSelf ?? false;
 
         /// <summary>
         /// 包名
@@ -31,10 +31,10 @@ namespace Zeng.GameFrame.UIS
             switch (uiBase)
             {
                 case null:
-                    Window = null;
+                    Panel = null;
                     break;
-                case UIWindow window:
-                    Window = window;
+                case UIPanel window:
+                    Panel = window;
                     break;
                 default:
                     Debug.LogError($"当前UI 不是Panel 请检查 {PkgName} {ResName}");

@@ -36,11 +36,11 @@ namespace Zeng.GameFrame.UIS
             UIFrameworkPath + "/UIEditor/UIRootPrefab/" + UIRoot.UIRootName + ".prefab";
 
         public const string UIBaseName                = nameof(UIBase);
-        public const string UIBaseWindowName          = nameof(UIWindow);
-        public const string UIBaseSubPanelName        = nameof(UISubPanel);
-        public const string UIBaseViewName            = nameof(UIVeiw);
-        public const string UIWindowName              = "Window";
-        public const string UIViewName               = "View";
+        public const string UIBasePanelName           = nameof(UIPanel);
+        public const string UIBaseViewName            = nameof(UIView);
+        public const string UIBaseComponentName       = nameof(UIComponent);
+        public const string UIPanelName               = "Panel";
+        public const string UIViewName                = "View";
         public const string UIParentName             = "Parent";
         public const string UIPrefabs                = "Prefabs";
         public const string UIPrefabsCN              = "预制";
@@ -54,8 +54,8 @@ namespace Zeng.GameFrame.UIS
         public const string UISpritesAtlas1          = "Atlas1";      //图集1 不需要华丽的取名 每个包内的自定义图集就按顺序就好 当然你也可以自定义其他
         public const string UIAllViewParentName      = "AllViewParent";
         public const string UIAllPopupViewParentName = "AllPopupViewParent";
-        public const string UIYIUIPanelSourceName    = UIProjectName + UIWindowName + UISource;
-        public const string UIPanelSourceName        = UIWindowName + UISource;
+        public const string UIYIUIPanelSourceName    = UIProjectName + UIPanelName + UISource;
+        public const string UIPanelSourceName        = UIPanelName + UISource;
         public const string UIYIUIViewName           = UIProjectName + UIViewName;
         public const string UIViewParentName         = UIViewName + UIParentName;
         public const string UIYIUIViewParentName     = UIProjectName + UIViewName + UIParentName;

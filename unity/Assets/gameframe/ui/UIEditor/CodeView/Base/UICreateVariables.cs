@@ -115,9 +115,9 @@ namespace Zeng.GameFrame.UIS.Editor
         {
             switch (self.UICodeType)
             {
-                case EUICodeType.View:
+                case EUICodeType.Component:
                     return;
-                case EUICodeType.Window:
+                case EUICodeType.Panel:
                     sb.AppendFormat("        public override EWindowOption WindowOption => EWindowOption.{0};\r\n",
                         self.WindowOption.ToString().Replace(", ", "|EWindowOption."));
                     sb.AppendFormat("        public override EPanelLayer Layer => EPanelLayer.{0};\r\n",
@@ -132,7 +132,7 @@ namespace Zeng.GameFrame.UIS.Editor
                         sb.AppendFormat("        protected override float CachePanelTime => {0};\r\n\r\n",
                             self.CachePanelTime);
                     break;
-                case EUICodeType.SubPanel:
+                case EUICodeType.View:
                     sb.AppendFormat("        public override EWindowOption WindowOption => EWindowOption.{0};\r\n",
                         self.WindowOption.ToString().Replace(", ", "|EWindowOption."));
                     sb.AppendFormat(

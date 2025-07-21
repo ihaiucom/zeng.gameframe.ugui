@@ -1,5 +1,5 @@
 ﻿using System;
-using YIUIBind;
+using Zeng.GameFrame.UIS;
 
 using UnityEngine;
 using UnityEngine.UI;

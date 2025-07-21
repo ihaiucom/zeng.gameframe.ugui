@@ -26,7 +26,7 @@ namespace Zeng.GameFrame.UIS
         internal UIPanelSplitData PanelSplitData = new UIPanelSplitData();
 
         #if UNITY_EDITOR
-        private bool ShowPanelSplitData => IsSplitData && UICodeType == EUICodeType.Window;
+        private bool ShowPanelSplitData => IsSplitData && UICodeType == EUICodeType.Panel;
 
         //拆分后的引用数据 
         [ShowInInspector]
@@ -37,7 +37,7 @@ namespace Zeng.GameFrame.UIS
         [ReadOnly] //就是一个只读的 展示用数据 请不要使用此数据 或修改数据
         internal UIPanelSplitData PanelSplitEditorShowData;
 
-        private bool HidePanelSplitData => IsSplitData || UICodeType != EUICodeType.Window;
+        private bool HidePanelSplitData => IsSplitData || UICodeType != EUICodeType.Panel;
         #endif
     }
 }

@@ -17,47 +17,47 @@ namespace Zeng.GameFrame.UIS
         [LabelText("组件类型")]
         [OnValueChanged("OnValueChangedEUICodeType")]
         [ReadOnly]
-        public EUICodeType UICodeType = EUICodeType.View;
+        public EUICodeType UICodeType = EUICodeType.Component;
 
         [BoxGroup("配置", true, true)]
-        [HideIf("UICodeType", EUICodeType.View)]
+        [HideIf("UICodeType", EUICodeType.Component)]
         [LabelText("窗口选项")]
         [GUIColor(0, 1, 1)]
         [EnableIf("@UIOperationHelper.CommonShowIf()")]
         public EWindowOption WindowOption = EWindowOption.None;
 
-        [ShowIf("UICodeType", EUICodeType.Window)]
+        [ShowIf("UICodeType", EUICodeType.Panel)]
         [BoxGroup("配置", true, true)]
         [OnValueChanged("OnValueChangedEPanelLayer")]
         [GUIColor(0, 1, 1)]
         [EnableIf("@UIOperationHelper.CommonShowIf()")]
         public EPanelLayer PanelLayer = EPanelLayer.Panel;
 
-        [ShowIf("UICodeType", EUICodeType.Window)]
+        [ShowIf("UICodeType", EUICodeType.Panel)]
         [BoxGroup("配置", true, true)]
         [GUIColor(0, 1, 1)]
         [EnableIf("@UIOperationHelper.CommonShowIf()")]
         public EPanelOption PanelOption = EPanelOption.None;
 
-        [ShowIf("UICodeType", EUICodeType.Window)]
+        [ShowIf("UICodeType", EUICodeType.Panel)]
         [BoxGroup("配置", true, true)]
         [GUIColor(0, 1, 1)]
         [EnableIf("@UIOperationHelper.CommonShowIf()")]
         public EPanelStackOption PanelStackOption = EPanelStackOption.VisibleTween;
 
-        [ShowIf("UICodeType", EUICodeType.SubPanel)]
+        [ShowIf("UICodeType", EUICodeType.View)]
         [BoxGroup("配置", true, true)]
         [GUIColor(0, 1, 1)]
         [EnableIf("@UIOperationHelper.CommonShowIf()")]
         public EViewWindowType ViewWindowType = EViewWindowType.View;
 
-        [ShowIf("UICodeType", EUICodeType.SubPanel)]
+        [ShowIf("UICodeType", EUICodeType.View)]
         [BoxGroup("配置", true, true)]
         [GUIColor(0, 1, 1)]
         [EnableIf("@UIOperationHelper.CommonShowIf()")]
         public EViewStackOption ViewStackOption = EViewStackOption.VisibleTween;
 
-        [ShowIf("ShowCachePanelTime", EUICodeType.Window)]
+        [ShowIf("ShowCachePanelTime", EUICodeType.Panel)]
         [BoxGroup("配置", true, true)]
         [GUIColor(0, 1, 1)]
         [LabelText("缓存时间")]
@@ -67,7 +67,7 @@ namespace Zeng.GameFrame.UIS
         private bool ShowCachePanelTime => PanelOption.HasFlag(EPanelOption.TimeCache);
 
         [LabelText("同层级时 优先级高的在前面")] //相同时后开的在前
-        [ShowIf("UICodeType", EUICodeType.Window)]
+        [ShowIf("UICodeType", EUICodeType.Panel)]
         [BoxGroup("配置", true, true)]
         [GUIColor(0, 1, 1)]
         [EnableIf("@UIOperationHelper.CommonShowIf()")]
@@ -75,32 +75,32 @@ namespace Zeng.GameFrame.UIS
 
         private void OnValueChangedEUICodeType()
         {
-            if (name.EndsWith(UISetting.UIWindowName) || name.EndsWith(UISetting.UIPanelSourceName))
+            if (name.EndsWith(UISetting.UIPanelName) || name.EndsWith(UISetting.UIPanelSourceName))
             {
-                if (UICodeType != EUICodeType.Window)
+                if (UICodeType != EUICodeType.Panel)
                 {
-                    Debug.LogWarning($"{name} 结尾{UISetting.UIWindowName} 必须设定为{UISetting.UIWindowName}类型");
+                    Debug.LogWarning($"{name} 结尾{UISetting.UIPanelName} 必须设定为{UISetting.UIPanelName}类型");
                 }
 
-                UICodeType = EUICodeType.Window;
+                UICodeType = EUICodeType.Panel;
             }
             else if (name.EndsWith(UISetting.UIViewName))
             {
-                if (UICodeType != EUICodeType.SubPanel)
+                if (UICodeType != EUICodeType.View)
                 {
                     Debug.LogWarning($"{name} 结尾{UISetting.UIViewName} 必须设定为{UISetting.UIViewName}类型");
                 }
 
-                UICodeType = EUICodeType.SubPanel;
+                UICodeType = EUICodeType.View;
             }
             else
             {
-                if (UICodeType != EUICodeType.View)
+                if (UICodeType != EUICodeType.Component)
                 {
                     Debug.LogWarning($"{name} 想设定为其他类型 请按照规则设定 请勿强行修改");
                 }
 
-                UICodeType = EUICodeType.View;
+                UICodeType = EUICodeType.Component;
             }
         }
 
@@ -194,7 +194,7 @@ namespace Zeng.GameFrame.UIS
             if (!UICreateModule.InitVoName(this)) return false;
             OnValueChangedEUICodeType();
             OnValueChangedEPanelLayer();
-            if (UICodeType == EUICodeType.Window && IsSplitData)
+            if (UICodeType == EUICodeType.Panel && IsSplitData)
             {
                 PanelSplitData.Panel = gameObject;
                 if (!PanelSplitData.AutoCheck()) return false;

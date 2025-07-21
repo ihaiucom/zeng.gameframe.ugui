@@ -1,5 +1,5 @@
 ﻿using System;
-using YIUIBind;
+using Zeng.GameFrame.UIS;
 
 using UnityEngine;
 using System.Collections.Generic;
@@ -16,29 +16,24 @@ namespace ${Namespace}.${PkgName}
     
         #region 生命周期
         
-        protected override void Initialize()
+        protected override void OnUIInit()
         {
-            Debug.Log($"${ResName} Initialize");
+            Debug.Log($"${ResName} OnUIInit");
         }
 
-        protected override void Start()
+        protected override void OnUIEnable()
         {
-            Debug.Log($"${ResName} Start");
+            Debug.Log($"${ResName} OnUIEnable");
         }
 
-        protected override void OnEnable()
+        protected override void OnUIDisable()
         {
-            Debug.Log($"${ResName} OnEnable");
+            Debug.Log($"${ResName} OnUIDisable");
         }
 
-        protected override void OnDisable()
+        protected override void OnUIDestroy()
         {
-            Debug.Log($"${ResName} OnDisable");
-        }
-
-        protected override void OnDestroy()
-        {
-            Debug.Log($"${ResName} OnDestroy");
+            Debug.Log($"${ResName} OnUIDestroy");
         }
 
         #endregion

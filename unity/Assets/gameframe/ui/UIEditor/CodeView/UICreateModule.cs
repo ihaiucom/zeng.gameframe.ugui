@@ -76,7 +76,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
             if (!resultBase) return;
 
-            if (cdeTable.UICodeType == EUICodeType.Window)
+            if (cdeTable.UICodeType == EUICodeType.Panel)
             {
                 var createPanelData = new UICreatePanelData
                 {
@@ -92,7 +92,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
                 if (!result) return;
             }
-            else if (cdeTable.UICodeType == EUICodeType.SubPanel)
+            else if (cdeTable.UICodeType == EUICodeType.View)
             {
                 var createViewData = new UICreateViewData
                 {
@@ -108,7 +108,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
                 if (!result) return;
             }
-            else if (cdeTable.UICodeType == EUICodeType.View)
+            else if (cdeTable.UICodeType == EUICodeType.Component)
             {
                 var createComponentData = new UICreateComponentData //目前看上去3个DATA都一样 是特意设定的 以后可独立扩展
                 {
@@ -136,15 +136,15 @@ namespace Zeng.GameFrame.UIS.Editor
         {
             switch (cdeTable.UICodeType)
             {
-                case EUICodeType.Window:
-                    return UISetting.UIWindowName;
-                case EUICodeType.SubPanel:
-                    return UISetting.UIBaseSubPanelName;
+                case EUICodeType.Panel:
+                    return UISetting.UIBasePanelName;
                 case EUICodeType.View:
-                    return UISetting.UIViewName;
+                    return UISetting.UIBaseViewName;
+                case EUICodeType.Component:
+                    return UISetting.UIBaseComponentName;
                 default:
                     Debug.LogError($"是否新增了类型????");
-                    return UISetting.UIViewName;
+                    return UISetting.UIBaseComponentName;
             }
         }
 
@@ -211,7 +211,7 @@ namespace Zeng.GameFrame.UIS.Editor
         //如果自己是panel 则还需要额外检查 是不是把自己的view给收集进去了
         private static void CheckAddCdeTable(ref List<UIBindCDETable> addCdeTable, UIBindCDETable cdeTable)
         {
-            if (cdeTable.UICodeType != EUICodeType.Window && !cdeTable.IsSplitData)
+            if (cdeTable.UICodeType != EUICodeType.Panel && !cdeTable.IsSplitData)
                 return;
 
             for (var i = addCdeTable.Count - 1; i >= 0; i--)
@@ -246,7 +246,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 }
 
                 if (string.IsNullOrEmpty(childCde.PkgName) || string.IsNullOrEmpty(childCde.ResName)) continue;
-                if (childCde.UICodeType == EUICodeType.Window)
+                if (childCde.UICodeType == EUICodeType.Panel)
                 {
                     Debug.LogError($"{transform.name} 公共组件嵌套了 其他面板 这是不允许的 {childCde.ResName} 已跳过忽略");
                     continue;

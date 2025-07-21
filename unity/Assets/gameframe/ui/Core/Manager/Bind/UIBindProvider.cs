@@ -17,9 +17,9 @@ namespace Zeng.GameFrame.UIS
             return AppDomain.CurrentDomain.GetTypesByAssemblyName(LogicAssemblyNames);
         }
 
-        private Type m_BaseUIWindowType        = typeof(UIWindow);
-        private Type m_BaseUISubPanelType      = typeof(UISubPanel);
-        private Type m_BaseUIViewType          = typeof(UIVeiw);
+        private Type m_BaseUIWindowType        = typeof(UIPanel);
+        private Type m_BaseUISubPanelType      = typeof(UIView);
+        private Type m_BaseUIViewType          = typeof(UIComponent);
 
         public UIBindVo[] Get()
         {
@@ -126,15 +126,15 @@ namespace Zeng.GameFrame.UIS
         {
             if (uiBaseType == m_BaseUIWindowType)
             {
-                return UISetting.UIBaseWindowName;
+                return UISetting.UIBasePanelName;
             }
             else if (uiBaseType == m_BaseUISubPanelType)
             {
-                return UISetting.UIBaseSubPanelName;
+                return UISetting.UIBaseViewName;
             }
             else if (uiBaseType == m_BaseUIViewType)
             {
-                return UISetting.UIBaseViewName;
+                return UISetting.UIBaseComponentName;
             }
             else
             {

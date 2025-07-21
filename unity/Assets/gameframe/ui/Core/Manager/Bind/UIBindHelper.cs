@@ -34,7 +34,7 @@ namespace Zeng.GameFrame.UIS
         //初始化记录
         public static bool IsInit { get; private set; }
 
-        public static Type BaseWindowType = typeof(UIWindow);
+        public static Type BaseWindowType = typeof(UIPanel);
 
         /// <summary>
         /// 初始化获取到所有UI相关的绑定关系

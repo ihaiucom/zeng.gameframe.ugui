@@ -16,6 +16,13 @@ namespace Zeng.GameFrame.UIS
         /// 绑定信息
         /// </summary>
         public UIBindVo UIBindVo { get; private set; }
+        
+        
+        
+        protected UIBindCDETable CDETable { get; private set; }
+        protected UIBindComponentTable ComponentTable { get; private set; }
+        protected UIBindDataTable DataTable { get; private set; }
+        protected UIBindEventTable EventTable { get; private set; }
 
         /// <summary>
         /// 当前UI的预设对象
@@ -67,6 +74,17 @@ namespace Zeng.GameFrame.UIS
             UIBindVo   = uiBindVo;
             OwnerGameObject    = ownerGameObject;
             OwnerRectTransform = ownerGameObject.GetComponent<RectTransform>();
+            
+            CDETable         = OwnerGameObject.GetComponent<UIBindCDETable>();
+            if (CDETable == null)
+            {
+                Debug.LogError($"{OwnerGameObject.name} 没有UIBindCDETable组件 这是必须的");
+                return false;
+            }
+
+            ComponentTable = CDETable.ComponentTable;
+            DataTable      = CDETable.DataTable;
+            EventTable     = CDETable.EventTable;
 
             UIBaseInitialize();
             UIBaseInit = true;

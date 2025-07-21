@@ -1,9 +1,9 @@
 namespace Zeng.GameFrame.UIS
 {
     /// <summary>
-    /// UI 子面板
+    /// UI 组件视图
     /// </summary>
-    public class UISubPanel : UIBase
+    public class UIComponent : UIBase
     {
         
     }

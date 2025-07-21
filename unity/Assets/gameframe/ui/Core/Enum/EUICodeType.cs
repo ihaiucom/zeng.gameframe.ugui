@@ -5,13 +5,13 @@ namespace Zeng.GameFrame.UIS
     [LabelText("组件类型")]
     public enum EUICodeType
     {
-        [LabelText("Window 面板")]
-        Window,
+        [LabelText("Panel 面板")]
+        Panel,
 
-        [LabelText("SubPanel 界面")]
-        SubPanel,
-
-        [LabelText("View 组件")]
+        [LabelText("View 界面")]
         View,
+
+        [LabelText("Component 组件")]
+        Component,
     }
 }

@@ -5,41 +5,41 @@ using UnityEngine;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
-namespace ${Namespace}.${PkgName}
+namespace Games.UI.Login
 {
     /// <summary>
-    /// Author  ${Author}
-    /// Date    ${CreateDate}
+    /// Author  UI
+    /// Date    2025.7.21
     /// </summary>
-    public sealed partial class ${ResName}:${ResName}Base
+    public sealed partial class LoginPanel:LoginPanelBase
     {
     
         #region 生命周期
         
         protected override void OnUIInit()
         {
-            Debug.Log($"${ResName} OnUIInit");
+            Debug.Log($"LoginPanel OnUIInit");
         }
 
         protected override void OnUIEnable()
         {
-            Debug.Log($"${ResName} OnUIEnable");
+            Debug.Log($"LoginPanel OnUIEnable");
         }
 
         protected override void OnUIDisable()
         {
-            Debug.Log($"${ResName} OnUIDisable");
+            Debug.Log($"LoginPanel OnUIDisable");
         }
 
         protected override void OnUIDestroy()
         {
-            Debug.Log($"${ResName} OnUIDestroy");
+            Debug.Log($"LoginPanel OnUIDestroy");
         }
 
         protected override async UniTask<bool> OnOpen()
         {
             await UniTask.CompletedTask;
-            Debug.Log($"${ResName} OnOpen");
+            Debug.Log($"LoginPanel OnOpen");
             return true;
         }
 
@@ -49,6 +49,11 @@ namespace ${Namespace}.${PkgName}
         }
         
         #endregion
+
+        #region Event开始
+
+
+        #endregion Event结束
 
     }
 }
