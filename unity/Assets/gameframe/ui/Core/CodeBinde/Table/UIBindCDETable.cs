@@ -9,7 +9,7 @@ namespace Zeng.GameFrame.UIS
     //[DetailedInfoBox("UI CDE总表 点击展开详细介绍", @"李胜扬")]
     [Serializable]
     [LabelText("UI CDE总表")]
-    [AddComponentMenu("YIUIBind/★★★★★UI CDE Table 总表★★★★★")]
+    [AddComponentMenu("UIBind/★★★★★UI CDE Table 总表★★★★★")]
     public sealed partial class UIBindCDETable : SerializedMonoBehaviour
     {
         #if UNITY_EDITOR

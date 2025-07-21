@@ -15,7 +15,7 @@ namespace Zeng.GameFrame.UIS
 {
     //[DetailedInfoBox("UI 事件表 点击展开详细介绍", @"李胜扬")]
     [LabelText("UI 事件表")]
-    [AddComponentMenu("YIUIBind/★★★UI Event Table 事件表★★★")]
+    [AddComponentMenu("UIBind/★★★UI Event Table 事件表★★★")]
     public sealed partial class UIBindEventTable : SerializedMonoBehaviour
     {
         [OdinSerialize]

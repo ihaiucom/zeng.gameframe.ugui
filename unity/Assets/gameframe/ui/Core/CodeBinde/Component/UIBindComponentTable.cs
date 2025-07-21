@@ -7,7 +7,7 @@ namespace Zeng.GameFrame.UIS
 {
     //[DetailedInfoBox("UI 组件表 点击展开详细介绍", @"李胜扬")]
     [LabelText("UI 组件表")]
-    [AddComponentMenu("YIUIBind/★★★UI Component Table 组件表★★★")]
+    [AddComponentMenu("UIBind/★★★UI Component Table 组件表★★★")]
     public sealed partial class UIBindComponentTable:SerializedMonoBehaviour
     {
         [OdinSerialize]

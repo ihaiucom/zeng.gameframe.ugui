@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace YIUIFramework
+namespace Zeng.GameFrame.UIS
 {
     public static class UnityObjectExtensions
     {
