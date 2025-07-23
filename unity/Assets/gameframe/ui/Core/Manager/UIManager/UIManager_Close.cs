@@ -106,7 +106,7 @@ namespace Zeng.GameFrame.UIS
         /// <param name="ignoreElse">忽略堆栈操作 -- 不要轻易忽略除非你明白 </param>
         public async UniTask ClosePanelAsync(string panelName, bool tween = true, bool ignoreElse = false)
         {
-            #if YIUIMACRO_PANEL_OPENCLOSE
+            #if UIMACRO_PANEL_OPENCLOSE
             Debug.Log($"<color=yellow> 关闭UI: {panelName} </color>");
             #endif
 
@@ -181,7 +181,7 @@ namespace Zeng.GameFrame.UIS
         /// <param name="tween">动画</param>
         public async UniTask HomePanel(string homeName, bool tween = true)
         {
-            #if YIUIMACRO_PANEL_OPENCLOSE
+            #if UIMACRO_PANEL_OPENCLOSE
             Debug.Log($"<color=yellow> Home关闭其他所有Panel UI: {homeName} </color>");
             #endif
 

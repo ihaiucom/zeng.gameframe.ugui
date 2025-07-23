@@ -111,10 +111,10 @@ namespace Zeng.GameFrame.UIS
                 return null;
             }
 
-            var shader = Shader.Find("YIUI/UIEffect");
+            var shader = Shader.Find("UI/UIEffect");
             if (shader == null)
             {
-                Debug.LogError("Can not found shader: 'YIUI/UIEffect'");
+                Debug.LogError("Can not found shader: 'UI/UIEffect'");
                 return null;
             }
 

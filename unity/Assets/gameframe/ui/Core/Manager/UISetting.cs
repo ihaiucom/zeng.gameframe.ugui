@@ -30,7 +30,7 @@ namespace Zeng.GameFrame.UIS
         public const string UIFrameworkPath = "Assets/gameframe/ui";
 
         [LabelText("UI项目代码模板路径")]
-        public const string UITemplatePath = UIFrameworkPath + "/UIEditor/Template";
+        public const string UITemplatePath = UIFrameworkPath + "/UIEditor/CodeTemplate";
 
         public const string UIRootPrefabPath =
             UIFrameworkPath + "/UIEditor/UIRootPrefab/" + UIRoot.UIRootName + ".prefab";
@@ -54,11 +54,11 @@ namespace Zeng.GameFrame.UIS
         public const string UISpritesAtlas1          = "Atlas1";      //图集1 不需要华丽的取名 每个包内的自定义图集就按顺序就好 当然你也可以自定义其他
         public const string UIAllViewParentName      = "AllViewParent";
         public const string UIAllPopupViewParentName = "AllPopupViewParent";
-        public const string UIYIUIPanelSourceName    = UIProjectName + UIPanelName + UISource;
+        public const string UIUIPanelSourceName    = UIProjectName + UIPanelName + UISource;
         public const string UIPanelSourceName        = UIPanelName + UISource;
-        public const string UIYIUIViewName           = UIProjectName + UIViewName;
+        public const string UIUIViewName           = UIProjectName + UIViewName;
         public const string UIViewParentName         = UIViewName + UIParentName;
-        public const string UIYIUIViewParentName     = UIProjectName + UIViewName + UIParentName;
+        public const string UIUIViewParentName     = UIProjectName + UIViewName + UIParentName;
         
         //低品质 将会影响动画等逻辑 也可以根据这个参数自定义一些区别
         public static bool IsLowQuality = false;

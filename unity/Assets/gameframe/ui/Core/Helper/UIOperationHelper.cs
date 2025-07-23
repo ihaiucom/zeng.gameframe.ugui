@@ -49,7 +49,7 @@ namespace Zeng.GameFrame.UIS
         //通过切换宏可以在运行时提供可修改
         public static bool CommonShowIf()
         {
-            #if YIUIMACRO_BIND_RUNTIME_EDITOR
+            #if UIMACRO_BIND_RUNTIME_EDITOR
             return true;
             #endif
 

@@ -97,7 +97,7 @@ namespace Zeng.GameFrame.UIS
 
         private static void InitializeBinds(Transform transform)
         {
-            #if YIUIMACRO_BIND_INITIALIZE
+            #if UIMACRO_BIND_INITIALIZE
             Logger.LogErrorContext(transform,$"{transform.name} 初始化调用所有子类 UIEventBind 绑定");
             #endif
 

@@ -19,7 +19,7 @@ namespace Zeng.GameFrame.UIS
 
             using var asyncLock = await AsyncLockMgr.I.Wait(panelName.GetHashCode());
 
-            #if YIUIMACRO_PANEL_OPENCLOSE
+            #if UIMACRO_PANEL_OPENCLOSE
             Debug.Log($"<color=yellow> 打开UI: {panelName} </color>");
             #endif
             

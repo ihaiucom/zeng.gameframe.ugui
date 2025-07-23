@@ -107,7 +107,7 @@ namespace Zeng.GameFrame.UIS
                 Panel.name = qualifiedName;
             }
 
-            if (Panel.name == UISetting.UIYIUIPanelSourceName)
+            if (Panel.name == UISetting.UIUIPanelSourceName)
             {
                 Debug.LogError($"当前是默认名称 请手动修改名称 Xxx{UISetting.UIPanelSourceName}");
                 return false;
@@ -140,7 +140,7 @@ namespace Zeng.GameFrame.UIS
                     current.name = qualifiedName;
                 }
 
-                if (current.name == UISetting.UIYIUIViewParentName)
+                if (current.name == UISetting.UIUIViewParentName)
                 {
                     Debug.LogError($"当前是默认名称 请手动修改名称 Xxx{UISetting.UIViewParentName}");
                     list.RemoveAt(i);
@@ -169,7 +169,7 @@ namespace Zeng.GameFrame.UIS
                 
                 if (viewCde == null)
                 {
-                    Debug.LogError($" {current.name} 父物体下必须有View  但是未找到View 请使用 右键 YIUI/Create UIView 创建符合要求的结构");
+                    Debug.LogError($" {current.name} 父物体下必须有View  但是未找到View 请使用 右键 UI/Create UIView 创建符合要求的结构");
                     list.RemoveAt(i);
                     continue;
                 }

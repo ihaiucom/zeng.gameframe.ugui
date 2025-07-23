@@ -1,4 +1,4 @@
-﻿Shader "YIUI/UIEffect"
+﻿Shader "UI/UIEffect"
 {
     Properties
     {

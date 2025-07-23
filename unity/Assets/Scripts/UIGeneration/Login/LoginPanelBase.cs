@@ -12,7 +12,7 @@ namespace Games.UI.Login
 
 
     /// <summary>
-    /// 由YIUI工具自动创建 请勿手动修改
+    /// 由UI工具自动创建 请勿手动修改
     /// </summary>
     public abstract class LoginPanelBase:UIPanel
     {

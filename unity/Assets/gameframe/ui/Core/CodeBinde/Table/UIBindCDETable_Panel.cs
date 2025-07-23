@@ -10,7 +10,7 @@ namespace Zeng.GameFrame.UIS
         [OdinSerialize]
         [LabelText("源数据")]
         [ReadOnly]
-        #if !YIUIMACRO_BIND_RUNTIME_EDITOR
+        #if !UIMACRO_BIND_RUNTIME_EDITOR
         [HideInInspector]
         #endif
         internal bool IsSplitData;

@@ -96,7 +96,7 @@ namespace Zeng.GameFrame.UIS
             switch (paramType)
             {
                 case EUIEventParamType.ParamVo:
-                    return "YIUIBind.UIBindParamVo";
+                    return "UIBind.UIBindParamVo";
                 case EUIEventParamType.Object:
                     return "System.object";
                 case EUIEventParamType.Bool:

@@ -11,15 +11,15 @@ namespace Zeng.GameFrame.UIS
     {
         public static (Object, int) LoadAsset(string packageName, string location, Type type)
         {
-            string path = $"Assets/GameRes/UI/{packageName}/Prefabs/{location}.prefab";
-            return LoadAssetFunc("", path, type);
+            // string path = $"Assets/GameRes/UI/{packageName}/Prefabs/{location}.prefab";
+            return LoadAssetFunc("", location, type);
         }
         
         
         public static  UniTask<(Object, int)> LoadAssetAsync(string packageName, string location, Type type)
         {
-            string path = $"Assets/GameRes/UI/{packageName}/Prefabs/{location}.prefab";
-            return LoadAssetAsyncFunc("", path, type);
+            // string path = $"Assets/GameRes/UI/{packageName}/Prefabs/{location}.prefab";
+            return LoadAssetAsyncFunc("", location, type);
         }
 
         /// <summary>
