@@ -27,7 +27,7 @@ namespace Zeng.Demos
         public EPlayMode playMode { get; private set; }
         public bool isInitSuccess { get; private set; }
 
-        public async UniTask<(bool, ResourcePackage)> InitAsync(EPlayMode playMode, string hostServer , string fallbackHostServer)
+        public IEnumerator InitAsync(EPlayMode playMode, string hostServer , string fallbackHostServer)
         {
             this.defaultHostServer = hostServer;
             this.fallbackHostServer = fallbackHostServer;
@@ -44,10 +44,42 @@ namespace Zeng.Demos
             
             
             //YooAsset中需要初始化 且分编辑器下和运行时
-            await InitPackage(playMode, package).ToUniTask();
+            yield return InitPackage(playMode, package);
             
-            return (isInitSuccess, package);
+            
+    
+            // 2. 请求资源清单的版本信息
+            var operationVer =package.RequestPackageVersionAsync();
+            yield return operationVer;
+            if (operationVer.Status == EOperationStatus.Succeed)
+            {
+                Debug.Log($"请求资源清单的版本信息成功！{operationVer.PackageVersion}");
+            }
+            else
+            {
+                Debug.LogError($"请求资源清单的版本信息失败：{operationVer.Error}");
+                isInitSuccess = false;
+                yield break;
+            }
+            
+            // 更新资源清单
+            var operationManifest = package.UpdatePackageManifestAsync(operationVer.PackageVersion);
+            yield return operationManifest;
+
+            if (operationManifest.Status == EOperationStatus.Succeed)
+            {
+                Debug.Log($"更新资源清单成功！{operationVer.PackageVersion}");
+            }
+            else
+            {
+                Debug.LogError($"更新资源清单失败：{operationVer.Error}");
+                isInitSuccess = false;
+                yield break;
+            }
+    
         }
+        
+
 
         private IEnumerator InitPackage(EPlayMode playMode, ResourcePackage package)
         {
@@ -70,7 +102,7 @@ namespace Zeng.Demos
                     break;
             }
         }
-
+        
         // 编辑器模拟模式 (EditorSimulateMode)
         private IEnumerator InitPackage_EditorSimulateMode(ResourcePackage package)
         {  

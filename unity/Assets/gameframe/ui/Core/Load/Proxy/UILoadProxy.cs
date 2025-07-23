@@ -8,7 +8,20 @@ namespace Zeng.GameFrame.UIS
     /// UI 资源加载代理
     /// </summary>
     public class UILoadProxy
-    { 
+    {
+        public static (Object, int) LoadAsset(string packageName, string location, Type type)
+        {
+            string path = $"Assets/GameRes/UI/{packageName}/Prefabs/{location}.prefab";
+            return LoadAssetFunc("", path, type);
+        }
+        
+        
+        public static  UniTask<(Object, int)> LoadAssetAsync(string packageName, string location, Type type)
+        {
+            string path = $"Assets/GameRes/UI/{packageName}/Prefabs/{location}.prefab";
+            return LoadAssetAsyncFunc("", path, type);
+        }
+
         /// <summary>
         /// 同步加载
         /// </summary>

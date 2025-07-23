@@ -1,10 +1,10 @@
 ﻿using System;
-using Zeng.GameFrame.UIS;
-
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Sirenix.OdinInspector;
+using Zeng.GameFrame.UIS;
 
 namespace ${Namespace}.${PkgName}
 {
@@ -16,7 +16,10 @@ ${PanelViewEnum}
     /// </summary>
     public abstract class ${ResName}Base:${BaseClass}
     {
+        [ShowInInspector]
         public const string PkgName = "${PkgName}";
+        
+        [ShowInInspector]
         public const string ResName = "${ResName}";
         
 ${Variables}

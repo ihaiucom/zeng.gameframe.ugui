@@ -24,7 +24,7 @@ namespace Zeng.GameFrame.UIS
                 return (T)loadObj;
             }
 
-            var (obj, hashCode) = UILoadProxy.LoadAssetFunc(pkgName, resName, typeof(T));
+            var (obj, hashCode) = UILoadProxy.LoadAsset(pkgName, resName, typeof(T));
             if (obj == null)
             {
                 load.RemoveRefCount();

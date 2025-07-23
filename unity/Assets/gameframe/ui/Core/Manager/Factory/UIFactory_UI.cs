@@ -68,7 +68,14 @@ namespace Zeng.GameFrame.UIS
             }
 
             cdeTable.CreateComponent();
-            var uiBase = (UIBase)Activator.CreateInstance(vo.CreatorType);
+            
+            var uiBase =  (UIBase)cdeTable.gameObject.GetComponent(vo.CreatorType);
+            if (uiBase == null)
+            {
+                uiBase = (UIBase)cdeTable.gameObject.AddComponent(vo.CreatorType);
+            }
+
+            // var uiBase = (UIBase)Activator.CreateInstance(vo.CreatorType);
             uiBase.InitUIBase(vo, obj);
 
             if (!lastActive)
@@ -101,7 +108,13 @@ namespace Zeng.GameFrame.UIS
                 var bingVo = UIBindHelper.GetBindVoByPath(childCde.PkgName, childCde.ResName);
                 if (bingVo == null) continue;
 
-                var childBase = (UIBase)Activator.CreateInstance(bingVo.Value.CreatorType);
+                var childBase =  (UIBase)childCde.gameObject.GetComponent(bingVo.Value.CreatorType);
+                if (childBase == null)
+                {
+                    childBase = (UIBase)childCde.gameObject.AddComponent(bingVo.Value.CreatorType);
+                }
+
+                // var childBase = (UIBase)Activator.CreateInstance(bingVo.Value.CreatorType);
                 childCde.CreateComponent();
                 childBase.InitUIBase(bingVo.Value, childCde.gameObject);
                 cdeTable.AddUIBase(childCde.gameObject.name, childBase);

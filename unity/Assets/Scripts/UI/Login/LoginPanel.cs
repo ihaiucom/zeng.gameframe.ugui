@@ -53,7 +53,13 @@ namespace Games.UI.Login
         #region Event开始
 
 
-        #endregion Event结束
+       
+        protected override void OnEventClickLoginButtonAction()
+        {
+            
+            Debug.Log($"LoginPanel OnEventClickLoginButtonAction");
+        }
+         #endregion Event结束
 
     }
 }

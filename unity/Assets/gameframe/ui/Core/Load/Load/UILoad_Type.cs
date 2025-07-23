@@ -20,7 +20,7 @@ namespace Zeng.GameFrame.UIS
                 return loadObj;
             }
 
-            var (obj, hashCode) = UILoadProxy.LoadAssetFunc(pkgName, resName, assetType);
+            var (obj, hashCode) = UILoadProxy.LoadAsset(pkgName, resName, assetType);
             if (obj == null)
             {
                 load.RemoveRefCount();
@@ -65,7 +65,7 @@ namespace Zeng.GameFrame.UIS
 
             load.SetWaitAsync(true);
 
-            var (obj, hashCode) = await UILoadProxy.LoadAssetAsyncFunc(pkgName, resName, assetType);
+            var (obj, hashCode) = await UILoadProxy.LoadAssetAsync(pkgName, resName, assetType);
 
             if (obj == null)
             {

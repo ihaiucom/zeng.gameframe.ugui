@@ -43,7 +43,7 @@ namespace Zeng.GameFrame.UIS
 
             load.SetWaitAsync(true);
 
-            var (obj, hashCode) = await UILoadProxy.LoadAssetAsyncFunc(pkgName, resName, typeof(T));
+            var (obj, hashCode) = await UILoadProxy.LoadAssetAsync(pkgName, resName, typeof(T));
 
             if (obj == null)
             {

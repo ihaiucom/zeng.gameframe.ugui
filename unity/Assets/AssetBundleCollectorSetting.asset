@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: AssetBundleCollectorSetting
   m_EditorClassIdentifier: 
   ShowPackageView: 1
-  ShowEditorAlias: 0
+  ShowEditorAlias: 1
   UniqueBundleName: 1
   Packages:
   - PackageName: DefaultPackage
     PackageDesc: 
-    EnableAddressable: 0
+    EnableAddressable: 1
     LocationToLower: 0
-    IncludeAssetGUID: 0
+    IncludeAssetGUID: 1
     AutoCollectShaders: 1
     IgnoreRuleName: NormalIgnoreRule
     Groups:
@@ -29,11 +29,11 @@ MonoBehaviour:
       AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors:
-      - CollectPath: Assets/demo/UI
+      - CollectPath: Assets/GameRes/UI
         CollectorGUID: df993c09aa9e4d3d91cc9dd67fd6034d
         CollectorType: 0
         AddressRuleName: AddressByFileName
-        PackRuleName: PackDirectory
+        PackRuleName: PackSeparately
         FilterRuleName: CollectPrefab
         AssetTags: 
         UserData: 

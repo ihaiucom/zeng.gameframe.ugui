@@ -1,5 +1,7 @@
-using System;
+
+using System.Collections;
 using Cysharp.Threading.Tasks;
+using Games.UI.Login;
 using UnityEngine;
 using YooAsset;
 using Zeng.GameFrame.UIS;
@@ -14,17 +16,28 @@ namespace Zeng.Demos
         
         private void Start()
         {
+            // StartCoroutine(InitYooAsset());
+            InitAsync().Forget();
+        }
+
+        private IEnumerator InitYooAsset()
+        {
+            yield return YooAssetInit.I.InitAsync(YooAssetPlayMode, YooAssetDefaultHostServer, YooAsetFallbackHostServer);
+            yield return new WaitForSeconds(1);
             InitAsync().Forget();
         }
 
         private async UniTask InitAsync()
         {
-            (bool success, ResourcePackage package) = await YooAssetInit.I.InitAsync(YooAssetPlayMode, YooAssetDefaultHostServer, YooAsetFallbackHostServer);
-            if (success)
+            await YooAssetInit.I.InitAsync(YooAssetPlayMode, YooAssetDefaultHostServer, YooAsetFallbackHostServer);
+            
+            if (YooAssetInit.I.isInitSuccess)
             {
-                UILoadProxyYooAsset.I.Init(package);
+                UILoadProxyYooAsset.I.Init(YooAssetInit.I.package);
                 
                 await UIManager.I.InitAsync();
+                
+                UIManager.I.OpenPanel<LoginPanel>();
             }
             
             

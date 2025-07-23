@@ -581,6 +581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7483731220278275796}
   - component: {fileID: 6029144370515884091}
+  - component: {fileID: 6614296302396444068}
   m_Layer: 5
   m_Name: Toggle-RememberLogin
   m_TagString: Untagged
@@ -657,6 +658,192 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &6614296302396444068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4491178357879205191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5232d3f797864c77ae40b4e60324998c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 294550536910118708}
+    - {fileID: 6614296302396444068}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_DataSelectDic
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Zeng.GameFrame.UIS.UIDataSelect,
+        zeng.gameframe.ui]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: u_DataIsRememberLogin
+    - Name: $v
+      Entry: 7
+      Data: 2|Zeng.GameFrame.UIS.UIDataSelect, zeng.gameframe.ui
+    - Name: m_Data
+      Entry: 7
+      Data: 3|Zeng.GameFrame.UIS.UIData, zeng.gameframe.ui
+    - Name: m_Name
+      Entry: 1
+      Data: u_DataIsRememberLogin
+    - Name: m_DataGuid
+      Entry: 3
+      Data: -1982517777
+    - Name: m_DataValue
+      Entry: 7
+      Data: 4|Zeng.GameFrame.UIS.UIDataValueBool, zeng.gameframe.ui
+    - Name: m_Value
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnDataRemoveAction
+      Entry: 7
+      Data: 5|System.Action`1[[Zeng.GameFrame.UIS.UIData, zeng.gameframe.ui]], mscorlib
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: declaringType
+      Entry: 7
+      Data: 6|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: Zeng.GameFrame.UIS.UIBindDataTable, zeng.gameframe.ui
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: methodName
+      Entry: 1
+      Data: OnRemoveData
+    - Name: delegateType
+      Entry: 7
+      Data: 7|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: System.Action`1[[Zeng.GameFrame.UIS.UIData, zeng.gameframe.ui]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: signature
+      Entry: 7
+      Data: 8|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 9|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: Zeng.GameFrame.UIS.UIData, zeng.gameframe.ui
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Binds
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[Zeng.GameFrame.UIS.UIDataBind,
+        zeng.gameframe.ui]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Datas
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[Zeng.GameFrame.UIS.UIDataBoolRef,
+        zeng.gameframe.ui]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 12|Zeng.GameFrame.UIS.UIDataBoolRef, zeng.gameframe.ui
+    - Name: m_Data
+      Entry: 9
+      Data: 3
+    - Name: m_CompareMode
+      Entry: 3
+      Data: 2
+    - Name: m_ReferenceData
+      Entry: 7
+      Data: 13|Zeng.GameFrame.UIS.UIDataValueBool, zeng.gameframe.ui
+    - Name: m_Value
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Reverse
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  m_DataTable: {fileID: 294550536910118708}
+  m_BooleanLogic: 0
+  m_Toggle: {fileID: 6029144370515884091}
 --- !u!1 &4618428759875622537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,6 +1912,7 @@ GameObject:
   - component: {fileID: 8011667766408728563}
   - component: {fileID: 6306070275990076475}
   - component: {fileID: 6880348223724615306}
+  - component: {fileID: 7495716995261020031}
   m_Layer: 5
   m_Name: Button-Login
   m_TagString: Untagged
@@ -1834,6 +2022,128 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7495716995261020031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6447901092009973161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84c394472d09c84a9af3111a280f2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 239596750120297764}
+    - {fileID: 7495716995261020031}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_EventTable
+      Entry: 10
+      Data: 0
+    - Name: m_EventName
+      Entry: 1
+      Data: u_EventClickLoginButton
+    - Name: m_UIEvent
+      Entry: 7
+      Data: 0|Zeng.GameFrame.UIS.UIEventP0, zeng.gameframe.ui
+    - Name: m_EventName
+      Entry: 1
+      Data: u_EventClickLoginButton
+    - Name: AllEventParamType
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[Zeng.GameFrame.UIS.EUIEventParamType,
+        zeng.gameframe.ui]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnRemoveAction
+      Entry: 7
+      Data: 2|System.Action`1[[Zeng.GameFrame.UIS.UIEventBase, zeng.gameframe.ui]],
+        mscorlib
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: declaringType
+      Entry: 7
+      Data: 3|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: Zeng.GameFrame.UIS.UIBindEventTable, zeng.gameframe.ui
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: methodName
+      Entry: 1
+      Data: OnRemoveUIEvent
+    - Name: delegateType
+      Entry: 7
+      Data: 4|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: System.Action`1[[Zeng.GameFrame.UIS.UIEventBase, zeng.gameframe.ui]],
+        mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: signature
+      Entry: 7
+      Data: 5|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: Zeng.GameFrame.UIS.UIEventBase, zeng.gameframe.ui
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Binds
+      Entry: 7
+      Data: 7|System.Collections.Generic.List`1[[Zeng.GameFrame.UIS.UIEventBind,
+        zeng.gameframe.ui]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  m_SkipWhenDrag: 0
+  m_Selectable: {fileID: 6880348223724615306}
 --- !u!1 &6665490486876551333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,7 +2653,8 @@ GameObject:
   - component: {fileID: 8800720750401772610}
   - component: {fileID: 3725344935522853480}
   - component: {fileID: 1981835919704816451}
-  - component: {fileID: 5040118824833336568}
+  - component: {fileID: 239596750120297764}
+  - component: {fileID: 294550536910118708}
   m_Layer: 5
   m_Name: LoginPanel
   m_TagString: Untagged
@@ -2500,8 +2811,8 @@ MonoBehaviour:
       Entry: 6
       Data: 
   ComponentTable: {fileID: 1981835919704816451}
-  DataTable: {fileID: 0}
-  EventTable: {fileID: 0}
+  DataTable: {fileID: 294550536910118708}
+  EventTable: {fileID: 239596750120297764}
   PkgName: Login
   ResName: LoginPanel
   UICodeType: 0
@@ -2694,7 +3005,7 @@ MonoBehaviour:
       Data: 
   m_AutoSetNullName: 1
   m_NullNameAddTypeName: 1
---- !u!114 &5040118824833336568
+--- !u!114 &239596750120297764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2703,9 +3014,294 @@ MonoBehaviour:
   m_GameObject: {fileID: 8777593840179869693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8780b68177cc3024db310e36f3ab2a9a, type: 3}
+  m_Script: {fileID: 11500000, guid: 286a297a42e64638b9035112147b4d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 239596750120297764}
+    - {fileID: 7495716995261020031}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_EventDic
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Zeng.GameFrame.UIS.UIEventBase,
+        zeng.gameframe.ui]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: u_EventClickLoginButton
+    - Name: $v
+      Entry: 7
+      Data: 2|Zeng.GameFrame.UIS.UIEventP0, zeng.gameframe.ui
+    - Name: m_EventName
+      Entry: 1
+      Data: u_EventClickLoginButton
+    - Name: AllEventParamType
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[Zeng.GameFrame.UIS.EUIEventParamType,
+        zeng.gameframe.ui]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnRemoveAction
+      Entry: 7
+      Data: 4|System.Action`1[[Zeng.GameFrame.UIS.UIEventBase, zeng.gameframe.ui]],
+        mscorlib
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: declaringType
+      Entry: 7
+      Data: 5|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: Zeng.GameFrame.UIS.UIBindEventTable, zeng.gameframe.ui
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: methodName
+      Entry: 1
+      Data: OnRemoveUIEvent
+    - Name: delegateType
+      Entry: 7
+      Data: 6|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: System.Action`1[[Zeng.GameFrame.UIS.UIEventBase, zeng.gameframe.ui]],
+        mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: signature
+      Entry: 7
+      Data: 7|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 8|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: Zeng.GameFrame.UIS.UIEventBase, zeng.gameframe.ui
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Binds
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[Zeng.GameFrame.UIS.UIEventBind,
+        zeng.gameframe.ui]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: AllEventParamType
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[Zeng.GameFrame.UIS.EUIEventParamType,
+        zeng.gameframe.ui]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  AllEventParamType: 
+--- !u!114 &294550536910118708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777593840179869693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e653f1c5ec04766b7a16c1a9b9ff51e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 294550536910118708}
+    - {fileID: 6614296302396444068}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_DataDic
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[Zeng.GameFrame.UIS.UIData,
+        zeng.gameframe.ui]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: u_DataIsRememberLogin
+    - Name: $v
+      Entry: 7
+      Data: 2|Zeng.GameFrame.UIS.UIData, zeng.gameframe.ui
+    - Name: m_Name
+      Entry: 1
+      Data: u_DataIsRememberLogin
+    - Name: m_DataGuid
+      Entry: 3
+      Data: -1982517777
+    - Name: m_DataValue
+      Entry: 7
+      Data: 3|Zeng.GameFrame.UIS.UIDataValueBool, zeng.gameframe.ui
+    - Name: m_Value
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OnDataRemoveAction
+      Entry: 7
+      Data: 4|System.Action`1[[Zeng.GameFrame.UIS.UIData, zeng.gameframe.ui]], mscorlib
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: declaringType
+      Entry: 7
+      Data: 5|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: Zeng.GameFrame.UIS.UIBindDataTable, zeng.gameframe.ui
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: methodName
+      Entry: 1
+      Data: OnRemoveData
+    - Name: delegateType
+      Entry: 7
+      Data: 6|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: System.Action`1[[Zeng.GameFrame.UIS.UIData, zeng.gameframe.ui]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: signature
+      Entry: 7
+      Data: 7|System.Type[], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 8|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: Zeng.GameFrame.UIS.UIData, zeng.gameframe.ui
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_Binds
+      Entry: 7
+      Data: 9|System.Collections.Generic.List`1[[Zeng.GameFrame.UIS.UIDataBind, zeng.gameframe.ui]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &8841748682263317795
 GameObject:
   m_ObjectHideFlags: 0
