@@ -74,7 +74,7 @@ namespace Zeng.GameFrame.UIS
             if (AllViewParent == null || AllViewParent.name != UISetting.UIAllViewParentName)
             {
                 AllViewParent = Panel.transform.FindChildByName(UISetting.UIAllViewParentName)
-                                     .GetComponent<RectTransform>();
+                                     ?.GetComponent<RectTransform>();
             }
 
             if (AllViewParent == null)
@@ -113,11 +113,11 @@ namespace Zeng.GameFrame.UIS
                 return false;
             }
 
-            if (!Panel.name.EndsWith($"{UISetting.UIPanelSourceName}"))
-            {
-                Debug.LogError($"{Panel.name} 命名必须以 {UISetting.UIPanelSourceName} 结尾 请勿随意修改");
-                return false;
-            }
+            // if (!Panel.name.EndsWith($"{UISetting.UIPanelSourceName}"))
+            // {
+            //     Debug.LogError($"{Panel.name} 命名必须以 {UISetting.UIPanelSourceName} 结尾 请勿随意修改");
+            //     return false;
+            // }
 
             return true;
         }
@@ -231,6 +231,40 @@ namespace Zeng.GameFrame.UIS
                 else
                 {
                     hashList.Add(current);
+                }
+            }
+        }
+
+        public void Reset()
+        {
+            // AllCommonView.Clear();
+            AllCreateView.Clear();
+            AllPopupView.Clear();
+
+            if (Panel != null)
+            {
+                AllViewParent = Panel.transform.FindChildByName(UISetting.UIAllViewParentName)
+                    ?.GetComponent<RectTransform>();
+                AllPopupViewParent = Panel.transform.FindChildByName(UISetting.UIAllPopupViewParentName)
+                    ?.GetComponent<RectTransform>();
+            }
+
+            
+            ResetViewList(AllCreateView, AllViewParent);
+            ResetViewList(AllPopupView, AllPopupViewParent);
+        }
+
+        private void ResetViewList(List<RectTransform> list, RectTransform parent )
+        {
+            list.Clear();
+            if(parent == null) return;
+            var childCount = parent.childCount;
+            for (var i = 0; i < childCount; i++)
+            {
+                var child = (RectTransform) parent.GetChild(i);
+                if (child != null && child.name.EndsWith(UISetting.UIViewParentName))
+                {
+                    list.Add(child);
                 }
             }
         }

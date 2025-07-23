@@ -1,4 +1,5 @@
 ﻿#if UNITY_EDITOR
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -20,18 +21,20 @@ namespace Zeng.GameFrame.UIS.Editor
 
             var path = AssetDatabase.GetAssetPath(Selection.activeObject);
 
-            if (activeObject.name != UISetting.UISource ||
+            if ( /*activeObject.name != UISetting.UISource ||*/ 
                 !path.Contains(UISetting.UIProjectResPath))
             {
                 UnityTipsHelper.ShowError(
                     $"请在路径 {UISetting.UIProjectResPath}/xxx/{UISetting.UISource} 下右键创建");
                 return;
             }
+            Debug.Log(path);
+            bool isSource = path.Contains(UISetting.UISource);
 
-            CreateUIPanelByPath(path);
+            CreateUIPanelByPath(path, null, isSource);
         }
 
-        internal static void CreateUIPanelByPath(string path, string name = null)
+        internal static void CreateUIPanelByPath(string path, string name = null, bool isSource = true)
         {
             if (!path.Contains(UISetting.UIProjectResPath))
             {
@@ -43,6 +46,14 @@ namespace Zeng.GameFrame.UIS.Editor
             var saveName = string.IsNullOrEmpty(name)
                 ? UISetting.UIUIPanelSourceName
                 : $"{name}{UISetting.UIPanelSourceName}";
+
+            if (!isSource)
+            {
+                saveName = string.IsNullOrEmpty(name)
+                    ? $"Xxx{UISetting.UIPanelName}"
+                    : $"{name}{UISetting.UIPanelName}";
+            }
+
             var savePath = $"{path}/{saveName}.prefab";
 
             if (AssetDatabase.LoadAssetAtPath(savePath, typeof(Object)) != null)
@@ -51,7 +62,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 return;
             }
 
-            var createPanel = CreateUIPanel();
+            var createPanel = CreateUIPanel(null, isSource);
             var panelPrefab = PrefabUtility.SaveAsPrefabAsset(createPanel, savePath);
             Object.DestroyImmediate(createPanel);
             Selection.activeObject = panelPrefab;
@@ -73,10 +84,10 @@ namespace Zeng.GameFrame.UIS.Editor
                 return;
             }
 
-            Selection.activeObject = CreateUIPanel(activeObject);
+            Selection.activeObject = CreateUIPanel(activeObject, false);
         }
 
-        static GameObject CreateUIPanel(GameObject activeObject = null)
+        static GameObject CreateUIPanel(GameObject activeObject = null, bool isSource = true)
         {
             //panel
             var panelObject = new GameObject();
@@ -84,12 +95,12 @@ namespace Zeng.GameFrame.UIS.Editor
             panelObject.GetOrAddComponent<CanvasRenderer>();
             var cdeTable = panelObject.GetOrAddComponent<UIBindCDETable>();
             cdeTable.UICodeType  = EUICodeType.Panel;
-            cdeTable.IsSplitData = true;
+            cdeTable.IsSplitData = isSource;
 
             //cdeTable.PanelOption |= EPanelOption.DisReset; //如果想要都是默认缓存界面可开启
             var panelEditorData = cdeTable.PanelSplitData;
             panelEditorData.Panel = panelObject;
-            panelObject.name      = UISetting.UIUIPanelSourceName;
+            panelObject.name      = isSource ? UISetting.UIUIPanelSourceName : UISetting.UIUIPanelName;
             if (activeObject != null)
                 panelRect.SetParent(activeObject.transform, false);
             panelRect.ResetToFullScreen();

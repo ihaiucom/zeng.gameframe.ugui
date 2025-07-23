@@ -1,5 +1,6 @@
 ﻿#if UNITY_EDITOR
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -89,6 +90,14 @@ namespace Zeng.GameFrame.UIS.Editor
             newSource.name          = $"{loadPanel.name}{UISetting.UISource}";
 
             CorrelationView(oldCdeTable);
+            
+            string dir = Path.GetDirectoryName(savePath);
+            if (!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
+            
+            
 
             PrefabUtility.SaveAsPrefabAsset(newSource, savePath);
             Object.DestroyImmediate(newSource);

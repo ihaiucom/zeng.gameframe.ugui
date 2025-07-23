@@ -6,7 +6,7 @@ namespace Zeng.GameFrame.UIS
 {
     public abstract partial class UIPanel
     {
-        protected async UniTask<UIView> OpenViewAsync(string viewName)
+        public async UniTask<UIView> OpenViewAsync(string viewName)
         {
             var view = await GetView(viewName);
             if (view == null) return default;
@@ -29,7 +29,7 @@ namespace Zeng.GameFrame.UIS
             return view;
         }
 
-        protected async UniTask<UIView> OpenViewAsync<P1>(string viewName, P1 p1)
+        public async UniTask<UIView> OpenViewAsync<P1>(string viewName, P1 p1)
         {
             var view = await GetView(viewName);
             if (view == null) return default;
@@ -52,7 +52,7 @@ namespace Zeng.GameFrame.UIS
             return view;
         }
 
-        protected async UniTask<UIView> OpenViewAsync<P1, P2>(string viewName, P1 p1, P2 p2)
+        public async UniTask<UIView> OpenViewAsync<P1, P2>(string viewName, P1 p1, P2 p2)
         {
             var view = await GetView(viewName);
             if (view == null) return default;
@@ -75,7 +75,7 @@ namespace Zeng.GameFrame.UIS
             return view;
         }
 
-        protected async UniTask<UIView> OpenViewAsync<P1, P2, P3>(string viewName, P1 p1, P2 p2, P3 p3)
+        public async UniTask<UIView> OpenViewAsync<P1, P2, P3>(string viewName, P1 p1, P2 p2, P3 p3)
         {
             var view = await GetView(viewName);
             if (view == null) return default;
@@ -98,7 +98,7 @@ namespace Zeng.GameFrame.UIS
             return view;
         }
 
-        protected async UniTask<UIView> OpenViewAsync<P1, P2, P3, P4>(string viewName, P1 p1, P2 p2, P3 p3, P4 p4)
+        public async UniTask<UIView> OpenViewAsync<P1, P2, P3, P4>(string viewName, P1 p1, P2 p2, P3 p3, P4 p4)
         {
             var view = await GetView(viewName);
             if (view == null) return default;
@@ -121,7 +121,7 @@ namespace Zeng.GameFrame.UIS
             return view;
         }
 
-        protected async UniTask<UIView> OpenViewAsync<P1, P2, P3, P4, P5>(
+        public async UniTask<UIView> OpenViewAsync<P1, P2, P3, P4, P5>(
             string viewName, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
         {
             var view = await GetView(viewName);

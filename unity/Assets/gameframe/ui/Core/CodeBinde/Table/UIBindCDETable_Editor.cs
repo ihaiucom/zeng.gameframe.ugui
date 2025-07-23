@@ -194,11 +194,14 @@ namespace Zeng.GameFrame.UIS
             if (!UICreateModule.InitVoName(this)) return false;
             OnValueChangedEUICodeType();
             OnValueChangedEPanelLayer();
+            
+            // PanelSplitData.Reset();
             if (UICodeType == EUICodeType.Panel && IsSplitData)
             {
                 PanelSplitData.Panel = gameObject;
                 if (!PanelSplitData.AutoCheck()) return false;
             }
+            
 
             UICreateModule.RefreshChildCdeTable(this);
             ComponentTable?.AutoCheck();

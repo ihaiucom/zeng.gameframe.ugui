@@ -9,38 +9,37 @@ namespace Games.UI.Login
 {
     /// <summary>
     /// Author  UI
-    /// Date    2025.7.21
+    /// Date    2025.7.24
     /// </summary>
-    public sealed partial class LoginPanel:LoginPanelBase
+    public sealed partial class TestPopupView:TestPopupViewBase
     {
-    
+
         #region 生命周期
         
         protected override void OnUIInit()
         {
-            Debug.Log($"LoginPanel OnUIInit");
+            Debug.Log($"TestPopupView OnUIInit");
         }
 
         protected override void OnUIEnable()
         {
-            Debug.Log($"LoginPanel OnUIEnable");
+            Debug.Log($"TestPopupView OnUIEnable");
         }
 
         protected override void OnUIDisable()
         {
-            Debug.Log($"LoginPanel OnUIDisable");
+            Debug.Log($"TestPopupView OnUIDisable");
         }
 
         protected override void OnUIDestroy()
         {
-            Debug.Log($"LoginPanel OnUIDestroy");
+            Debug.Log($"TestPopupView OnUIDestroy");
         }
 
         protected override async UniTask<bool> OnOpen()
         {
-            // await UniTask.CompletedTask;
-            Debug.Log($"LoginPanel OnOpen");
-            await OpenViewAsync<LoginView>();
+            await UniTask.CompletedTask;
+            Debug.Log($"TestPopupView OnOpen");
             return true;
         }
 
@@ -54,6 +53,16 @@ namespace Games.UI.Login
         #region Event开始
 
 
+       
+        protected override void OnEventOpenReigsterAction()
+        {
+            Panel?.OpenView<ReigisterView>();
+        }
+        
+        protected override void OnEventCloseAction()
+        {
+            Close();
+        }
          #endregion Event结束
 
     }

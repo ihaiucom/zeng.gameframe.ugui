@@ -36,7 +36,7 @@ namespace Zeng.GameFrame.UIS
 
         #region 打开泛型
 
-        protected async UniTask<UIView> OpenViewAsync(string viewName, object param = null)
+        public async UniTask<UIView> OpenViewAsync(string viewName, object param = null)
         {
             var view = await GetView(viewName);
             if (view == null) return null;
@@ -61,7 +61,7 @@ namespace Zeng.GameFrame.UIS
             return view;
         }
 
-        protected async UniTask<UIView> OpenViewAsync(string viewName, object param1, object param2)
+        public async UniTask<UIView> OpenViewAsync(string viewName, object param1, object param2)
         {
             var paramList = ListPool<object>.Get();
             paramList.Add(param1);
@@ -71,7 +71,7 @@ namespace Zeng.GameFrame.UIS
             return view;
         }
 
-        protected async UniTask<UIView> OpenViewAsync(string viewName, object param1, object param2, object param3)
+        public async UniTask<UIView> OpenViewAsync(string viewName, object param1, object param2, object param3)
         {
             var paramList = ListPool<object>.Get();
             paramList.Add(param1);
@@ -82,7 +82,7 @@ namespace Zeng.GameFrame.UIS
             return view;
         }
 
-        protected async UniTask<UIView> OpenViewAsync(string viewName, object param1, object param2, object param3,
+        public async UniTask<UIView> OpenViewAsync(string viewName, object param1, object param2, object param3,
                                                         object param4)
         {
             var paramList = ListPool<object>.Get();
@@ -95,7 +95,7 @@ namespace Zeng.GameFrame.UIS
             return view;
         }
 
-        protected async UniTask<UIView> OpenViewAsync(string viewName, object param1, object param2, object param3,
+        public async UniTask<UIView> OpenViewAsync(string viewName, object param1, object param2, object param3,
                                                         object param4,   params object[] paramMore)
         {
             var paramList = ListPool<object>.Get();

@@ -54,6 +54,7 @@ namespace Zeng.GameFrame.UIS
         public const string UISpritesAtlas1          = "Atlas1";      //图集1 不需要华丽的取名 每个包内的自定义图集就按顺序就好 当然你也可以自定义其他
         public const string UIAllViewParentName      = "AllViewParent";
         public const string UIAllPopupViewParentName = "AllPopupViewParent";
+        public const string UIUIPanelName          = UIProjectName + UIPanelName;
         public const string UIUIPanelSourceName    = UIProjectName + UIPanelName + UISource;
         public const string UIPanelSourceName        = UIPanelName + UISource;
         public const string UIUIViewName           = UIProjectName + UIViewName;

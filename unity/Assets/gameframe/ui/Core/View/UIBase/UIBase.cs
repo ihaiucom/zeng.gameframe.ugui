@@ -7,7 +7,7 @@ namespace Zeng.GameFrame.UIS
     /// <summary>
     /// UI基类
     /// </summary>
-    public abstract class UIBase : MonoBehaviour
+    public abstract partial class UIBase : MonoBehaviour
     {
         //用这个不用.单例而已
         protected UIManager uiManager { get; private set; }
