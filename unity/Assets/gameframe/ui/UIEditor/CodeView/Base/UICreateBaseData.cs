@@ -9,7 +9,7 @@ namespace Zeng.GameFrame.UIS.Editor
         public string Namespace;     //命名空间
         public string PkgName;       //包名/模块名
         public string ResName;       //资源名 类名+Base
-        public string BaseClass;     //继承什么类  BasePanel/BaseView
+        public string BaseClass;     //继承什么类  UIPanel/UIView
         public string Variables;     //变量
         public string UIBind;        //绑定方法里面的东西
         public string UIUnBind;      //解绑里面的东西

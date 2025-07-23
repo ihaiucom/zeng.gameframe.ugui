@@ -18,14 +18,14 @@ namespace Zeng.GameFrame.UIS
         public static async UniTask<T> InstantiateAsync<T>(UIBindVo vo, RectTransform parent = null) where T : UIBase
         {
             var uiBase = await CreateAsync(vo);
-            SetParent(uiBase.OwnerRectTransform, parent ? parent : UIManager.I.uiRoot.UICache);
+            SetParent(uiBase.OwnerRectTransform, parent ? parent : UIManager.I.UICache);
             return (T)uiBase;
         }
 
         public static async UniTask<UIBase> InstantiateAsync(UIBindVo vo, RectTransform parent = null)
         {
             var uiBase = await CreateAsync(vo);
-            SetParent(uiBase.OwnerRectTransform, parent ? parent : UIManager.I.uiRoot.UICache);
+            SetParent(uiBase.OwnerRectTransform, parent ? parent : UIManager.I.UICache);
             return uiBase;
         }
 

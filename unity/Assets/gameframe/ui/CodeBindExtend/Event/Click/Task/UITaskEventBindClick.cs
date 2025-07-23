@@ -73,7 +73,7 @@ namespace Zeng.GameFrame.UIS
             var banLayerCode = 0;
             if (m_BanLayerOption)
             {
-                banLayerCode = UIManager.I.uiBlockLayer.BanLayerOptionForever();
+                banLayerCode = UIManager.I.BanLayerOptionForever();
             }
 
             ClickTasking = true;
@@ -93,7 +93,7 @@ namespace Zeng.GameFrame.UIS
 
                 if (m_BanLayerOption)
                 {
-                    UIManager.I.uiBlockLayer.RecoverLayerOptionForever(banLayerCode);
+                    UIManager.I.RecoverLayerOptionForever(banLayerCode);
                 }
             }
         }

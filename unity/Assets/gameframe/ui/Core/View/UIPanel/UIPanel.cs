@@ -3,7 +3,7 @@ namespace Zeng.GameFrame.UIS
     /// <summary>
     /// UI 窗口面板
     /// </summary>
-    public class UIPanel : UIBaseWindow
+    public partial class UIPanel : UIBaseWindow
     {
         /// <summary>
         /// 所在层级
@@ -26,5 +26,11 @@ namespace Zeng.GameFrame.UIS
         /// 相同时 后添加的在前
         /// </summary>
         public virtual int Priority => 0;
+        
+        
+        protected sealed override void SealedInitialize()
+        {
+            InitPanelViewData();
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Zeng.GameFrame.UIS
             var instance = (T)Create(vo);
             if (instance == null) return null;
 
-            SetParent(instance.OwnerRectTransform, parent ? parent : UIManager.I.uiRoot.UICache);
+            SetParent(instance.OwnerRectTransform, parent ? parent : UIManager.I.UICache);
 
             return instance;
         }
@@ -38,7 +38,7 @@ namespace Zeng.GameFrame.UIS
             var instance = Create(vo);
             if (instance == null) return null;
 
-            SetParent(instance.OwnerRectTransform, parent ? parent : UIManager.I.uiRoot.UICache);
+            SetParent(instance.OwnerRectTransform, parent ? parent : UIManager.I.UICache);
 
             return instance;
         }

@@ -60,6 +60,9 @@ namespace Zeng.GameFrame.UIS
         public const string UIViewParentName         = UIViewName + UIParentName;
         public const string UIYIUIViewParentName     = UIProjectName + UIViewName + UIParentName;
         
+        //低品质 将会影响动画等逻辑 也可以根据这个参数自定义一些区别
+        public static bool IsLowQuality = false;
+        
         
     }
 }

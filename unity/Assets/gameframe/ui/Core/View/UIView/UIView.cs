@@ -3,7 +3,7 @@ namespace Zeng.GameFrame.UIS
     /// <summary>
     /// UI 子面板
     /// </summary>
-    public class UIView : UIBaseWindow
+    public partial class UIView : UIBaseWindow
     {
         public virtual EViewWindowType ViewWindowType => EViewWindowType.View;
 

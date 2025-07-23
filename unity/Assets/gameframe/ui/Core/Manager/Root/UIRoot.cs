@@ -191,7 +191,7 @@ namespace Zeng.GameFrame.UIS
 
         #endregion
 
-        public RectTransform GetLayerRect(EPanelLayer panelLayer)
+        internal RectTransform GetLayerRect(EPanelLayer panelLayer)
         {
             m_AllPanelLayer.TryGetValue(panelLayer, out var rectDic);
             if (rectDic == null)
@@ -209,7 +209,7 @@ namespace Zeng.GameFrame.UIS
             return null;
         }
 
-        private List<UIWindowInfo> GetLayerPanelInfoList(EPanelLayer panelLayer)
+        internal List<UIWindowInfo> GetLayerPanelInfoList(EPanelLayer panelLayer)
         {
             m_AllPanelLayer.TryGetValue(panelLayer, out var rectDic);
             if (rectDic == null)
@@ -227,7 +227,7 @@ namespace Zeng.GameFrame.UIS
             return null;
         }
 
-        private bool RemoveLayerPanelInfo(EPanelLayer panelLayer, UIWindowInfo panelInfo)
+        internal bool RemoveLayerPanelInfo(EPanelLayer panelLayer, UIWindowInfo panelInfo)
         {
             var list = GetLayerPanelInfoList(panelLayer);
             return list != null && list.Remove(panelInfo);

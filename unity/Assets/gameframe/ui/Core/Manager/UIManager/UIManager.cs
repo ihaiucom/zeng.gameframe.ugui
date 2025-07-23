@@ -5,7 +5,7 @@ namespace Zeng.GameFrame.UIS
     /// <summary>
     /// UI管理器
     /// </summary>
-    public class UIManager
+    public partial class UIManager
     {
         private static UIManager _i;
 

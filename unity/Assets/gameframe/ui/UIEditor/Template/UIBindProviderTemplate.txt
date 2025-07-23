@@ -10,9 +10,9 @@ namespace YIUICodeGenerated
     {
         public static UIBindVo[] Get()
         {
-            var BasePanel     = typeof(BasePanel);
-            var BaseView      = typeof(BaseView);
-            var BaseComponent = typeof(BaseComponent);
+            var UIPanel     = typeof(UIPanel);
+            var UIView      = typeof(UIView);
+            var UIComponent = typeof(UIComponent);
             var list          = new UIBindVo[${Count}];
 ${Content}
 

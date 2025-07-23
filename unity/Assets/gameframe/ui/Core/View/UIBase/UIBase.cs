@@ -10,7 +10,8 @@ namespace Zeng.GameFrame.UIS
     public abstract class UIBase : MonoBehaviour
     {
         //用这个不用.单例而已
-        protected UIManager UIManager { get; private set; }
+        protected UIManager uiManager { get; private set; }
+        
 
         /// <summary>
         /// 绑定信息
@@ -18,6 +19,15 @@ namespace Zeng.GameFrame.UIS
         public UIBindVo UIBindVo { get; private set; }
         
         
+        /// <summary>
+        /// UI的资源包名
+        /// </summary>
+        public string UIPkgName => UIBindVo.PkgName;
+
+        /// <summary>
+        /// UI的资源名称
+        /// </summary>
+        public string UIResName => UIBindVo.ResName;
         
         protected UIBindCDETable CDETable { get; private set; }
         protected UIBindComponentTable ComponentTable { get; private set; }
@@ -50,6 +60,14 @@ namespace Zeng.GameFrame.UIS
             }
         }
 
+        /// <summary>
+        /// 设置显隐
+        /// </summary>
+        public void SetActive(bool value)
+        {
+            if (OwnerGameObject == null) return;
+            OwnerGameObject.SetActive(value);
+        }
 
         /// <summary>
         /// 初始化状态
@@ -70,7 +88,7 @@ namespace Zeng.GameFrame.UIS
                 return false;
             }
 
-            UIManager = UIManager.I;
+            uiManager = UIManager.I;
             UIBindVo   = uiBindVo;
             OwnerGameObject    = ownerGameObject;
             OwnerRectTransform = ownerGameObject.GetComponent<RectTransform>();
@@ -85,6 +103,7 @@ namespace Zeng.GameFrame.UIS
             ComponentTable = CDETable.ComponentTable;
             DataTable      = CDETable.DataTable;
             EventTable     = CDETable.EventTable;
+            CDETable.BindUIBase(this);
 
             UIBaseInitialize();
             UIBaseInit = true;
@@ -139,7 +158,7 @@ namespace Zeng.GameFrame.UIS
 
         
         
-        //这是给基类用的生命周期(BasePanel,BaseView) 为了防止有人重写时不调用基类 所以直接独立
+        //这是给基类用的生命周期(UIPanel,UIView) 为了防止有人重写时不调用基类 所以直接独立
         //没有什么穿插需求怎么办
         //基类会重写这个类且会密封你也调用不到
         //不要问为什么...

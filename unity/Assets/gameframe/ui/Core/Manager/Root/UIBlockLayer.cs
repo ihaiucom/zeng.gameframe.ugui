@@ -56,7 +56,7 @@ namespace Zeng.GameFrame.UIS
         /// 强制恢复层级到可操作状态
         /// 此方法会强制打断倒计时 根据需求调用
         /// </summary>
-        private void RecoverLayerOptionAll()
+        internal void RecoverLayerOptionAll()
         {
             SetLayerBlockOption(true);
             m_LastRecoverOptionTime = 0;
