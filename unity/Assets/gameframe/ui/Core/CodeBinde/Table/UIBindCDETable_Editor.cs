@@ -139,7 +139,7 @@ namespace Zeng.GameFrame.UIS
             UnityTipsHelper.CallBack("将会重置所有子CDE 还原到预制初始状态 \n(防止嵌套预制修改)",
                 () =>
                 {
-                    UICreateModule.RefreshChildCdeTable(this);
+                    UICreateModuleCode.RefreshChildCdeTable(this);
                     foreach (var cdeTable in AllChildCdeTable)
                     {
                         try
@@ -191,7 +191,7 @@ namespace Zeng.GameFrame.UIS
         internal bool AutoCheck()
         {
             if (!UIOperationHelper.CheckUIOperation(this)) return false;
-            if (!UICreateModule.InitVoName(this)) return false;
+            if (!UICreateModuleCode.InitVoName(this)) return false;
             OnValueChangedEUICodeType();
             OnValueChangedEPanelLayer();
             
@@ -203,7 +203,7 @@ namespace Zeng.GameFrame.UIS
             }
             
 
-            UICreateModule.RefreshChildCdeTable(this);
+            UICreateModuleCode.RefreshChildCdeTable(this);
             ComponentTable?.AutoCheck();
             DataTable?.AutoCheck();
             EventTable?.AutoCheck();
@@ -295,7 +295,7 @@ namespace Zeng.GameFrame.UIS
 
         internal void CreateUICode(bool refresh, bool tips)
         {
-            UICreateModule.Create(this, refresh, tips);
+            UICreateModuleCode.Create(this, refresh, tips);
         }
 
         private void OnValidate()

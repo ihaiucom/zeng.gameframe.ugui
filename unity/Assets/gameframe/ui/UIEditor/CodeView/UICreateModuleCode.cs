@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Zeng.GameFrame.UIS.Editor
 {
-    public static class UICreateModule
+    public static class UICreateModuleCode
     {
         internal static void Create(UIBindCDETable cdeTable, bool refresh, bool tips)
         {

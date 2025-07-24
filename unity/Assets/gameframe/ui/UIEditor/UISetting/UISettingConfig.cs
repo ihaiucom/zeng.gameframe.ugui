@@ -24,5 +24,17 @@ namespace Zeng.GameFrame.UIS.Editor
                 return m_Author;
             }
         }
+
+        protected override void OnConfigAutoCreated()
+        {
+            base.OnConfigAutoCreated();
+            m_Author = UserNamePrefs.Value;
+        }
+
+        [Button("确定", ButtonSizes.Large)]
+        private void ClickOkButton()
+        {
+            UserNamePrefs.Value = m_Author;
+        }
     }
 }

@@ -20,13 +20,24 @@ namespace Zeng.GameFrame.UIS.Editor
         {
             GetWindow<UISettingEditor>().Close();
         }
+        
+        
+
+        //关闭后刷新资源
+        public static void CloseWindowRefresh()
+        {
+            CloseWindow();
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
 
         private OdinMenuTree           m_OdinMenuTree;
         protected override OdinMenuTree BuildMenuTree()
         {
             OdinMenuTree tree = new OdinMenuTree(supportsMultiSelect: true)
             {
-                { "UI设置",                           UISettingConfig.Instance,                           EditorIcons.SettingsCog                       },
+                { "UI设置",                           UISettingConfig.Instance,                           EditorIcons.SettingsCog                  },
+                { "创建模块",                          UICreateModuleEditor.Instance,                      EditorIcons.Folder                       },
             };
             return tree;
         }

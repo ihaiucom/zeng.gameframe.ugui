@@ -4,43 +4,42 @@ using Zeng.GameFrame.UIS;
 using UnityEngine;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Games.UI.RoleSelect;
 
-namespace Games.UI.Login
+namespace Games.UI.Home
 {
     /// <summary>
-    /// Author  UI
+    /// Author  ZengFeng
     /// Date    2025.7.24
     /// </summary>
-    public sealed partial class LoginView:LoginViewBase
+    public sealed partial class HomePanel:HomePanelBase
     {
-
+    
         #region 生命周期
         
         protected override void OnUIInit()
         {
-            Debug.Log($"LoginView OnUIInit");
+            Debug.Log($"HomePanel OnUIInit");
         }
 
         protected override void OnUIEnable()
         {
-            Debug.Log($"LoginView OnUIEnable");
+            Debug.Log($"HomePanel OnUIEnable");
         }
 
         protected override void OnUIDisable()
         {
-            Debug.Log($"LoginView OnUIDisable");
+            Debug.Log($"HomePanel OnUIDisable");
         }
 
         protected override void OnUIDestroy()
         {
-            Debug.Log($"LoginView OnUIDestroy");
+            Debug.Log($"HomePanel OnUIDestroy");
         }
 
         protected override async UniTask<bool> OnOpen()
         {
             await UniTask.CompletedTask;
-            Debug.Log($"LoginView OnOpen");
+            Debug.Log($"HomePanel OnOpen");
             return true;
         }
 
@@ -55,15 +54,8 @@ namespace Games.UI.Login
 
 
        
-        protected override void OnEventClickLoginButtonAction()
+        protected override void OnEventClickMenuButtonAction(string p1)
         {
-            // Panel?.OpenView<TestPopupView>();
-            uiManager.OpenPanel<RoleSelectPanel>();
-        }
-        
-        protected override void OnEventClickReigisterButtonAction()
-        {
-            Panel?.OpenView<ReigisterView>();
             
         }
          #endregion Event结束

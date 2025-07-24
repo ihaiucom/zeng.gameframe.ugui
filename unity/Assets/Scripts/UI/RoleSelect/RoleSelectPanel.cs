@@ -4,43 +4,43 @@ using Zeng.GameFrame.UIS;
 using UnityEngine;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Games.UI.RoleSelect;
+using Games.UI.Home;
 
-namespace Games.UI.Login
+namespace Games.UI.RoleSelect
 {
     /// <summary>
-    /// Author  UI
+    /// Author  ZengFeng
     /// Date    2025.7.24
     /// </summary>
-    public sealed partial class LoginView:LoginViewBase
+    public sealed partial class RoleSelectPanel:RoleSelectPanelBase
     {
-
+    
         #region 生命周期
         
         protected override void OnUIInit()
         {
-            Debug.Log($"LoginView OnUIInit");
+            Debug.Log($"RoleSelectPanel OnUIInit");
         }
 
         protected override void OnUIEnable()
         {
-            Debug.Log($"LoginView OnUIEnable");
+            Debug.Log($"RoleSelectPanel OnUIEnable");
         }
 
         protected override void OnUIDisable()
         {
-            Debug.Log($"LoginView OnUIDisable");
+            Debug.Log($"RoleSelectPanel OnUIDisable");
         }
 
         protected override void OnUIDestroy()
         {
-            Debug.Log($"LoginView OnUIDestroy");
+            Debug.Log($"RoleSelectPanel OnUIDestroy");
         }
 
         protected override async UniTask<bool> OnOpen()
         {
             await UniTask.CompletedTask;
-            Debug.Log($"LoginView OnOpen");
+            Debug.Log($"RoleSelectPanel OnOpen");
             return true;
         }
 
@@ -55,16 +55,14 @@ namespace Games.UI.Login
 
 
        
-        protected override void OnEventClickLoginButtonAction()
+        protected override void OnEventClickBackButtonAction()
         {
-            // Panel?.OpenView<TestPopupView>();
-            uiManager.OpenPanel<RoleSelectPanel>();
+            uiManager.CloseTopPanel();
         }
         
-        protected override void OnEventClickReigisterButtonAction()
+        protected override void OnEventClickEnterButtonAction()
         {
-            Panel?.OpenView<ReigisterView>();
-            
+            uiManager.HomePanel<HomePanel>();
         }
          #endregion Event结束
 
