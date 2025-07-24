@@ -11,6 +11,8 @@ namespace I2.Loc
 {
 	public partial class LocalizationEditor
 	{
+		private static string I2LocalizeCS = "I2Localize";
+		private static string I2TermsCS = "I2Terms";
 		#region Variables
 
 		int Script_Tool_MaxVariableLength = 50;
@@ -83,6 +85,22 @@ namespace I2.Loc
 
 		#region Generate Script File
 
+		public void GenCode()
+		{
+			mCurrentViewMode = eViewMode.Tools;
+			mCurrentToolsMode = eToolsMode.Script;
+			SelectAllTerms();
+			BuildScriptWithSelectedTerms();
+		}
+		
+		void SelectAllTerms()
+		{
+			mSelectedKeys.Clear();
+			foreach (var kvp in mParsedTerms)
+				if (ShouldShowTerm( kvp.Value.Term, kvp.Value.Category, kvp.Value.Usage ))
+					mSelectedKeys.Add( kvp.Key );
+		}
+
 		void BuildScriptWithSelectedTerms()
 		{
 			EditorApplication.update -= BuildScriptWithSelectedTerms;
@@ -92,12 +110,12 @@ namespace I2.Loc
             sbTrans.AppendLine();
             sbTrans.AppendLine( "namespace I2.Loc" );
             sbTrans.AppendLine( "{" );
-            sbTrans.AppendLine( "	public static class ScriptLocalization" );
+            sbTrans.AppendLine( $"	public static class {I2LocalizeCS}" );
             sbTrans.AppendLine( "	{" );
 
 
             sbTerms.AppendLine();
-            sbTerms.AppendLine("    public static class ScriptTerms");
+            sbTerms.AppendLine($"    public static class {I2TermsCS}");
             sbTerms.AppendLine("	{");
 
 
@@ -120,19 +138,26 @@ namespace I2.Loc
 
 		static string GetPathToGeneratedScriptLocalization()
 		{
-			string[] assets = AssetDatabase.FindAssets("ScriptLocalization");
-			if (assets.Length>0)
-            {
-                try
-                {
-                    string FilePath = AssetDatabase.GUIDToAssetPath(assets[0]);
-                    return FilePath;
-                }
-                catch(Exception)
-                { }
-            }
-            
-			return "Assets/ScriptLocalization.cs";
+			// string[] assets = AssetDatabase.FindAssets("ScriptLocalization");
+			// if (assets.Length>0)
+   //          {
+   //              try
+   //              {
+   //                  string FilePath = AssetDatabase.GUIDToAssetPath(assets[0]);
+   //                  return FilePath;
+   //              }
+   //              catch(Exception)
+   //              { }
+   //          }
+   //          
+			// return "Assets/ScriptLocalization.cs";
+			
+			
+			var path = $"{Zeng.GameFrame.UIS.UISetting.UIGenerationPath}/I2Localization";
+			if (!Directory.Exists(path))
+				Directory.CreateDirectory(path);
+			
+			return $"{path}/{I2LocalizeCS}.cs";
         }
 
 		void BuildScriptWithSelectedTerms( StringBuilder sbTrans, StringBuilder sbTerms )

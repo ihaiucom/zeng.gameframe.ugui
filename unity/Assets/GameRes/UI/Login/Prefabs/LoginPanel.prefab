@@ -667,12 +667,12 @@ PrefabInstance:
     - target: {fileID: 1155218235387908630, guid: 7b65379d35a54b34cadc6054400d7832,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -641
+      value: -659
       objectReference: {fileID: 0}
     - target: {fileID: 1155218235387908630, guid: 7b65379d35a54b34cadc6054400d7832,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 398
+      value: -399
       objectReference: {fileID: 0}
     - target: {fileID: 1155218235387908630, guid: 7b65379d35a54b34cadc6054400d7832,
         type: 3}
@@ -698,7 +698,7 @@ PrefabInstance:
     - target: {fileID: 4391873440094432268, guid: 7b65379d35a54b34cadc6054400d7832,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4391873440094432268, guid: 7b65379d35a54b34cadc6054400d7832,
         type: 3}
@@ -713,7 +713,7 @@ PrefabInstance:
     - target: {fileID: 4391873440094432268, guid: 7b65379d35a54b34cadc6054400d7832,
         type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4391873440094432268, guid: 7b65379d35a54b34cadc6054400d7832,
         type: 3}

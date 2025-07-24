@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using Games.UI.Home;
 using Games.UI.Login;
 using Games.UI.RoleSelect;
+using I2.Loc;
 using UnityEngine;
 using YooAsset;
 using Zeng.GameFrame.UIS;
@@ -38,10 +39,11 @@ namespace Zeng.Demos
                 UILoadProxyYooAsset.I.Init(YooAssetInit.I.package);
                 
                 await UIManager.I.InitAsync();
+                await I2LocalizeMgr.I.InitAsync();
                 
-                // UIManager.I.OpenPanel<LoginPanel>();
+                UIManager.I.OpenPanel<LoginPanel>();
                 // UIManager.I.OpenPanel<HomePanel>();
-                UIManager.I.OpenPanel<RoleSelectPanel>();
+                // UIManager.I.OpenPanel<RoleSelectPanel>();
             }
             
             

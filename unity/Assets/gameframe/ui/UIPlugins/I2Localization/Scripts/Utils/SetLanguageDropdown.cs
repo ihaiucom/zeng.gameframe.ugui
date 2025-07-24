@@ -4,8 +4,11 @@ using UnityEngine.UI;
 namespace I2.Loc
 {
 	[AddComponentMenu("I2/Localization/SetLanguage Dropdown")]
-	public class SetLanguageDropdown : MonoBehaviour 
+	public class SetLanguageDropdown : MonoBehaviour
 	{
+		public bool useSetLanguageArray = false;
+		public string[] languageArray = new []{"English", "Chinese"};
+		
         #if UNITY_5_2 || UNITY_5_3 || UNITY_5_4_OR_NEWER
         void OnEnable()
 		{
@@ -16,6 +19,16 @@ namespace I2.Loc
 			var currentLanguage = LocalizationManager.CurrentLanguage;
 			if (LocalizationManager.Sources.Count==0) LocalizationManager.UpdateSources();
 			var languages = LocalizationManager.GetAllLanguages();
+			if (useSetLanguageArray)
+			{
+				for (int i = 0; i < languageArray.Length; ++i)
+				{
+					if (!languages.Contains(languageArray[i]))
+					{
+						languages.Add(languageArray[i]);
+					}
+				}
+			}
 
 			// Fill the dropdown elements
 			dropdown.ClearOptions();

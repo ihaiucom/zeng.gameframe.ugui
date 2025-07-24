@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Zeng.GameFrame.UIS;
 #if UNITY_5_4_OR_NEWER
 using UnityEngine.SceneManagement;
 #endif
@@ -171,13 +172,31 @@ namespace I2.Loc
 			return null;
 		}
 
-		public void CleanResourceCache( bool unloadResources=false )
+		// public void CleanResourceCache( bool unloadResources=false )
+		// {
+		// 	mResourcesCache.Clear();
+		// 	if (unloadResources)
+		// 		Resources.UnloadUnusedAssets();
+		//
+		// 	CancelInvoke();
+		// 	//mCleaningScheduled = false;
+		// }
+		
+		public void CleanResourceCache(bool unloadResources = false)
 		{
+			Debug.Log("I2 CleanResourceCache");
+
+			foreach (var obj in mResourcesCache.Values)
+			{
+				UILoad.Release(obj);
+			}
+
 			mResourcesCache.Clear();
 			if (unloadResources)
 				Resources.UnloadUnusedAssets();
 
 			CancelInvoke();
+
 			//mCleaningScheduled = false;
 		}
 

@@ -19,11 +19,25 @@ namespace I2.Loc
 
         #region Sources
 
-        public static bool UpdateSources()
+        // public static bool UpdateSources()
+		// {
+		// 	UnregisterDeletededSources();
+		// 	RegisterSourceInResources();
+		// 	RegisterSceneSources();
+		// 	return Sources.Count>0;
+		// }
+        
+		public static bool UpdateSources()
 		{
-			UnregisterDeletededSources();
-			RegisterSourceInResources();
-			RegisterSceneSources();
+			//UnregisterDeletededSources();
+			//RegisterSourceInResources();
+			//RegisterSceneSources();
+#if UNITY_EDITOR
+			if (!I2Utils.IsPlaying())
+			{
+				RegisterSourceInEditor();
+			}
+#endif
 			return Sources.Count>0;
 		}
 
@@ -158,5 +172,43 @@ namespace I2.Loc
 
         #endregion
 
+        
+#if UNITY_EDITOR
+        public static void RegisterSourceInEditor()
+        {
+	        var sourceAsset = GetEditorAsset();
+	        if (sourceAsset == null) return;
+			
+	        if (sourceAsset && !Sources.Contains(sourceAsset.mSource))
+	        {
+		        if (!sourceAsset.mSource.mIsGlobalSource)
+			        sourceAsset.mSource.mIsGlobalSource = true;
+		        sourceAsset.mSource.owner = sourceAsset;
+		        AddSource(sourceAsset.mSource);
+	        }
+        }
+		
+        private static LanguageSourceAsset m_LastLanguageSourceAsset;
+		
+        public static LanguageSourceAsset GetEditorAsset(bool force = false)
+        {
+	        if (m_LastLanguageSourceAsset != null && !force)
+	        {
+		        return m_LastLanguageSourceAsset;
+	        }
+			
+	        Debug.Log("I2LocalizationManager 加载编辑器资源数据");
+	        var sourceAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<LanguageSourceAsset>(I2LocalizeHelper.I2GlobalSourcesEditorPath);
+	        if (sourceAsset == null)
+	        {
+		        Debug.LogError($"错误 没有找到编辑器下的资源 {I2LocalizeHelper.I2GlobalSourcesEditorPath}");
+		        return null;
+	        }
+
+	        m_LastLanguageSourceAsset = sourceAsset;
+	        return sourceAsset;
+        }
+		
+#endif
     }
 }
