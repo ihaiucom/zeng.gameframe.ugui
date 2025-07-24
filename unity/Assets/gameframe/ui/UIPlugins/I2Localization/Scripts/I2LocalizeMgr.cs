@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zeng.GameFrame.UIS;
 using Object = UnityEngine.Object;
 
@@ -49,7 +50,7 @@ namespace I2.Loc
         private List<string> m_AllLanguage = new List<string>();
 
         [SerializeField]
-        private bool m_UseRuntimeModule = false; //模拟平台运行时 编辑器资源不加载
+        private bool m_UseRuntimeModule = true; //模拟平台运行时 编辑器资源不加载
 
         [SerializeField]
         #if UNITY_EDITOR
@@ -58,13 +59,45 @@ namespace I2.Loc
         #endif
         private string m_DefaultLanguage = "Chinese";
 
+
+        private const string CacheKey = "I2LocalizeMgr_CurrentLanguage";
+        private bool IsReadCache = false;
+        private string DefaultLanguage
+        {
+            get
+            {
+                if (!IsReadCache)
+                {
+                    IsReadCache = true;
+                    m_DefaultLanguage = PlayerPrefs.GetString(CacheKey, m_DefaultLanguage);
+                }
+
+                return m_DefaultLanguage;
+            }
+        }
+
+
         [ShowInInspector]
         #if UNITY_EDITOR
         [EnableIf("OnValueChangeIf")]
         [ValueDropdown("GetAllLanguageKeys")]
         [OnValueChanged("OnValueChangedCurrentLanguage")]
         #endif
-        private string m_CurrentLanguage;
+        private string _currentLanguage;
+
+        private string CurrentLanguage
+        {
+            get
+            {
+                return _currentLanguage;
+            }
+            set
+            {
+                _currentLanguage = value;
+                PlayerPrefs.SetString(CacheKey, value);
+                PlayerPrefs.Save();
+            }
+        }
 
         #region ResourceManager_Bundles
 
@@ -102,8 +135,8 @@ namespace I2.Loc
 
         private void OnValueChangedCurrentLanguage()
         {
-            var tempLanguage = m_CurrentLanguage;
-            m_CurrentLanguage = "";
+            var tempLanguage = CurrentLanguage;
+            CurrentLanguage = "";
             SetLanguage(tempLanguage);
         }
 
@@ -127,7 +160,7 @@ namespace I2.Loc
         
         public async UniTask<bool> InitAsync()
         {
-            if (string.IsNullOrEmpty(m_DefaultLanguage))
+            if (string.IsNullOrEmpty(DefaultLanguage))
             {
                 //TODO 这里也可以读取上一次选择的语言
                 //TODO 初始化时还需要配合如果没有这个语言需要从服务器拉取的情况
@@ -143,19 +176,27 @@ namespace I2.Loc
             {
                 LocalizationManager.RegisterSourceInEditor();
                 UpdateAllLanguages();
-                SetLanguage(m_DefaultLanguage);
+                SetLanguage(DefaultLanguage);
             }
             else
             {
                 m_SourceData.Awake();
-                await LoadLanguage(m_DefaultLanguage, true);
+                await LoadLanguage(DefaultLanguage, true);
             }
             #else
                 m_SourceData.Awake();
                 await LoadLanguage(m_DefaultLanguage, true);
             #endif
+            
+            LocalizationManager.OnLanguageChange += OnLanguageChange;
 
             return true;
+        }
+        
+        private void OnLanguageChange(string language)
+        {
+            Debug.Log($"切换语言 {language}");
+            CurrentLanguage = language;
         }
         
         //根据需求可提前加载语言
@@ -243,14 +284,14 @@ namespace I2.Loc
                 return false;
             }
 
-            if (m_CurrentLanguage == language)
+            if (CurrentLanguage == language)
             {
                 return true;
             }
 
             Debug.Log($"设置当前语言 = {language}");
             LocalizationManager.CurrentLanguage = language;
-            m_CurrentLanguage                   = language;
+            CurrentLanguage                   = language;
             return true;
         }
 

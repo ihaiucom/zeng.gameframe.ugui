@@ -10,6 +10,8 @@ namespace I2.Loc
     {
         #region Variables: CurrentLanguage
 
+        public static Action<string> OnLanguageChange;
+
         public static string CurrentLanguage
         {
             get {
@@ -126,6 +128,8 @@ namespace I2.Loc
                 IsRight2Left = IsRTL(mLanguageCode);
                 HasJoinedWords = GoogleLanguages.LanguageCode_HasJoinedWord(mLanguageCode);
                 LocalizeAll(Force);
+                
+                OnLanguageChange?.Invoke(mCurrentLanguage);
             }
         }
 

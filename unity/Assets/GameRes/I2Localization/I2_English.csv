@@ -1,3 +1,6 @@
 ﻿Key,Type,Desc,English
+LangIcon,Sprite,,icon_country_flag_eng
+LanguageIcon,Sprite,,icon_country_flag_eng
 Sprite/GameIcon,Sprite,,shop_02
+Test,Text,,BB
 Text/GameName,Text,,Shen Tong Lu

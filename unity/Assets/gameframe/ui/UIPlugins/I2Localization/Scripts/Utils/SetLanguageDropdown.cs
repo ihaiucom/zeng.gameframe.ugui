@@ -49,7 +49,8 @@ namespace I2.Loc
 				dropdown.value = index;
 			}
 
-			LocalizationManager.CurrentLanguage = dropdown.options[index].text;
+			// LocalizationManager.CurrentLanguage = dropdown.options[index].text;
+			I2LocalizeMgr.I.SetLanguage(dropdown.options[index].text, true) ;
         }
         #endif
     }

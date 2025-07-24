@@ -20,7 +20,8 @@ namespace I2.Loc
 		{
 			if( LocalizationManager.HasLanguage(_Language))
 			{
-				LocalizationManager.CurrentLanguage = _Language;
+				// LocalizationManager.CurrentLanguage = _Language;
+				I2LocalizeMgr.I.SetLanguage(_Language, true) ;
 			}
 		}
     }
