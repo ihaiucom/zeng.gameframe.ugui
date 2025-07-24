@@ -1,6 +1,7 @@
 
 using System.Collections;
 using Cysharp.Threading.Tasks;
+using Games.UI.Home;
 using Games.UI.Login;
 using UnityEngine;
 using YooAsset;
@@ -37,7 +38,8 @@ namespace Zeng.Demos
                 
                 await UIManager.I.InitAsync();
                 
-                UIManager.I.OpenPanel<LoginPanel>();
+                // UIManager.I.OpenPanel<LoginPanel>();
+                UIManager.I.OpenPanel<HomePanel>();
             }
             
             
