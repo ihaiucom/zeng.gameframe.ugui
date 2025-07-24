@@ -32,7 +32,7 @@ namespace Zeng.GameFrame.UIS
         protected UIBindCDETable CDETable { get; private set; }
         protected UIBindComponentTable ComponentTable { get; private set; }
         protected UIBindDataTable DataTable { get; private set; }
-        protected UIBindEventTable EventTable { get; private set; }
+        public UIBindEventTable EventTable { get; private set; }
 
         /// <summary>
         /// 当前UI的预设对象
