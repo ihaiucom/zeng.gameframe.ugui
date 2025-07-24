@@ -54,9 +54,9 @@ namespace Games.UI.Home
 
 
        
-        protected override void OnEventClickMenuButtonAction(string p1)
+        protected override void OnEventClickMenuButtonAction(string panelName)
         {
-            
+            uiManager.OpenPanel(panelName);
         }
          #endregion Event结束
 

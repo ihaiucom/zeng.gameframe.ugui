@@ -814,7 +814,7 @@ MonoBehaviour:
       Data: 
   m_SkipWhenDrag: 0
   m_Selectable: {fileID: 98028985686983236}
-  m_ExtraParam: Pack
+  m_ExtraParam: LoginPanel
 --- !u!1 &3763355103203879575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,7 +1232,7 @@ MonoBehaviour:
       Data: 
   m_SkipWhenDrag: 0
   m_Selectable: {fileID: 2095063541158420927}
-  m_ExtraParam: Hero
+  m_ExtraParam: RoleSelectPanel
 --- !u!1 &5311983105162688429
 GameObject:
   m_ObjectHideFlags: 0

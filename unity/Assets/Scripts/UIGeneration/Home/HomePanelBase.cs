@@ -44,7 +44,7 @@ namespace Games.UI.Home
 
         }
      
-        protected virtual void OnEventClickMenuButtonAction(string p1){}
+        protected virtual void OnEventClickMenuButtonAction(string panelName){}
    
    
     }

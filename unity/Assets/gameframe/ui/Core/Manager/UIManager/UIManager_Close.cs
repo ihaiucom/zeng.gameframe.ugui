@@ -190,6 +190,10 @@ namespace Zeng.GameFrame.UIS
             {
                 await RemoveUIToHome(homeInfo, tween);
             }
+            else
+            {
+                await OpenPanelAsync(homeName);
+            }
         }
 
         public async UniTask HomePanel<T>(bool tween = true)
