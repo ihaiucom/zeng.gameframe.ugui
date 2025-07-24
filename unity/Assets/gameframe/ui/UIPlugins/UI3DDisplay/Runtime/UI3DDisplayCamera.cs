@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Zeng.GameFrame.UIS
 {
-    public sealed class UI3DDisplayCamera : MonoBehaviour
+    public sealed partial class UI3DDisplayCamera : MonoBehaviour
     {
         private GameObject m_ShowObject;
 

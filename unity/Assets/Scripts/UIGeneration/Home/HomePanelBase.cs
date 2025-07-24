@@ -27,12 +27,14 @@ namespace Games.UI.Home
         [ShowInInspector] public override EPanelOption PanelOption => EPanelOption.None;
         [ShowInInspector] public override EPanelStackOption StackOption => EPanelStackOption.VisibleTween;
         [ShowInInspector] public override int Priority => 0;
+        [ShowInInspector] public Zeng.GameFrame.UIS.UI3DDisplay u_ComModel { get; private set; }
         [ShowInInspector] protected UIEventP1<string> u_EventClickMenuButton { get; private set; }
         [ShowInInspector] protected UIEventHandleP1<string> u_EventClickMenuButtonHandle { get; private set; }
 
         
         protected sealed override void UIBind()
         {
+            u_ComModel = ComponentTable.FindComponent<Zeng.GameFrame.UIS.UI3DDisplay>("u_ComModel");
             u_EventClickMenuButton = EventTable.FindEvent<UIEventP1<string>>("u_EventClickMenuButton");
             u_EventClickMenuButtonHandle = u_EventClickMenuButton.Add(OnEventClickMenuButtonAction);
 
@@ -44,7 +46,7 @@ namespace Games.UI.Home
 
         }
      
-        protected virtual void OnEventClickMenuButtonAction(string panelName){}
+        protected virtual void OnEventClickMenuButtonAction(string p1){}
    
    
     }

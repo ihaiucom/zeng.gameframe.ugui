@@ -14,11 +14,13 @@ namespace Games.UI.Home
     public sealed partial class HomePanel:HomePanelBase
     {
     
+        private UI3DDisplayExtend m_Ui3DDisplay;
         #region 生命周期
         
         protected override void OnUIInit()
         {
             Debug.Log($"HomePanel OnUIInit");
+            m_Ui3DDisplay = new UI3DDisplayExtend(u_ComModel);
         }
 
         protected override void OnUIEnable()
@@ -40,6 +42,9 @@ namespace Games.UI.Home
         {
             await UniTask.CompletedTask;
             Debug.Log($"HomePanel OnOpen");
+            
+            
+            m_Ui3DDisplay.Show("Assets/GameRes/Units/Cube.prefab");
             return true;
         }
 
@@ -54,9 +59,9 @@ namespace Games.UI.Home
 
 
        
-        protected override void OnEventClickMenuButtonAction(string panelName)
+        protected override void OnEventClickMenuButtonAction(string p1)
         {
-            uiManager.OpenPanel(panelName);
+            uiManager.OpenPanel(p1);
         }
          #endregion Event结束
 
