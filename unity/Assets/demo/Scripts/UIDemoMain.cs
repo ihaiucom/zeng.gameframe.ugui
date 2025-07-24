@@ -3,6 +3,7 @@ using System.Collections;
 using Cysharp.Threading.Tasks;
 using Games.UI.Home;
 using Games.UI.Login;
+using Games.UI.RoleSelect;
 using UnityEngine;
 using YooAsset;
 using Zeng.GameFrame.UIS;
@@ -39,7 +40,8 @@ namespace Zeng.Demos
                 await UIManager.I.InitAsync();
                 
                 // UIManager.I.OpenPanel<LoginPanel>();
-                UIManager.I.OpenPanel<HomePanel>();
+                // UIManager.I.OpenPanel<HomePanel>();
+                UIManager.I.OpenPanel<RoleSelectPanel>();
             }
             
             

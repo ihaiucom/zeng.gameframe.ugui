@@ -27,6 +27,7 @@ namespace Games.UI.RoleSelect
         [ShowInInspector] public override EPanelOption PanelOption => EPanelOption.None;
         [ShowInInspector] public override EPanelStackOption StackOption => EPanelStackOption.VisibleTween;
         [ShowInInspector] public override int Priority => 0;
+        [ShowInInspector] public UnityEngine.UI.LoopHorizontalScrollRect u_ComRoleListLoopScroll { get; private set; }
         [ShowInInspector] protected UIEventP0 u_EventClickBackButton { get; private set; }
         [ShowInInspector] protected UIEventHandleP0 u_EventClickBackButtonHandle { get; private set; }
         [ShowInInspector] protected UIEventP0 u_EventClickEnterButton { get; private set; }
@@ -35,6 +36,7 @@ namespace Games.UI.RoleSelect
         
         protected sealed override void UIBind()
         {
+            u_ComRoleListLoopScroll = ComponentTable.FindComponent<UnityEngine.UI.LoopHorizontalScrollRect>("u_ComRoleListLoopScroll");
             u_EventClickBackButton = EventTable.FindEvent<UIEventP0>("u_EventClickBackButton");
             u_EventClickBackButtonHandle = u_EventClickBackButton.Add(OnEventClickBackButtonAction);
             u_EventClickEnterButton = EventTable.FindEvent<UIEventP0>("u_EventClickEnterButton");
