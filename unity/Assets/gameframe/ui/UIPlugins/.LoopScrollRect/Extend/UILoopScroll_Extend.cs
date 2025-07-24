@@ -6,7 +6,7 @@ namespace Zeng.GameFrame.UIS
     /// <summary>
     /// 快捷方法/属性
     /// </summary>
-    public partial class YIUILoopScroll<TData, TItemRenderer>
+    public partial class UILoopScroll<TData, TItemRenderer>
     {
         public int           TotalCount             => m_Owner.totalCount; //总数
         public RectTransform Content                => m_Owner.content;

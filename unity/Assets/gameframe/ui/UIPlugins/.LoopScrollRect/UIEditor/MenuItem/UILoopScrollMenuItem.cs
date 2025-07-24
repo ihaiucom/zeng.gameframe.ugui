@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Zeng.GameFrame.UIS.Editor
 {
-    internal static class YIUILoopScrollMenuItem
+    internal static class UILoopScrollMenuItem
     {
         [MenuItem("GameObject/UI Frame/LoopScroll/Horizontal", false, 10001)]
         private static void CreateLoopScrollHorizontal()
@@ -51,7 +51,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 return;
             }
 
-            var path = $"{UISetting.UIFrameworkPath}/UIPlugins/LoopScrollRect/YIUIEditor/TemplatePrefabs/{name}.prefab";
+            var path = $"{UISetting.UIFrameworkPath}/UIPlugins/LoopScrollRect/UIEditor/TemplatePrefabs/{name}.prefab";
 
             Selection.activeObject = UIMenuItemHelper.CloneGameObjectByPath(path, activeObject.transform);
         }

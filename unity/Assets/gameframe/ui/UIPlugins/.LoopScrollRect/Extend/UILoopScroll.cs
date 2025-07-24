@@ -12,7 +12,7 @@ using Object = UnityEngine.Object;
 
 namespace Zeng.GameFrame.UIS
 {
-    public partial class YIUILoopScroll<TData, TItemRenderer>: LoopScrollPrefabAsyncSource, LoopScrollDataSource
+    public partial class UILoopScroll<TData, TItemRenderer>: LoopScrollPrefabAsyncSource, LoopScrollDataSource
             where TItemRenderer : UIBase
     {
         /// <summary>
@@ -33,7 +33,7 @@ namespace Zeng.GameFrame.UIS
         private Dictionary<Transform, TItemRenderer> m_ItemTransformDic      = new Dictionary<Transform, TItemRenderer>();
         private Dictionary<Transform, int>           m_ItemTransformIndexDic = new Dictionary<Transform, int>();
 
-        public YIUILoopScroll(
+        public UILoopScroll(
         LoopScrollRect   owner,
         ListItemRenderer itemRenderer)
         {

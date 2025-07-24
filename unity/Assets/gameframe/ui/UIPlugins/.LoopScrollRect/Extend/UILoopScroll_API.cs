@@ -8,7 +8,7 @@ namespace Zeng.GameFrame.UIS
     /// <summary>
     /// 对外可调用API
     /// </summary>
-    public partial class YIUILoopScroll<TData, TItemRenderer>
+    public partial class UILoopScroll<TData, TItemRenderer>
     {
         //设置数据 然后刷新
         //不管是要修改数据长度 还是数据变更了 都用此方法刷新

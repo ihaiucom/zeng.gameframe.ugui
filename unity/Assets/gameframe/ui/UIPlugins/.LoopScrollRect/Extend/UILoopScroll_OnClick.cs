@@ -8,7 +8,7 @@ namespace Zeng.GameFrame.UIS
     /// <summary>
     /// 额外点击相关
     /// </summary>
-    public partial class YIUILoopScroll<TData, TItemRenderer>
+    public partial class UILoopScroll<TData, TItemRenderer>
     {
         /// <summary>
         /// 列表元素被点击的事件
@@ -24,7 +24,7 @@ namespace Zeng.GameFrame.UIS
         private bool             m_RepetitionCancel   = true;               //重复选择 则取消选择
         private bool             m_AutoCancelLast     = true;               //当选择操作最大数量过后 自动取消第一个选择的 否则选择无效
 
-        public YIUILoopScroll<TData, TItemRenderer> SetOnClickInfo(
+        public UILoopScroll<TData, TItemRenderer> SetOnClickInfo(
         string           itemClickEventName,
         OnClickItemEvent onClickItemEvent)
         {
@@ -178,7 +178,7 @@ namespace Zeng.GameFrame.UIS
         {
             if (!m_OnClickInit) return uiBase;
 
-            var eventTable = uiBase.m_EventTable;
+            var eventTable = uiBase.EventTable;
             if (eventTable == null)
             {
                 Debug.LogError($"目标item 没有 event表 请检查");
