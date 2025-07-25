@@ -27,11 +27,6 @@ namespace Games.UI.Login
         [ShowInInspector]
         public const string ResName = "LoginPanel";
         
-        [ShowInInspector] public override EWindowOption WindowOption => EWindowOption.None;
-        [ShowInInspector] public override EPanelLayer Layer => EPanelLayer.Panel;
-        [ShowInInspector] public override EPanelOption PanelOption => EPanelOption.None;
-        [ShowInInspector] public override EPanelStackOption StackOption => EPanelStackOption.VisibleTween;
-        [ShowInInspector] public override int Priority => 0;
         [ShowInInspector] public Games.UI.Login.TestComponent u_UITestComponent { get; private set; }
         [ShowInInspector] protected UIEventP0 u_EventClickBackButton { get; private set; }
         [ShowInInspector] protected UIEventHandleP0 u_EventClickBackButtonHandle { get; private set; }

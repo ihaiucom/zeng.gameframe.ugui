@@ -1064,8 +1064,8 @@ MonoBehaviour:
   UICodeType: 0
   WindowOption: 0
   PanelLayer: 3
-  PanelOption: 0
-  PanelStackOption: 2
+  PanelOption: 4
+  PanelStackOption: 1
   ViewWindowType: 0
   ViewStackOption: 2
   CachePanelTime: 10

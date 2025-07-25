@@ -9,7 +9,6 @@ namespace Zeng.GameFrame.UIS
     /// </summary>
     public abstract partial class UIPanel
     {
-        protected virtual float CachePanelTime => 10;
 
         private CancellationTokenSource m_Cts;
 

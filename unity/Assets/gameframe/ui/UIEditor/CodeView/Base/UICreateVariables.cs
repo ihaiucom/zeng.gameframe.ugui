@@ -118,28 +118,28 @@ namespace Zeng.GameFrame.UIS.Editor
                 case EUICodeType.Component:
                     return;
                 case EUICodeType.Panel:
-                    sb.AppendFormat("        [ShowInInspector] public override EWindowOption WindowOption => EWindowOption.{0};\r\n",
-                        self.WindowOption.ToString().Replace(", ", "|EWindowOption."));
-                    sb.AppendFormat("        [ShowInInspector] public override EPanelLayer Layer => EPanelLayer.{0};\r\n",
-                        self.PanelLayer);
-                    sb.AppendFormat("        [ShowInInspector] public override EPanelOption PanelOption => EPanelOption.{0};\r\n",
-                        self.PanelOption.ToString().Replace(", ", "|EPanelOption."));
-                    sb.AppendFormat(
-                        "        [ShowInInspector] public override EPanelStackOption StackOption => EPanelStackOption.{0};\r\n",
-                        self.PanelStackOption);
-                    sb.AppendFormat("        [ShowInInspector] public override int Priority => {0};\r\n", self.Priority);
-                    if (self.PanelOption.HasFlag(EPanelOption.TimeCache))
-                        sb.AppendFormat("        [ShowInInspector] protected override float CachePanelTime => {0};\r\n\r\n",
-                            self.CachePanelTime);
+                    // sb.AppendFormat("        [ShowInInspector] public override EWindowOption WindowOption => EWindowOption.{0};\r\n",
+                    //     self.WindowOption.ToString().Replace(", ", "|EWindowOption."));
+                    // sb.AppendFormat("        [ShowInInspector] public override EPanelLayer Layer => EPanelLayer.{0};\r\n",
+                    //     self.PanelLayer);
+                    // sb.AppendFormat("        [ShowInInspector] public override EPanelOption PanelOption => EPanelOption.{0};\r\n",
+                    //     self.PanelOption.ToString().Replace(", ", "|EPanelOption."));
+                    // sb.AppendFormat(
+                    //     "        [ShowInInspector] public override EPanelStackOption StackOption => EPanelStackOption.{0};\r\n",
+                    //     self.PanelStackOption);
+                    // sb.AppendFormat("        [ShowInInspector] public override int Priority => {0};\r\n", self.Priority);
+                    // if (self.PanelOption.HasFlag(EPanelOption.TimeCache))
+                    //     sb.AppendFormat("        [ShowInInspector] protected override float CachePanelTime => {0};\r\n\r\n",
+                    //         self.CachePanelTime);
                     break;
                 case EUICodeType.View:
-                    sb.AppendFormat("        [ShowInInspector] public override EWindowOption WindowOption => EWindowOption.{0};\r\n",
-                        self.WindowOption.ToString().Replace(", ", "|EWindowOption."));
-                    sb.AppendFormat(
-                        "        [ShowInInspector] public override EViewWindowType ViewWindowType => EViewWindowType.{0};\r\n",
-                        self.ViewWindowType);
-                    sb.AppendFormat("        [ShowInInspector] public override EViewStackOption StackOption => EViewStackOption.{0};\r\n",
-                        self.ViewStackOption);
+                    // sb.AppendFormat("        [ShowInInspector] public override EWindowOption WindowOption => EWindowOption.{0};\r\n",
+                    //     self.WindowOption.ToString().Replace(", ", "|EWindowOption."));
+                    // sb.AppendFormat(
+                    //     "        [ShowInInspector] public override EViewWindowType ViewWindowType => EViewWindowType.{0};\r\n",
+                    //     self.ViewWindowType);
+                    // sb.AppendFormat("        [ShowInInspector] public override EViewStackOption StackOption => EViewStackOption.{0};\r\n",
+                    //     self.ViewStackOption);
                     break;
                 default:
                     Debug.LogError($"新增类型未实现 {self.UICodeType}");

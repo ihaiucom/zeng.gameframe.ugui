@@ -2274,9 +2274,9 @@ MonoBehaviour:
   PkgName: Home
   ResName: HomePanel
   UICodeType: 0
-  WindowOption: 0
+  WindowOption: 6144
   PanelLayer: 3
-  PanelOption: 0
+  PanelOption: 2
   PanelStackOption: 2
   ViewWindowType: 0
   ViewStackOption: 2

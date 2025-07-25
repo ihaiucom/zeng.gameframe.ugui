@@ -22,9 +22,6 @@ namespace Games.UI.Login
         [ShowInInspector]
         public const string ResName = "ReigisterView";
         
-        [ShowInInspector] public override EWindowOption WindowOption => EWindowOption.None;
-        [ShowInInspector] public override EViewWindowType ViewWindowType => EViewWindowType.View;
-        [ShowInInspector] public override EViewStackOption StackOption => EViewStackOption.VisibleTween;
         [ShowInInspector] protected UIEventP0 u_EventClickLoginButton { get; private set; }
         [ShowInInspector] protected UIEventHandleP0 u_EventClickLoginButtonHandle { get; private set; }
 

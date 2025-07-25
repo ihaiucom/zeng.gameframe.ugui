@@ -186,9 +186,15 @@ namespace Zeng.GameFrame.UIS
             #endif
 
             m_PanelCfgMap.TryGetValue(homeName, out var homeInfo);
+            // Debug.Log($"HomePanel : {homeName}, Panel:{homeInfo?.Panel}， ActiveSelf:{homeInfo?.ActiveSelf}");
             if (homeInfo?.Panel != null)
             {
                 await RemoveUIToHome(homeInfo, tween);
+                // Debug.Log($"HomePanel 关闭其他所有Panel UI后: {homeName}, ActiveSelf:{homeInfo.ActiveSelf}");
+                if (!homeInfo.ActiveSelf)
+                {
+                    await OpenPanelAsync(homeName);
+                }
             }
             else
             {

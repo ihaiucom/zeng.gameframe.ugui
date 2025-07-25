@@ -22,9 +22,6 @@ namespace Games.UI.Login
         [ShowInInspector]
         public const string ResName = "LoginView";
         
-        [ShowInInspector] public override EWindowOption WindowOption => EWindowOption.None;
-        [ShowInInspector] public override EViewWindowType ViewWindowType => EViewWindowType.View;
-        [ShowInInspector] public override EViewStackOption StackOption => EViewStackOption.VisibleTween;
         [ShowInInspector] public TMPro.TMP_InputField u_ComUserNameInput { get; private set; }
         [ShowInInspector] public UnityEngine.RectTransform u_ComPasswordInput { get; private set; }
         [ShowInInspector] public UnityEngine.UI.Toggle u_ComRememberLogin { get; private set; }

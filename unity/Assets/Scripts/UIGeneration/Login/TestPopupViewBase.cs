@@ -22,9 +22,6 @@ namespace Games.UI.Login
         [ShowInInspector]
         public const string ResName = "TestPopupView";
         
-        [ShowInInspector] public override EWindowOption WindowOption => EWindowOption.None;
-        [ShowInInspector] public override EViewWindowType ViewWindowType => EViewWindowType.Popup;
-        [ShowInInspector] public override EViewStackOption StackOption => EViewStackOption.VisibleTween;
         [ShowInInspector] protected UIEventP0 u_EventOpenReigster { get; private set; }
         [ShowInInspector] protected UIEventHandleP0 u_EventOpenReigsterHandle { get; private set; }
         [ShowInInspector] protected UIEventP0 u_EventClose { get; private set; }
