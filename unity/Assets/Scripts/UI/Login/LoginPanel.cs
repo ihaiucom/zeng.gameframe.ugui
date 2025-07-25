@@ -54,6 +54,12 @@ namespace Games.UI.Login
         #region Event开始
 
 
+        
+        protected override void OnEventClickBackButtonAction()
+        {
+            Close();
+            
+        }
          #endregion Event结束
 
     }

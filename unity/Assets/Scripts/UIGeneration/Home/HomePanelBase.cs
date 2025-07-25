@@ -30,6 +30,8 @@ namespace Games.UI.Home
         [ShowInInspector] public Zeng.GameFrame.UIS.UI3DDisplay u_ComModel { get; private set; }
         [ShowInInspector] protected UIEventP1<string> u_EventClickMenuButton { get; private set; }
         [ShowInInspector] protected UIEventHandleP1<string> u_EventClickMenuButtonHandle { get; private set; }
+        [ShowInInspector] protected UIEventP0 u_EventClickBackButton { get; private set; }
+        [ShowInInspector] protected UIEventHandleP0 u_EventClickBackButtonHandle { get; private set; }
 
         
         protected sealed override void UIBind()
@@ -37,16 +39,20 @@ namespace Games.UI.Home
             u_ComModel = ComponentTable.FindComponent<Zeng.GameFrame.UIS.UI3DDisplay>("u_ComModel");
             u_EventClickMenuButton = EventTable.FindEvent<UIEventP1<string>>("u_EventClickMenuButton");
             u_EventClickMenuButtonHandle = u_EventClickMenuButton.Add(OnEventClickMenuButtonAction);
+            u_EventClickBackButton = EventTable.FindEvent<UIEventP0>("u_EventClickBackButton");
+            u_EventClickBackButtonHandle = u_EventClickBackButton.Add(OnEventClickBackButtonAction);
 
         }
 
         protected sealed override void UnUIBind()
         {
             u_EventClickMenuButton.Remove(u_EventClickMenuButtonHandle);
+            u_EventClickBackButton.Remove(u_EventClickBackButtonHandle);
 
         }
      
         protected virtual void OnEventClickMenuButtonAction(string p1){}
+        protected virtual void OnEventClickBackButtonAction(){}
    
    
     }

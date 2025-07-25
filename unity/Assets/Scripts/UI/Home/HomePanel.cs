@@ -63,6 +63,12 @@ namespace Games.UI.Home
         {
             uiManager.OpenPanel(p1);
         }
+        
+        protected override void OnEventClickBackButtonAction()
+        {
+            Close();
+            
+        }
          #endregion Event结束
 
     }

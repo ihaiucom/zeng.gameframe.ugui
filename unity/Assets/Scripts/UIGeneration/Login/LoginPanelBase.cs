@@ -33,19 +33,25 @@ namespace Games.UI.Login
         [ShowInInspector] public override EPanelStackOption StackOption => EPanelStackOption.VisibleTween;
         [ShowInInspector] public override int Priority => 0;
         [ShowInInspector] public Games.UI.Login.TestComponent u_UITestComponent { get; private set; }
+        [ShowInInspector] protected UIEventP0 u_EventClickBackButton { get; private set; }
+        [ShowInInspector] protected UIEventHandleP0 u_EventClickBackButtonHandle { get; private set; }
 
         
         protected sealed override void UIBind()
         {
+            u_EventClickBackButton = EventTable.FindEvent<UIEventP0>("u_EventClickBackButton");
+            u_EventClickBackButtonHandle = u_EventClickBackButton.Add(OnEventClickBackButtonAction);
             u_UITestComponent = CDETable.FindUIBase<Games.UI.Login.TestComponent>("TestComponent");
 
         }
 
         protected sealed override void UnUIBind()
         {
+            u_EventClickBackButton.Remove(u_EventClickBackButtonHandle);
 
         }
      
+        protected virtual void OnEventClickBackButtonAction(){}
    
    
     }

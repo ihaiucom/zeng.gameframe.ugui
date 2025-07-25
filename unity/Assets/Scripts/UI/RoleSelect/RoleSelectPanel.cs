@@ -96,7 +96,8 @@ namespace Games.UI.RoleSelect
        
         protected override void OnEventClickBackButtonAction()
         {
-            uiManager.CloseTopPanel();
+            // uiManager.CloseTopPanel();
+            Close();
         }
         
         protected override void OnEventClickEnterButtonAction()
