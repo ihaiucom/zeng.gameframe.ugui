@@ -665,6 +665,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTsf: {fileID: 8317815826282058498}
   scaleValue: 0.9
-  scaleTime: 0
-  popTime: 0
+  scaleTime: 0.1
+  popTime: 0.1
   ease: 24

@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using LitMotion;
+using LitMotion.Extensions;
+using UnityEngine;
 using UnityEngine.EventSystems;
-using DG.Tweening;
 using UnityEngine.UI;
 
 namespace Zeng.GameFrame.UIS
@@ -17,10 +18,10 @@ namespace Zeng.GameFrame.UIS
         public float scaleValue = 0.9f;
 
         [Tooltip("变小时间")]
-        public float scaleTime = 0;
+        public float scaleTime = 0.1f;
 
         [Tooltip("变大时间")]
-        public float popTime = 0;
+        public float popTime = 0.1f;
 
         private Button m_button;
 
@@ -31,6 +32,8 @@ namespace Zeng.GameFrame.UIS
         /// 可调整动画状态
         /// </summary>
         public Ease ease = Ease.OutElastic;
+        
+        private MotionHandle m_motionHandle;
 
         private void Awake()
         {
@@ -46,7 +49,16 @@ namespace Zeng.GameFrame.UIS
 
         private void OnDestroy()
         {
-            targetTsf.DOKill();
+            MotionKill();
+        }
+
+        private void MotionKill()
+        {
+            if (m_motionHandle != default)
+            {
+                m_motionHandle.Complete();
+                m_motionHandle = default;
+            }
         }
 
         //按下
@@ -56,20 +68,35 @@ namespace Zeng.GameFrame.UIS
             {
                 if (m_button.enabled && m_button.interactable)
                 {
-                    targetTsf.DOScale(targetScale, scaleTime).SetEase(ease);
+                    MotionKill();
+                    m_motionHandle = LMotion.Create(targetTsf.localScale, targetScale, scaleTime)
+                        .WithOnComplete(() => { m_motionHandle = default; })
+                        .WithEase(ease)
+                        .BindToLocalScale(targetTsf)
+                        .AddTo(targetTsf);
                 }
             }
             else
             {
-                targetTsf.DOScale(targetScale, scaleTime).SetEase(ease);
+                MotionKill();
+                m_motionHandle = LMotion.Create(targetTsf.localScale, targetScale, scaleTime)
+                    .WithOnComplete(() => { m_motionHandle = default; })
+                    .WithEase(ease)
+                    .BindToLocalScale(targetTsf)
+                    .AddTo(targetTsf);
             }
         }
 
         //抬起
         public void OnPointerUp(PointerEventData eventData)
         {
-            targetTsf.DOKill();
-            targetTsf.DOScale(atScale, popTime).SetEase(ease); //回到本来大小
+            MotionKill();
+            m_motionHandle = LMotion.Create(targetTsf.localScale, atScale, popTime)
+                .WithOnComplete(() => { m_motionHandle = default; })
+                .WithEase(ease)
+                .BindToLocalScale(targetTsf)
+                .AddTo(targetTsf);
+            
         }
 
         #if UNITY_EDITOR

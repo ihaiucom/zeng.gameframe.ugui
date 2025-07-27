@@ -23,7 +23,7 @@ namespace Zeng.GameFrame.UIS
             obj.transform.localScale = m_AnimScale;
 
             var handle = LMotion.Create(obj.transform.localScale, Vector3.one, time)
-                .BindToLocalScale(obj.transform);
+                .BindToLocalScale(obj.transform).AddTo(obj);
             
             try
             {
@@ -45,7 +45,7 @@ namespace Zeng.GameFrame.UIS
             
             
             var handle =LMotion.Create(obj.transform.localScale, m_AnimScale, time)
-                .BindToLocalScale(obj.transform);
+                .BindToLocalScale(obj.transform).AddTo(obj);
             
             try
             {

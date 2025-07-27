@@ -2114,6 +2114,7 @@ GameObject:
   - component: {fileID: 2008669524720571354}
   - component: {fileID: 3527738765164637676}
   - component: {fileID: 6791876123086022191}
+  - component: {fileID: 3422584066334951654}
   m_Layer: 5
   m_Name: Button-Reigister
   m_TagString: Untagged
@@ -2345,6 +2346,23 @@ MonoBehaviour:
       Data: 
   m_SkipWhenDrag: 0
   m_Selectable: {fileID: 3527738765164637676}
+--- !u!114 &3422584066334951654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5234953884158482213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a07d1afeeb4dcc812559d0b9fea3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTsf: {fileID: 4048166435923786406}
+  scaleValue: 0.9
+  scaleTime: 0.25
+  popTime: 0.25
+  ease: 23
 --- !u!1 &5518692544338233760
 GameObject:
   m_ObjectHideFlags: 0
