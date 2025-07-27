@@ -34,6 +34,7 @@ namespace Zeng.GameFrame.UIS
                 return $"{UISetting.UICodeScriptsPath}/{PkgName}/{ResName}.cs";
             }
         }
+        
 
 
         [PropertyOrder(-1000)]
