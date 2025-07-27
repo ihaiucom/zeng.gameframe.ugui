@@ -1,10 +1,22 @@
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 
 namespace Zeng.GameFrame.UIS.Editor
 {
-    public class UICreateModuleEditor : GlobalConfig<UICreateModuleEditor>
+    public class UICreateModuleEditor
     {
+        private static UICreateModuleEditor instance;
+        public static UICreateModuleEditor Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new UICreateModuleEditor();
+                }
+
+                return instance;
+            }
+        }
         
         [LabelText("新增模块名称")]
         public string Name;

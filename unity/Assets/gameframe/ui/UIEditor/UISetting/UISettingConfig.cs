@@ -1,9 +1,10 @@
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
+using UnityEngine;
 
 namespace Zeng.GameFrame.UIS.Editor
 {
-    public class UISettingConfig : GlobalConfig<UISettingConfig>
+    public class UISettingConfig : GlobalConfig<UISettingConfig>, ITreeMenu
     {
         public static StringPrefs UserNamePrefs = new StringPrefs("UITool_UserName", null, "UI");
 
@@ -16,6 +17,7 @@ namespace Zeng.GameFrame.UIS.Editor
         {
             get
             {
+                Instance.Load();
                 if (string.IsNullOrEmpty(m_Author))
                 {
                     m_Author = UserNamePrefs.Value;
@@ -25,16 +27,25 @@ namespace Zeng.GameFrame.UIS.Editor
             }
         }
 
-        protected override void OnConfigAutoCreated()
+        private static bool isLoad = false;
+        public void Load()
         {
-            base.OnConfigAutoCreated();
+            if(isLoad) return;
+            isLoad = true;
             m_Author = UserNamePrefs.Value;
         }
+
 
         [Button("确定", ButtonSizes.Large)]
         private void ClickOkButton()
         {
             UserNamePrefs.Value = m_Author;
+            PlayerPrefs.Save();
+        }
+
+        public void OnSelected()
+        {
+            Load();
         }
     }
 }

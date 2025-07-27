@@ -38,6 +38,7 @@ namespace Zeng.Demos
             {
                 UILoadProxyYooAsset.I.Init(YooAssetInit.I.package);
                 
+                UIBindHelper.InternalGameGetUIBindVoFunc = UICodeGenerated.UIBindProvider.Get;
                 await UIManager.I.InitAsync();
                 await I2LocalizeMgr.I.InitAsync();
                 

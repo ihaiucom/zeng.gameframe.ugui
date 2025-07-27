@@ -10,8 +10,23 @@ using UnityEngine;
 
 namespace Zeng.GameFrame.UIS.Editor
 {
-    public class UII2LocalizationEditor  : GlobalConfig<UII2LocalizationEditor>
+    public class UII2LocalizationEditor 
     {
+        private static UII2LocalizationEditor instance;
+        public static UII2LocalizationEditor Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new UII2LocalizationEditor();
+                }
+
+                return instance;
+            }
+        }
+        
+        
         private LanguageSourceData m_LanguageSourceData;
 
         [BoxGroup("配置", false, true)]
