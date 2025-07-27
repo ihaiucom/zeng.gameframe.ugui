@@ -9,6 +9,7 @@ namespace Zeng.GameFrame.UIS.Editor
     public class UISettingConfigEditor : GlobalConfig<UISettingConfigEditor>, ITreeMenu
     {
         public static StringPrefs UserNamePrefs = new StringPrefs("UITool_UserName", null, "UI");
+        public static BoolPrefs OldCDEInspectorPrefs = new BoolPrefs("UITool_OldCDEInspector", null, false);
 
         [LabelText("用户名")]
         [Required("请填写用户名")]
@@ -28,6 +29,19 @@ namespace Zeng.GameFrame.UIS.Editor
                 return m_Author;
             }
         }
+        
+        
+        [LabelText("使用老的CDEInspector显示模式")]
+        [ShowInInspector]
+        private static bool m_DisplayOldCDEInspector;
+        public static bool DisplayOldCDEInspector 
+        {
+            get
+            {
+                Instance.Load();
+                return m_DisplayOldCDEInspector;
+            }
+        }
 
         private static bool isLoad = false;
         public void Load()
@@ -35,6 +49,7 @@ namespace Zeng.GameFrame.UIS.Editor
             if(isLoad) return;
             isLoad = true;
             m_Author = UserNamePrefs.Value;
+            m_DisplayOldCDEInspector = OldCDEInspectorPrefs.Value;
         }
 
 
@@ -42,6 +57,7 @@ namespace Zeng.GameFrame.UIS.Editor
         private void ClickOkButton()
         {
             UserNamePrefs.Value = m_Author;
+            OldCDEInspectorPrefs.Value = m_DisplayOldCDEInspector;
             PlayerPrefs.Save();
         }
 

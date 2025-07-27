@@ -15,6 +15,7 @@ namespace Zeng.GameFrame.UIS
 
         [PropertyOrder(-999)]
         [LabelText("UI Base代码路径")]
+        [ShowInInspector]
         public string BaseScriptPath
         {
             get
@@ -25,6 +26,7 @@ namespace Zeng.GameFrame.UIS
 
         [PropertyOrder(-999)]
         [LabelText("UI 代码路径")]
+        [ShowInInspector]
         public string CreateScriptPath
         {
             get
@@ -302,13 +304,13 @@ namespace Zeng.GameFrame.UIS
         {
             if (!UIOperationHelper.CheckUIOperation()) return;
             ComponentTable           = gameObject.GetOrAddComponent<UIBindComponentTable>();
-            ComponentTable.hideFlags = UISetting.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
+            ComponentTable.hideFlags = UISettingConfigEditor.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
             OnValueChangedCDEInspector();
         }
 
         private bool ShowAddComponentTable()
         {
-            if (UISetting.DisplayOldCDEInspector) return ComponentTable == null;
+            if (UISettingConfigEditor.DisplayOldCDEInspector) return ComponentTable == null;
             if (_CDEInspectorType != EYIUICDEInspectorType.Component) return false;
             return _InspectorComponent == null;
         }
@@ -322,14 +324,14 @@ namespace Zeng.GameFrame.UIS
         {
             if (!UIOperationHelper.CheckUIOperation()) return;
             DataTable           = gameObject.GetOrAddComponent<UIBindDataTable>();
-            DataTable.hideFlags = UISetting.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
+            DataTable.hideFlags = UISettingConfigEditor.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
 
             OnValueChangedCDEInspector();
         }
 
         private bool ShowAddDataTable()
         {
-            if (UISetting.DisplayOldCDEInspector) return DataTable == null;
+            if (UISettingConfigEditor.DisplayOldCDEInspector) return DataTable == null;
             if (_CDEInspectorType != EYIUICDEInspectorType.Data) return false;
             return _InspectorComponent == null;
         }
@@ -343,14 +345,14 @@ namespace Zeng.GameFrame.UIS
         {
             if (!UIOperationHelper.CheckUIOperation()) return;
             EventTable           = gameObject.GetOrAddComponent<UIBindEventTable>();
-            EventTable.hideFlags = UISetting.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
+            EventTable.hideFlags = UISettingConfigEditor.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
 
             OnValueChangedCDEInspector();
         }
 
         private bool ShowAddEventTable()
         {
-            if (UISetting.DisplayOldCDEInspector) return EventTable == null;
+            if (UISettingConfigEditor.DisplayOldCDEInspector) return EventTable == null;
             if (_CDEInspectorType != EYIUICDEInspectorType.Event) return false;
             return _InspectorComponent == null;
         }
@@ -393,7 +395,7 @@ namespace Zeng.GameFrame.UIS
 
         private bool ShowIfCDEInspector()
         {
-            return !UISetting.DisplayOldCDEInspector;
+            return !UISettingConfigEditor.DisplayOldCDEInspector;
         }
 
         [OnInspectorInit]
@@ -419,11 +421,11 @@ namespace Zeng.GameFrame.UIS
         private void YIUICDEHideInInspector()
         {
             if (ComponentTable != null)
-                ComponentTable.hideFlags = UISetting.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
+                ComponentTable.hideFlags = UISettingConfigEditor.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
             if (DataTable != null)
-                DataTable.hideFlags = UISetting.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
+                DataTable.hideFlags = UISettingConfigEditor.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
             if (EventTable != null)
-                EventTable.hideFlags = UISetting.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
+                EventTable.hideFlags = UISettingConfigEditor.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;
         }
     }
 }
