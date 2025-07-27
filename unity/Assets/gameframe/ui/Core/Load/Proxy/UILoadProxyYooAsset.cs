@@ -51,7 +51,7 @@ namespace Zeng.GameFrame.UIS
         /// <returns>返回值(obj资源对象,唯一ID)</returns>
         private (Object, int) LoadAsset(string packageName, string location, Type type)
         {
-            Debug.Log($"LoadAsset：packageName={packageName}, location={location}, type={type}");
+            // Debug.Log($"LoadAsset：packageName={packageName}, location={location}, type={type}");
             var handle = package.LoadAssetSync(location, type);
             return LoadAssetHandle(handle);
         }
@@ -84,7 +84,7 @@ namespace Zeng.GameFrame.UIS
         /// <returns>返回值(obj资源对象,唯一ID)</returns>
         private async UniTask<(Object, int)> LoadAssetAsync(string packageName, string location, Type type)
         {
-            Debug.Log($"LoadAssetAsync：packageName={packageName}, location={location}, type={type}");
+            // Debug.Log($"LoadAssetAsync：packageName={packageName}, location={location}, type={type}");
             var handle = package.LoadAssetAsync(location, type);
             await handle.ToUniTask(); //异步等待 需要实现YooAsset在UniTask中的异步扩展
             return LoadAssetHandle(handle);
@@ -100,7 +100,7 @@ namespace Zeng.GameFrame.UIS
         {
             if (m_AllHandle.TryGetValue(hashCode, out var value))
             {
-                Debug.Log($"ReleaseAction：hashCode={hashCode}, location={value.GetAssetInfo()?.AssetPath}");
+                // Debug.Log($"ReleaseAction：hashCode={hashCode}, location={value.GetAssetInfo()?.AssetPath}");
                 value.Release();
                 m_AllHandle.Remove(hashCode);
             }
