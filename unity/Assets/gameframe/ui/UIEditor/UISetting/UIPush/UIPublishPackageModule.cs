@@ -48,7 +48,7 @@ namespace Zeng.GameFrame.UIS.Editor
             }
 
             if (showTips)
-                UnityTipsHelper.CallBackOk($"YIUI当前模块 {PkgName} 发布完毕", UISettingEditor.CloseWindowRefresh);
+                UnityTipsHelper.CallBackOk($"UI当前模块 {PkgName} 发布完毕", UISettingEditor.CloseWindowRefresh);
         }
         
         

@@ -1,4 +1,4 @@
-﻿#define YIUIMACRO_SINGLETON_LOG
+﻿#define UIMACRO_SINGLETON_LOG
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -36,21 +36,21 @@ namespace Zeng.GameFrame.UIS
 
                 if (manager is IManagerAsyncInit initialize)
                 {
-                    #if YIUIMACRO_SINGLETON_LOG
+                    #if UIMACRO_SINGLETON_LOG
                     var sw = new Stopwatch();
                     sw.Start();
                     #endif
                     
                     var result = await initialize.ManagerAsyncInit();
                     
-                    #if YIUIMACRO_SINGLETON_LOG
+                    #if UIMACRO_SINGLETON_LOG
                     sw.Stop();
                     Debug.Log($"<color=green>MgrCenter: 管理器[<color=Brown>{manager.GetType().Name}</color>]初始化耗时 {sw.ElapsedMilliseconds} 毫秒</color>");
                     #endif
                     
                     if (!result)
                     {
-                        #if YIUIMACRO_SINGLETON_LOG
+                        #if UIMACRO_SINGLETON_LOG
                         Debug.Log($"<color=red>MgrCenter: 管理器[<color=Brown>{manager.GetType().Name}</color>]初始化失败</color>");
                         #endif
                         return false; //初始化失败的管理器 不添加
@@ -59,7 +59,7 @@ namespace Zeng.GameFrame.UIS
                 
                 m_CacheInitMgr.Remove(manager);
 
-                #if YIUIMACRO_SINGLETON_LOG
+                #if UIMACRO_SINGLETON_LOG
                 Debug.Log($"<color=navy>MgrCenter: 管理器[<color=Brown>{manager.GetType().Name}</color>]启动完毕</color>");
                 #endif
 
@@ -171,7 +171,7 @@ namespace Zeng.GameFrame.UIS
                     return;
                 }
 
-                #if YIUIMACRO_SINGLETON_LOG
+                #if UIMACRO_SINGLETON_LOG
                 Debug.Log($"<color=navy>MgrCenter: 管理器[<color=Brown>{manager.GetType().Name}</color>]移除</color>");
                 #endif
 
@@ -195,7 +195,7 @@ namespace Zeng.GameFrame.UIS
 
             public void Dispose()
             {
-                #if YIUIMACRO_SINGLETON_LOG
+                #if UIMACRO_SINGLETON_LOG
                 Debug.Log("<color=navy>MgrCenter: 关闭MgrCenter</color>");
                 #endif
 

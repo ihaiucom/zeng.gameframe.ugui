@@ -299,7 +299,7 @@ namespace Zeng.GameFrame.UIS
         [Button("添加组件表", 25, Icon = SdfIconType.Boxes, IconAlignment = IconAlignment.LeftOfText)]
         [GUIColor(0, 1, 1)]
         [ShowIf(nameof(ShowAddComponentTable))]
-        [TitleGroup("YIUI CDE", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
+        [TitleGroup("UI CDE", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
         [PropertyOrder(int.MaxValue)]
         private void AddComponentTable()
         {
@@ -312,14 +312,14 @@ namespace Zeng.GameFrame.UIS
         private bool ShowAddComponentTable()
         {
             if (UISettingConfigEditor.DisplayOldCDEInspector) return ComponentTable == null;
-            if (_CDEInspectorType != EYIUICDEInspectorType.Component) return false;
+            if (_CDEInspectorType != EUICDEInspectorType.Component) return false;
             return _InspectorComponent == null;
         }
 
         [Button("添加数据表", 25, Icon = SdfIconType.HddRack, IconAlignment = IconAlignment.LeftOfText)]
         [GUIColor(1, 0, 1)]
         [ShowIf(nameof(ShowAddDataTable))]
-        [TitleGroup("YIUI CDE", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
+        [TitleGroup("UI CDE", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
         [PropertyOrder(int.MaxValue)]
         private void AddDataTable()
         {
@@ -333,14 +333,14 @@ namespace Zeng.GameFrame.UIS
         private bool ShowAddDataTable()
         {
             if (UISettingConfigEditor.DisplayOldCDEInspector) return DataTable == null;
-            if (_CDEInspectorType != EYIUICDEInspectorType.Data) return false;
+            if (_CDEInspectorType != EUICDEInspectorType.Data) return false;
             return _InspectorComponent == null;
         }
 
         [Button("添加事件表", 25, Icon = SdfIconType.LightningCharge, IconAlignment = IconAlignment.LeftOfText)]
         [GUIColor(0, 1, 0)]
         [ShowIf(nameof(ShowAddEventTable))]
-        [TitleGroup("YIUI CDE", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
+        [TitleGroup("UI CDE", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
         [PropertyOrder(int.MaxValue)]
         private void AddEventTable()
         {
@@ -354,7 +354,7 @@ namespace Zeng.GameFrame.UIS
         private bool ShowAddEventTable()
         {
             if (UISettingConfigEditor.DisplayOldCDEInspector) return EventTable == null;
-            if (_CDEInspectorType != EYIUICDEInspectorType.Event) return false;
+            if (_CDEInspectorType != EUICDEInspectorType.Event) return false;
             return _InspectorComponent == null;
         }
 
@@ -362,7 +362,7 @@ namespace Zeng.GameFrame.UIS
         
         
         
-        private enum EYIUICDEInspectorType
+        private enum EUICDEInspectorType
         {
             [LabelText("[C]组件")]
             Component,
@@ -374,7 +374,7 @@ namespace Zeng.GameFrame.UIS
             Event,
         }
 
-        [TitleGroup("YIUI CDE", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
+        [TitleGroup("UI CDE", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
         [ShowInInspector]
         [PropertyOrder(int.MaxValue - 100)]
         [HideLabel]
@@ -382,9 +382,9 @@ namespace Zeng.GameFrame.UIS
         [EnumToggleButtons]
         [ShowIf(nameof(ShowIfCDEInspector))]
         [OnValueChanged(nameof(OnValueChangedCDEInspector))]
-        private EYIUICDEInspectorType _CDEInspectorType = EYIUICDEInspectorType.Data;
+        private EUICDEInspectorType _CDEInspectorType = EUICDEInspectorType.Data;
 
-        [TitleGroup("YIUI CDE", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
+        [TitleGroup("UI CDE", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
         [ShowInInspector]
         [PropertyOrder(int.MaxValue - 99)]
         [InlineEditor(Expanded = true, DrawHeader = false, ObjectFieldMode = InlineEditorObjectFieldModes.CompletelyHidden)]
@@ -404,13 +404,13 @@ namespace Zeng.GameFrame.UIS
         {
             switch (_CDEInspectorType)
             {
-                case EYIUICDEInspectorType.Component:
+                case EUICDEInspectorType.Component:
                     _InspectorComponent = ComponentTable;
                     break;
-                case EYIUICDEInspectorType.Data:
+                case EUICDEInspectorType.Data:
                     _InspectorComponent = DataTable;
                     break;
-                case EYIUICDEInspectorType.Event:
+                case EUICDEInspectorType.Event:
                     _InspectorComponent = EventTable;
                     break;
                 default:
@@ -419,7 +419,7 @@ namespace Zeng.GameFrame.UIS
         }
 
         [OnInspectorInit]
-        private void YIUICDEHideInInspector()
+        private void UICDEHideInInspector()
         {
             if (ComponentTable != null)
                 ComponentTable.hideFlags = UISettingConfigEditor.DisplayOldCDEInspector ? HideFlags.None : HideFlags.HideInInspector;

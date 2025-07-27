@@ -128,7 +128,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 module.PublishCurrent(false); //不要默认重置所有图集设置 有的图集真的会有独立设置
             }
 
-            UnityTipsHelper.CallBackOk("YIUI全部 发布完毕", UISettingEditor.CloseWindowRefresh);
+            UnityTipsHelper.CallBackOk("UI全部 发布完毕", UISettingEditor.CloseWindowRefresh);
         }
     }
 }
