@@ -52,7 +52,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
         private void OnSelectionChanged(SelectionChangedType selectionChangedType)
         {
-            Debug.Log($"OnSelectionChanged selectionChangedType={selectionChangedType}, { m_OdinMenuTree.Selection.SelectedValue}");
+            // Debug.Log($"OnSelectionChanged selectionChangedType={selectionChangedType}, { m_OdinMenuTree.Selection.SelectedValue}");
            
             if (selectionChangedType != SelectionChangedType.ItemAdded)
             {
