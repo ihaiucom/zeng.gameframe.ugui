@@ -18,7 +18,8 @@ namespace Zeng.GameFrame.UIS.Editor
         public UICreateComponentCode(out bool result, string authorName, UICreateComponentData codeData) : base(
             authorName)
         {
-            var path     = $"{UISetting.UICodeScriptsPath}/{codeData.PkgName}/{codeData.ResName}.cs";
+            // var path     = $"{UISetting.UICodeScriptsPath}/{codeData.PkgName}/{codeData.ResName}.cs";
+            var path     = codeData.ScriptFilePath;
             var template = $"{UISetting.UITemplatePath}/UICreateComponentTemplate.txt";
             CreateVo = new CreateVo(template, path);
 

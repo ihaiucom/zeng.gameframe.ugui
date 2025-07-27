@@ -31,7 +31,7 @@ namespace Zeng.GameFrame.UIS.Editor
         [PropertyOrder(-9999)]
         public static void CreateUIBindProvider()
         {
-            CreateUIBindProviderModule.Instance.Create();
+            CreateUIBindProviderModule.Create();
         }
         
         
@@ -51,6 +51,7 @@ namespace Zeng.GameFrame.UIS.Editor
         public OdinMenuTree Tree { get; internal set; }
         [GUIColor(0.4f, 0.8f, 1)]
         [Button("刷新模块列表", 50)]
+        [PropertyOrder(-98)]
         private void AddAllPkg()
         {
             m_AllUIPublishPackageModule.Clear();

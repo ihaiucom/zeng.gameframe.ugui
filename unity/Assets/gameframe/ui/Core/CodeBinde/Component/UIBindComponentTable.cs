@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -6,8 +7,15 @@ using UnityEngine;
 namespace Zeng.GameFrame.UIS
 {
     //[DetailedInfoBox("UI 组件表 点击展开详细介绍", @"李胜扬")]
-    [LabelText("UI 组件表")]
-    [AddComponentMenu("UIBind/★★★UI Component Table 组件表★★★")]
+    // [LabelText("UI 组件表")]
+    // [AddComponentMenu("UIBind/★★★UI Component Table 组件表★★★")]
+    
+    
+    [HideLabel]
+    [Serializable]
+    [HideMonoScript]
+    [DisallowMultipleComponent]
+    [AddComponentMenu("")]
     public sealed partial class UIBindComponentTable:SerializedMonoBehaviour
     {
         [OdinSerialize]

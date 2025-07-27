@@ -64,6 +64,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 Namespace     = UISetting.UINamespace,
                 PkgName       = cdeTable.PkgName,
                 ResName       = cdeTable.ResName,
+                ScriptFilePath = cdeTable.BaseScriptPath,
                 BaseClass     = GetBaseClass(cdeTable),
                 Variables     = UICreateVariables.Get(cdeTable),
                 UIBind        = UICreateBind.GetBind(cdeTable),
@@ -85,6 +86,7 @@ namespace Zeng.GameFrame.UIS.Editor
                     Namespace   = UISetting.UINamespace,
                     PkgName     = cdeTable.PkgName,
                     ResName     = cdeTable.ResName,
+                    ScriptFilePath = cdeTable.CreateScriptPath,
                     OverrideDic = UICreateMethod.GetEventOverrideDic(cdeTable),
                 };
 
@@ -101,6 +103,7 @@ namespace Zeng.GameFrame.UIS.Editor
                     Namespace   = UISetting.UINamespace,
                     PkgName     = cdeTable.PkgName,
                     ResName     = cdeTable.ResName,
+                    ScriptFilePath = cdeTable.CreateScriptPath,
                     OverrideDic = UICreateMethod.GetEventOverrideDic(cdeTable),
                 };
 
@@ -117,6 +120,7 @@ namespace Zeng.GameFrame.UIS.Editor
                     Namespace   = UISetting.UINamespace,
                     PkgName     = cdeTable.PkgName,
                     ResName     = cdeTable.ResName,
+                    ScriptFilePath = cdeTable.CreateScriptPath,
                     OverrideDic = UICreateMethod.GetEventOverrideDic(cdeTable),
                 };
 

@@ -64,6 +64,10 @@ namespace Zeng.GameFrame.UIS
         //低品质 将会影响动画等逻辑 也可以根据这个参数自定义一些区别
         public static bool IsLowQuality = false;
         
+        [BoxGroup("基础设置", CenterLabel = true)]
+        [LabelText("使用老的CDEInspector显示模式")]
+        public static bool DisplayOldCDEInspector = false;
+        
         
     }
 }

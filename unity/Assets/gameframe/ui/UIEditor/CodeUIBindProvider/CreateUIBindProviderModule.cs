@@ -11,23 +11,23 @@ namespace Zeng.GameFrame.UIS.Editor
     /// </summary>
     public class CreateUIBindProviderModule
     { 
-        private static CreateUIBindProviderModule instance;
-        public static CreateUIBindProviderModule Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new CreateUIBindProviderModule();
-                }
-
-                return instance;
-            }
-        }
+        // private static CreateUIBindProviderModule instance;
+        // public static CreateUIBindProviderModule Instance
+        // {
+        //     get
+        //     {
+        //         if (instance == null)
+        //         {
+        //             instance = new CreateUIBindProviderModule();
+        //         }
+        //
+        //         return instance;
+        //     }
+        // }
 
         
-        [Button("UI自动生成绑定替代反射代码", 50), GUIColor(0.4f, 0.8f, 1)]
-        public void Create()
+        // [Button("UI自动生成绑定替代反射代码", 50), GUIColor(0.4f, 0.8f, 1)]
+        public static void Create()
         {
             if (!UIOperationHelper.CheckUIOperation()) return;
 

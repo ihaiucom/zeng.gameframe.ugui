@@ -12,22 +12,26 @@ namespace Zeng.GameFrame.UIS
     [AddComponentMenu("UIBind/★★★★★UI CDE Table 总表★★★★★")]
     public sealed partial class UIBindCDETable : SerializedMonoBehaviour
     {
-        #if UNITY_EDITOR
-        [InlineButton("AddComponentTable", "Add")]
-        [EnableIf("@UIOperationHelper.CommonShowIf()")]
-        #endif
+        // #if UNITY_EDITOR
+        // [InlineButton("AddComponentTable", "Add")]
+        // [EnableIf("@UIOperationHelper.CommonShowIf()")]
+        // #endif
+        
+        [HideInInspector]
         public UIBindComponentTable ComponentTable;
 
-        #if UNITY_EDITOR
-        [InlineButton("AddDataTable", "Add")]
-        [EnableIf("@UIOperationHelper.CommonShowIf()")]
-        #endif
+        // #if UNITY_EDITOR
+        // [InlineButton("AddDataTable", "Add")]
+        // [EnableIf("@UIOperationHelper.CommonShowIf()")]
+        // #endif
+        [HideInInspector]
         public UIBindDataTable DataTable;
 
-        #if UNITY_EDITOR
-        [InlineButton("AddEventTable", "Add")]
-        [EnableIf("@UIOperationHelper.CommonShowIf()")]
-        #endif
+        // #if UNITY_EDITOR
+        // [InlineButton("AddEventTable", "Add")]
+        // [EnableIf("@UIOperationHelper.CommonShowIf()")]
+        // #endif
+        [HideInInspector]
         public UIBindEventTable EventTable;
 
         [LabelText("UI包名")]

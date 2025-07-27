@@ -15,6 +15,7 @@ namespace Zeng.GameFrame.UIS.Editor
         public string UIUnBind;      //解绑里面的东西
         public string VirtualMethod; //所有虚方法  Event里面的那些注册方法
         public string PanelViewEnum; //枚举生成
+        public string ScriptFilePath;//脚本生成路径
     }
 }
 #endif

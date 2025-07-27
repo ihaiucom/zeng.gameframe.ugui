@@ -17,7 +17,8 @@ namespace Zeng.GameFrame.UIS.Editor
 
         public UICreateBaseCode(out bool result, string authorName, UICreateBaseData codeData) : base(authorName)
         {
-            var path     = $"{UISetting.UIGenerationPath}/{codeData.PkgName}/{codeData.ResName}Base.cs";
+            // var path     = $"{UISetting.UIGenerationPath}/{codeData.PkgName}/{codeData.ResName}Base.cs";
+            var path     = codeData.ScriptFilePath;
             var template = $"{UISetting.UITemplatePath}/UICreateBaseTemplate.txt";
             CreateVo = new CreateVo(template, path);
 

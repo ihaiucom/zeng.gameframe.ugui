@@ -17,7 +17,8 @@ namespace Zeng.GameFrame.UIS.Editor
 
         public UICreateViewCode(out bool result, string authorName, UICreateViewData codeData) : base(authorName)
         {
-            var path     = $"{UISetting.UICodeScriptsPath}/{codeData.PkgName}/{codeData.ResName}.cs";
+            // var path     = $"{UISetting.UICodeScriptsPath}/{codeData.PkgName}/{codeData.ResName}.cs";
+            var path     = codeData.ScriptFilePath;
             var template = $"{UISetting.UITemplatePath}/UICreateViewTemplate.txt";
             CreateVo = new CreateVo(template, path);
 

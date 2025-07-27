@@ -11,6 +11,7 @@ namespace Zeng.GameFrame.UIS.Editor
         public string                                               PkgName;   //包名/模块名
         public string                                               ResName;   //资源名 类名+Base
         public Dictionary<string, List<Dictionary<string, string>>> OverrideDic;
+        public string ScriptFilePath;//脚本生成路径
     }
 }
 #endif

@@ -7,9 +7,16 @@ using UnityEngine;
 namespace Zeng.GameFrame.UIS
 {
     //[DetailedInfoBox("UI 数据表 点击展开详细介绍", @"李胜扬")]
-    [LabelText("UI 数据表")]
+    // [LabelText("UI 数据表")]
+    // [Serializable]
+    // [AddComponentMenu("UIBind/★★★UI Data Table 数据表★★★")]
+    
+    
+    [HideLabel]
     [Serializable]
-    [AddComponentMenu("UIBind/★★★UI Data Table 数据表★★★")]
+    [HideMonoScript]
+    [DisallowMultipleComponent]
+    [AddComponentMenu("")]
     public sealed partial class UIBindDataTable : SerializedMonoBehaviour
     {
         [OdinSerialize]
