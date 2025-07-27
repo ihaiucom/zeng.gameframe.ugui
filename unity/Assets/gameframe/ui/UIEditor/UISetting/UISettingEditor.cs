@@ -39,13 +39,14 @@ namespace Zeng.GameFrame.UIS.Editor
             
             OdinMenuTree tree = new OdinMenuTree(supportsMultiSelect: true)
             {
-                { "UI设置", UISettingConfig.Instance, EditorIcons.SettingsCog },
+                { "UI设置", UISettingConfigEditor.Instance, EditorIcons.SettingsCog },
                 { "创建模块", UICreateModuleEditor.Instance, EditorIcons.Folder },
                 { "多语言", UII2LocalizationEditor.Instance, EditorIcons.Globe },
-                { "发布", UIPushEditor.Instance, EditorIcons.Play },
+                {UIPushEditor.MenuName, UIPushEditor.Instance, EditorIcons.Play },
             };
             tree.Selection.SelectionChanged += OnSelectionChanged;
             m_OdinMenuTree = tree;
+            UIPushEditor.Instance.Tree = tree;
             return tree;
         }
 

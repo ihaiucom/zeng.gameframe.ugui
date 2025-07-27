@@ -33,7 +33,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
             var codeData = GenCodeByType(typeof(UIBindProvider));
             if (codeData == null) return;
-            new CreateUIBindProviderCode(out var result, UISettingConfig.Author, codeData);
+            new CreateUIBindProviderCode(out var result, UISettingConfigEditor.Author, codeData);
 
             if (result)
             {

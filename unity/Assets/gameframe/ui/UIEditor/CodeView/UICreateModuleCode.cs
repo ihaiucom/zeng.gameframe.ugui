@@ -72,7 +72,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 PanelViewEnum = UICreatePanelViewEnum.Get(cdeTable),
             };
 
-            new UICreateBaseCode(out var resultBase, UISettingConfig.Author, createBaseData);
+            new UICreateBaseCode(out var resultBase, UISettingConfigEditor.Author, createBaseData);
 
             if (!resultBase) return;
 
@@ -88,7 +88,7 @@ namespace Zeng.GameFrame.UIS.Editor
                     OverrideDic = UICreateMethod.GetEventOverrideDic(cdeTable),
                 };
 
-                new UICreatePanelCode(out var result, UISettingConfig.Author, createPanelData);
+                new UICreatePanelCode(out var result, UISettingConfigEditor.Author, createPanelData);
 
                 if (!result) return;
             }
@@ -104,7 +104,7 @@ namespace Zeng.GameFrame.UIS.Editor
                     OverrideDic = UICreateMethod.GetEventOverrideDic(cdeTable),
                 };
 
-                new UICreateViewCode(out var result, UISettingConfig.Author, createViewData);
+                new UICreateViewCode(out var result, UISettingConfigEditor.Author, createViewData);
 
                 if (!result) return;
             }
@@ -120,7 +120,7 @@ namespace Zeng.GameFrame.UIS.Editor
                     OverrideDic = UICreateMethod.GetEventOverrideDic(cdeTable),
                 };
 
-                new UICreateComponentCode(out var result, UISettingConfig.Author, createComponentData);
+                new UICreateComponentCode(out var result, UISettingConfigEditor.Author, createComponentData);
 
                 if (!result) return;
             }

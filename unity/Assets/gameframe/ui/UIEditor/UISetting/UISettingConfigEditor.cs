@@ -1,10 +1,12 @@
+#if UNITY_EDITOR
+
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
 
 namespace Zeng.GameFrame.UIS.Editor
 {
-    public class UISettingConfig : GlobalConfig<UISettingConfig>, ITreeMenu
+    public class UISettingConfigEditor : GlobalConfig<UISettingConfigEditor>, ITreeMenu
     {
         public static StringPrefs UserNamePrefs = new StringPrefs("UITool_UserName", null, "UI");
 
@@ -49,3 +51,4 @@ namespace Zeng.GameFrame.UIS.Editor
         }
     }
 }
+#endif

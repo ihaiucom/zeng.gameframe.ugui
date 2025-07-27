@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using Sirenix.OdinInspector;
 
 namespace Zeng.GameFrame.UIS.Editor
@@ -61,3 +63,4 @@ namespace Zeng.GameFrame.UIS.Editor
         }
     }
 }
+#endif
