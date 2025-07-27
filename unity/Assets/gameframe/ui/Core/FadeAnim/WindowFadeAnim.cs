@@ -1,5 +1,7 @@
-﻿using Cysharp.Threading.Tasks;
-using DG.Tweening;
+﻿using System;
+using Cysharp.Threading.Tasks;
+using LitMotion;
+using LitMotion.Extensions;
 using UnityEngine;
 
 namespace Zeng.GameFrame.UIS
@@ -20,7 +22,17 @@ namespace Zeng.GameFrame.UIS
             uiBase.SetActive(true);
             obj.transform.localScale = m_AnimScale;
 
-            await obj.transform.DOScale(Vector3.one, time);
+            var handle = LMotion.Create(obj.transform.localScale, Vector3.one, time)
+                .BindToLocalScale(obj.transform);
+            
+            try
+            {
+                await handle.ToUniTask(CancelBehavior.Complete);
+            }
+            catch (OperationCanceledException e)
+            {
+                Debug.LogException(e);
+            }
         }
 
         //淡出
@@ -30,8 +42,19 @@ namespace Zeng.GameFrame.UIS
             if (obj == null) return;
 
             obj.transform.localScale = Vector3.one;
-
-            await obj.transform.DOScale(m_AnimScale, time);
+            
+            
+            var handle =LMotion.Create(obj.transform.localScale, m_AnimScale, time)
+                .BindToLocalScale(obj.transform);
+            
+            try
+            {
+                await handle.ToUniTask(CancelBehavior.Complete);
+            }
+            catch (OperationCanceledException e)
+            {
+                Debug.LogException(e);
+            }
 
             uiBase.SetActive(false);
             obj.transform.localScale = Vector3.one;

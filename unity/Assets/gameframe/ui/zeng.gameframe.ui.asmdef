@@ -5,7 +5,9 @@
         "UniTask",
         "UniTask.DOTween",
         "YooAsset",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "LitMotion",
+        "LitMotion.Extensions"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
