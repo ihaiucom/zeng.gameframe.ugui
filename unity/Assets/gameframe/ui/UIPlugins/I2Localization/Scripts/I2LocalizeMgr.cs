@@ -4,42 +4,41 @@ using System.Text.RegularExpressions;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zeng.GameFrame.UIS;
 using Object = UnityEngine.Object;
 
 namespace I2.Loc
 {
     [RequireComponent(typeof(LanguageSource))]
-    public class I2LocalizeMgr : MonoBehaviour, IResourceManager_Bundles
+    public class I2LocalizeMgr : MonoSingleton<I2LocalizeMgr>, IResourceManager_Bundles
     {
 
-        private static I2LocalizeMgr s_Instance;
-        public static I2LocalizeMgr I
-        {
-            get
-            {
-                if (s_Instance == null)
-                {
-                    s_Instance = FindObjectOfType<I2LocalizeMgr>();
-                    if (s_Instance == null)
-                    {
-                        GameObject gameObject = new GameObject("I2LocalizeMgr");
-                        gameObject.AddComponent<LanguageSource>();
-                        s_Instance = gameObject.AddComponent<I2LocalizeMgr>();
-                        gameObject.hideFlags = HideFlags.DontSave;
-                        DontDestroyOnLoad(gameObject);
-                    }
-                }
-
-                return s_Instance;
-            }
-        }
-
-        private void Awake()
-        {
-            s_Instance = this;
-        }
+        // private static I2LocalizeMgr s_Instance;
+        // public static I2LocalizeMgr I
+        // {
+        //     get
+        //     {
+        //         if (s_Instance == null)
+        //         {
+        //             s_Instance = FindObjectOfType<I2LocalizeMgr>();
+        //             if (s_Instance == null)
+        //             {
+        //                 GameObject gameObject = new GameObject("I2LocalizeMgr");
+        //                 gameObject.AddComponent<LanguageSource>();
+        //                 s_Instance = gameObject.AddComponent<I2LocalizeMgr>();
+        //                 gameObject.hideFlags = HideFlags.DontSave;
+        //                 DontDestroyOnLoad(gameObject);
+        //             }
+        //         }
+        //
+        //         return s_Instance;
+        //     }
+        // }
+        //
+        // private void Awake()
+        // {
+        //     s_Instance = this;
+        // }
 
         [SerializeField]
         [ReadOnly]
@@ -103,6 +102,7 @@ namespace I2.Loc
 
         public void OnEnable()
         {
+            Debug.Log("I2LocalizeMgr OnEnable");
             if (!ResourceManager.pInstance.mBundleManagers.Contains(this))
             {
                 ResourceManager.pInstance.mBundleManagers.Add(this);
@@ -111,11 +111,21 @@ namespace I2.Loc
 
         public void OnDisable()
         {
+            Debug.Log("I2LocalizeMgr OnDisable");
             ResourceManager.pInstance.mBundleManagers.Remove(this);
+        }
+
+        private void OnDestroy()
+        {
+            Debug.Log("I2LocalizeMgr OnDestroy");
+
+            ResourceManager.pInstance.mBundleManagers.Remove(this);
+            LocalizationManager.OnLanguageChange -= OnLanguageChange;
         }
 
         public virtual Object LoadFromBundle(string path, Type assetType)
         {
+            // if(path.EndsWith('\r')) path = path.Replace('\r', ' ');
             var assetObject = UILoad.LoadAsset(path, assetType);
             if (assetObject != null) return assetObject;
             Debug.LogError($"没有加载到目标 {path}  类型 {assetType.Name}");
@@ -123,8 +133,6 @@ namespace I2.Loc
         }
 
         #endregion
-
-        #region Editor
 
         #if UNITY_EDITOR
 
@@ -155,10 +163,14 @@ namespace I2.Loc
         
         #endif
 
-        #endregion
 
         
-        public async UniTask<bool> InitAsync()
+        protected override bool GetHideAndDontSave()
+        {
+            return false;
+        }
+        
+        protected override async UniTask<bool> MgrAsyncInit()
         {
             if (string.IsNullOrEmpty(DefaultLanguage))
             {

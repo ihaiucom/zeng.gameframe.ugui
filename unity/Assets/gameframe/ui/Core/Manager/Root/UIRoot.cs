@@ -149,7 +149,7 @@ namespace Zeng.GameFrame.UIS
             }
 
         }
-        private void ResetRoot()
+        internal void ResetRoot()
         {
             for (int i = UILayerRoot.transform.childCount - 1; i >= 0; i--)
             {

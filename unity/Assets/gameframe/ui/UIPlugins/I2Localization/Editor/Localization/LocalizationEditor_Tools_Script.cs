@@ -5,12 +5,36 @@ using System.Text;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
-using UnityEngineInternal;
 
 namespace I2.Loc
 {
 	public partial class LocalizationEditor
 	{
+		private static int WaitFrame = 0;
+
+		[MenuItem("Tools/I2 Localization/Script Localization")]
+		private static void GenerateScriptLocalization()
+		{
+			EditorApplication.ExecuteMenuItem("Tools/I2 Localization/Open I2Languages.asset");
+			WaitFrame = 0;
+			EditorApplication.update += DoGenerateScriptLocalization;
+		}
+
+		private static void DoGenerateScriptLocalization()
+		{
+			WaitFrame++;
+			Debug.Log($"开始生成代码 LocalizationEditor.mLanguageSourceEditor={LocalizationEditor.mLanguageSourceEditor}");
+			if (LocalizationEditor.mLanguageSourceEditor != null || WaitFrame > 100)
+			{
+				WaitFrame = 0;
+				EditorApplication.update -= DoGenerateScriptLocalization;
+				LocalizationEditor.mLanguageSourceEditor?.GenCode();
+			}
+
+		}
+		
+		
+		
 		private static string I2LocalizeCS = "I2Localize";
 		private static string I2TermsCS = "I2Terms";
 		#region Variables

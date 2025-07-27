@@ -169,6 +169,13 @@ namespace I2.Loc
 			if (iStart>iWordStart)
 				AddCSVtoken(ref list, ref Line, iStart, ref iWordStart);
 
+
+			if (list.Count > 0 && list[list.Count - 1].EndsWith('\r'))
+			{
+				// Debug.Log("has \\r" + list[list.Count - 1]);
+				list[list.Count - 1] = list[list.Count - 1].Substring(0, list[list.Count - 1].Length-1);
+			}
+
 			return list.ToArray();
 		}
 
@@ -196,8 +203,19 @@ namespace I2.Loc
 			string[] RowSeparator = {"[ln]"};
 
 			List<string[]> CSV = new List<string[]>();
-			foreach (var line in Text.Split (RowSeparator, StringSplitOptions.None))
-				CSV.Add (line.Split (ColumnSeparator, StringSplitOptions.None));
+			foreach (var line in Text.Split(RowSeparator, StringSplitOptions.None))
+			{
+				if (line.EndsWith('\r'))
+				{
+					 var line2 = line.Substring(0, line.Length-1);
+					 CSV.Add (line2.Split (ColumnSeparator, StringSplitOptions.None));
+				}
+				else
+				{
+					CSV.Add (line.Split (ColumnSeparator, StringSplitOptions.None));
+				}
+
+			}
 
 			return CSV;
 		}

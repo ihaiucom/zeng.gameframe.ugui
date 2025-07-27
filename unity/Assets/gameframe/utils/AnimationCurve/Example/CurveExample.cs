@@ -21,9 +21,9 @@ namespace Zeng.Utils
             new UnityEngine.Keyframe(1, 1),
             new UnityEngine.Keyframe(2, 0)
         );
-        
         public bool useCustomCurve = true;
         
+#if UNITY
         [ContextMenu("FromUnityCurve")]
         [Button("FromUnityCurve")]
         public void FromUnityCurve()
@@ -38,6 +38,7 @@ namespace Zeng.Utils
         {
             customCurve.RefshToUnityCurve(unityCurve);
         }
+#endif
     
         private void Update()
         {

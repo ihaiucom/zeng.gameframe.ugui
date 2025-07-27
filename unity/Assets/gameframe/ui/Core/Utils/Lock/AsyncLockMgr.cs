@@ -3,24 +3,18 @@ using Cysharp.Threading.Tasks;
 
 namespace Zeng.GameFrame.UIS
 {
-    public class AsyncLockMgr
+    public class AsyncLockMgr : MgrSingleton<AsyncLockMgr>
     {
-        private static AsyncLockMgr _i;
-        public static AsyncLockMgr I
-        {
-            get
-            {                
-                if (_i == null)
-                {
-                    _i = new AsyncLockMgr();
-                }
-                return _i;
-            }            
-        }
-        
         private readonly Dictionary<long, AsyncLockComponent> m_SemaphoreSlims = new Dictionary<long, AsyncLockComponent>();
 
         private readonly Dictionary<long, int> m_SemaphoreSlimsRefCount = new Dictionary<long, int>();
+
+        protected override void OnDispose()
+        {
+            m_SemaphoreSlims.Clear();
+            m_SemaphoreSlimsRefCount.Clear();
+            base.OnDispose();
+        }
 
         internal bool Release(long key)
         {

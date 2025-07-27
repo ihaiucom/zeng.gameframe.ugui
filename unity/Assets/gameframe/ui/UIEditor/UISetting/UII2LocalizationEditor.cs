@@ -83,31 +83,9 @@ namespace Zeng.GameFrame.UIS.Editor
         [GUIColor(0f, 1f, 0.5f)]
         private void GenCode()
         {
-            OpenI2Languages();
-            WaitFrame = 0;
-            EditorApplication.update += BuildScriptWithSelectedTerms;
+            EditorApplication.ExecuteMenuItem("Tools/I2 Localization/Script Localization");
         }
 
-        [BoxGroup("代码", false, true)]
-        [ShowIf("ShowWaitFrame")]
-        private int WaitFrame = 0;
-
-        private bool ShowWaitFrame()
-        {
-            return WaitFrame > 0;
-        }
-        private void BuildScriptWithSelectedTerms()
-        {
-            WaitFrame++;
-            Debug.Log($"开始生成代码 LocalizationEditor.mLanguageSourceEditor={LocalizationEditor.mLanguageSourceEditor}");
-            if (LocalizationEditor.mLanguageSourceEditor != null || WaitFrame > 100)
-            {
-                WaitFrame = 0;
-                EditorApplication.update -= BuildScriptWithSelectedTerms;
-                LocalizationEditor.mLanguageSourceEditor?.GenCode();
-            }
-
-        }
 
         #region 导出
 

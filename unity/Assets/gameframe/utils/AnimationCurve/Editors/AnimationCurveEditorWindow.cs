@@ -1,9 +1,9 @@
+#if UNITY_EDITOR && UNITY
 using System;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-#if UNITY_EDITOR
 namespace Zeng.Utils.Editor
 {
     

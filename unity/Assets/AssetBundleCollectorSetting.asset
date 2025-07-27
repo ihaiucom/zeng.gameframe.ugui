@@ -33,7 +33,7 @@ MonoBehaviour:
         CollectorGUID: df993c09aa9e4d3d91cc9dd67fd6034d
         CollectorType: 0
         AddressRuleName: AddressByFileName
-        PackRuleName: PackSeparately
+        PackRuleName: PackDirectory
         FilterRuleName: CollectPrefab
         AssetTags: 
         UserData: 
@@ -46,7 +46,7 @@ MonoBehaviour:
         CollectorGUID: 92ae60eb54cb2e5438173794500d39ba
         CollectorType: 0
         AddressRuleName: AddressDisable
-        PackRuleName: PackDirectory
+        PackRuleName: PackSeparately
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
@@ -60,7 +60,7 @@ MonoBehaviour:
         CollectorType: 0
         AddressRuleName: AddressByFileName
         PackRuleName: PackDirectory
-        FilterRuleName: CollectAll
+        FilterRuleName: CollectSprite
         AssetTags: 
         UserData: 
     - GroupName: I2Localization
@@ -72,7 +72,7 @@ MonoBehaviour:
         CollectorGUID: 332a230f39d805b4ea6f759d4a78ba32
         CollectorType: 0
         AddressRuleName: AddressByFileName
-        PackRuleName: PackDirectory
+        PackRuleName: PackSeparately
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 

@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+#if UNITY_EDITOR && UNITY
 using UnityEngine;
 using UnityEditor;
 
@@ -47,7 +47,7 @@ namespace Zeng.Utils.Editor
             }
 
             // 1. 显示当前曲线的预览
-            _unityCurve = EditorGUI.CurveField(curveRect,_unityCurve);
+            EditorGUI.CurveField(curveRect,_unityCurve);
             // curve.RefshFromUnityCurve(_unityCurve);
 
             // 2. 添加编辑按钮
@@ -61,6 +61,7 @@ namespace Zeng.Utils.Editor
                         curve = updatedCurve;
                         fieldInfo.SetValue(property.serializedObject.targetObject, curve);
                         property.serializedObject.ApplyModifiedProperties();
+                        curve.RefshToUnityCurve(_unityCurve);
                     });
             }
         }

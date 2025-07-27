@@ -7,22 +7,8 @@ using Object = UnityEngine.Object;
 
 namespace Zeng.GameFrame.UIS
 {
-    public class UILoadProxyYooAsset
+    public class UILoadProxyYooAsset : Singleton<UILoadProxyYooAsset>
     {
-        private static UILoadProxyYooAsset _i;
-
-        public static UILoadProxyYooAsset I
-        {
-            get
-            {
-                if (_i == null)
-                {
-                    _i = new UILoadProxyYooAsset();
-                }
-
-                return _i;
-            }
-        }
 
         private ResourcePackage package;
 
@@ -39,6 +25,13 @@ namespace Zeng.GameFrame.UIS
             UILoadProxy.ReleaseAction = ReleaseAction; //释放
             UILoadProxy.VerifyAssetValidityFunc = VerifyAssetValidityFunc; //检查
             UILoadProxy.ReleaseAllAction = ReleaseAllAction; //释放所有
+        }
+
+        protected override void OnDispose()
+        {
+            this.package = null;
+            m_AllHandle.Clear();
+            base.OnDispose();
         }
 
 

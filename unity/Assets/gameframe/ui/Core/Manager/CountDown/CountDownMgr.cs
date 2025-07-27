@@ -19,23 +19,8 @@ namespace Zeng.GameFrame.UIS
     /// 匿名函数                      否                          是                          (匿名函数也可以被暂停 移除等操作)
     /// ......
     /// </summary>
-    public partial class CountDownMgr
+    public partial class CountDownMgr  : MgrSingleton<CountDownMgr>
     {
-        private static CountDownMgr _i;
-
-        public static CountDownMgr I
-        {
-            get
-            {
-                if (_i == null)
-                {
-                    _i = new CountDownMgr();
-                }
-
-                return _i;
-            }
-        }
-        
         /// <summary>
         /// 回调方法
         /// </summary>

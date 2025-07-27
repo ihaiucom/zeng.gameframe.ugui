@@ -16,7 +16,7 @@ namespace Zeng.GameFrame.UIS
 
         private float m_LastRecoverOptionTime; //下一次恢复操作时间
 
-        private void OnBlockDispose()
+        internal void OnBlockDispose()
         {
             RemoveLastCountDown();
         }

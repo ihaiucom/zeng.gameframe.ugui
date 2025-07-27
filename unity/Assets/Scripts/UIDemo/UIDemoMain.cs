@@ -32,6 +32,7 @@ namespace Zeng.Demos
 
         private async UniTask InitAsync()
         {
+            SingletonMgr.Initialize();
             await YooAssetInit.I.InitAsync(YooAssetPlayMode, YooAssetDefaultHostServer, YooAsetFallbackHostServer);
             
             if (YooAssetInit.I.isInitSuccess)
@@ -39,8 +40,13 @@ namespace Zeng.Demos
                 UILoadProxyYooAsset.I.Init(YooAssetInit.I.package);
                 
                 UIBindHelper.InternalGameGetUIBindVoFunc = UICodeGenerated.UIBindProvider.Get;
-                await UIManager.I.InitAsync();
-                await I2LocalizeMgr.I.InitAsync();
+                
+                
+                await MgrCenter.I.Register(SchedulerMgr.I);
+                await MgrCenter.I.Register(AsyncLockMgr.I);
+                await MgrCenter.I.Register(I2LocalizeMgr.I);
+                await MgrCenter.I.Register(CountDownMgr.I);
+                await MgrCenter.I.Register(UIManager.I);
                 
                 UIManager.I.OpenPanel<LoginPanel>();
                 // UIManager.I.OpenPanel<HomePanel>();
@@ -50,6 +56,14 @@ namespace Zeng.Demos
             
 
            
+        }
+        
+        
+        //重启流程
+        private void OnDestroy()
+        {
+            UIBindHelper.Reset();
+            SingletonMgr.Dispose();
         }
     }
 }

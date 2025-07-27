@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+#if UNITY
 namespace Zeng.Utils
 {
     public partial class AnimationCurve
@@ -81,11 +81,11 @@ namespace Zeng.Utils
                 ));
             }
 
-            // 确保曲线数据一致
-            for (int i = 0; i < unityCurve.length; i++)
-            {
-                unityCurve.SmoothTangents(i, 0);
-            }
+            // // 确保曲线数据一致
+            // for (int i = 0; i < unityCurve.length; i++)
+            // {
+            //     unityCurve.SmoothTangents(i, 0);
+            // }
         }
 
         /// <summary>

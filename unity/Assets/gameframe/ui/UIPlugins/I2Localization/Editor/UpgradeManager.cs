@@ -254,7 +254,7 @@ namespace I2.Loc
 			return asset;
 		}
 
-        [MenuItem("Tools/I2 Localization/Help", false, 30)]
+        // [MenuItem("Tools/I2 Localization/Help", false, 30)]
         [MenuItem("Help/I2 Localization")]
         public static void MainHelp()
         {
