@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
+using System;
 using UnityEngine;
 
 namespace Zeng.GameFrame.UIS
@@ -56,8 +57,8 @@ namespace Zeng.GameFrame.UIS
         private void Refresh()
         {
             #if UNITY_EDITOR
-            var prefabType = PrefabUtility.GetPrefabType(this.gameObject);
-            if (prefabType == PrefabType.Prefab)
+            var prefabType = PrefabUtility.GetPrefabAssetType(this.gameObject);
+            if (prefabType != PrefabAssetType.NotAPrefab)
             {
                 return;
             }

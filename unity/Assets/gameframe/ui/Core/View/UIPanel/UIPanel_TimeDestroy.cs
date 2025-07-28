@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace Zeng.GameFrame.UIS
 {
@@ -37,6 +38,7 @@ namespace Zeng.GameFrame.UIS
             catch (OperationCanceledException e)
             {
                 //取消倒计时 正常操作不需要日志
+                Debug.LogError(e.Message);
                 return;
             }
 

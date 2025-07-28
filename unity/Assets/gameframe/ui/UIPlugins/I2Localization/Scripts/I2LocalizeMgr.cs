@@ -115,12 +115,13 @@ namespace I2.Loc
             ResourceManager.pInstance.mBundleManagers.Remove(this);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
             Debug.Log("I2LocalizeMgr OnDestroy");
 
             ResourceManager.pInstance.mBundleManagers.Remove(this);
             LocalizationManager.OnLanguageChange -= OnLanguageChange;
+            base.OnDestroy();
         }
 
         public virtual Object LoadFromBundle(string path, Type assetType)

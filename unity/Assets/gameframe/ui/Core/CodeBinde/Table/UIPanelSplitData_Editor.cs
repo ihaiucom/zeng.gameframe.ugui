@@ -235,6 +235,7 @@ namespace Zeng.GameFrame.UIS
             }
         }
 
+        [Button("重置拆分列表数据", 30)]
         public void Reset()
         {
             // AllCommonView.Clear();

@@ -80,7 +80,7 @@ namespace Zeng.GameFrame.UIS
 
         //子类如果使用这个生命周期记得调用base
         //推荐使用 重写 OnDispose
-        protected virtual void OnDestroy()
+        protected override void OnDestroy()
         {
             base.OnDestroy();
             SingletonMgr.Remove(_i);

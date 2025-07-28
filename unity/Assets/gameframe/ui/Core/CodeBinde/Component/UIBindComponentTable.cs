@@ -35,6 +35,7 @@ namespace Zeng.GameFrame.UIS
             return value;
         }
         
+        
         public T FindComponent<T>(string comName) where T :Component
         {
             return (T)FindComponent(comName);
