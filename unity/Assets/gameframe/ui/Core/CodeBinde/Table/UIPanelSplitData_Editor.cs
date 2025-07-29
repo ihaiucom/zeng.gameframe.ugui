@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
+using Zeng.GameFrame.UIS.Editor;
 
 namespace Zeng.GameFrame.UIS
 {
@@ -25,7 +26,7 @@ namespace Zeng.GameFrame.UIS
                 return false;
             }
 
-            if (!Panel.name.EndsWith(UISetting.UISource))
+            if (!Panel.name.EndsWith(UISettingConfigEditor.Instance.UISource))
             {
                 return false;
             }
@@ -71,28 +72,28 @@ namespace Zeng.GameFrame.UIS
                 return false;
             }
 
-            if (AllViewParent == null || AllViewParent.name != UISetting.UIAllViewParentName)
+            if (AllViewParent == null || AllViewParent.name != UISettingConfigEditor.Instance.UIAllViewParentName)
             {
-                AllViewParent = Panel.transform.FindChildByName(UISetting.UIAllViewParentName)
+                AllViewParent = Panel.transform.FindChildByName(UISettingConfigEditor.Instance.UIAllViewParentName)
                                      ?.GetComponent<RectTransform>();
             }
 
             if (AllViewParent == null)
             {
-                Debug.LogError($"没有找到 {Panel.name} {UISetting.UIAllViewParentName}  这是必须存在的组件 你可以不用 但是不能没有");
+                Debug.LogError($"没有找到 {Panel.name} {UISettingConfigEditor.Instance.UIAllViewParentName}  这是必须存在的组件 你可以不用 但是不能没有");
                 return false;
             }
 
 
-            if (AllPopupViewParent == null || AllPopupViewParent.name != UISetting.UIAllPopupViewParentName)
+            if (AllPopupViewParent == null || AllPopupViewParent.name != UISettingConfigEditor.Instance.UIAllPopupViewParentName)
             {
-                AllPopupViewParent = Panel.transform.FindChildByName(UISetting.UIAllPopupViewParentName)
+                AllPopupViewParent = Panel.transform.FindChildByName(UISettingConfigEditor.Instance.UIAllPopupViewParentName)
                                           .GetComponent<RectTransform>();
             }
 
             if (AllPopupViewParent == null)
             {
-                Debug.LogError($"没有找到 {Panel.name} {UISetting.UIAllPopupViewParentName}  这是必须存在的组件 你可以不用 但是不能没有");
+                Debug.LogError($"没有找到 {Panel.name} {UISettingConfigEditor.Instance.UIAllPopupViewParentName}  这是必须存在的组件 你可以不用 但是不能没有");
                 return false;
             }
 
@@ -107,15 +108,15 @@ namespace Zeng.GameFrame.UIS
                 Panel.name = qualifiedName;
             }
 
-            if (Panel.name == UISetting.UIUIPanelSourceName)
+            if (Panel.name == UISettingConfigEditor.Instance.UIUIPanelSourceName)
             {
-                Debug.LogError($"当前是默认名称 请手动修改名称 Xxx{UISetting.UIPanelSourceName}");
+                Debug.LogError($"当前是默认名称 请手动修改名称 Xxx{UISettingConfigEditor.Instance.UIPanelSourceName}");
                 return false;
             }
 
-            // if (!Panel.name.EndsWith($"{UISetting.UIPanelSourceName}"))
+            // if (!Panel.name.EndsWith($"{UISettingConfigEditor.Instance.UIPanelSourceName}"))
             // {
-            //     Debug.LogError($"{Panel.name} 命名必须以 {UISetting.UIPanelSourceName} 结尾 请勿随意修改");
+            //     Debug.LogError($"{Panel.name} 命名必须以 {UISettingConfigEditor.Instance.UIPanelSourceName} 结尾 请勿随意修改");
             //     return false;
             // }
 
@@ -140,16 +141,16 @@ namespace Zeng.GameFrame.UIS
                     current.name = qualifiedName;
                 }
 
-                if (current.name == UISetting.UIUIViewParentName)
+                if (current.name == UISettingConfigEditor.Instance.UIUIViewParentName)
                 {
-                    Debug.LogError($"当前是默认名称 请手动修改名称 Xxx{UISetting.UIViewParentName}");
+                    Debug.LogError($"当前是默认名称 请手动修改名称 Xxx{UISettingConfigEditor.Instance.UIViewParentName}");
                     list.RemoveAt(i);
                     continue;
                 }
 
-                if (!current.name.EndsWith(UISetting.UIViewParentName))
+                if (!current.name.EndsWith(UISettingConfigEditor.Instance.UIViewParentName))
                 {
-                    Debug.LogError($"{current.name} 命名必须以 {UISetting.UIViewParentName} 结尾 请勿随意修改");
+                    Debug.LogError($"{current.name} 命名必须以 {UISettingConfigEditor.Instance.UIViewParentName} 结尾 请勿随意修改");
                     list.RemoveAt(i);
                     continue;
                 }
@@ -205,11 +206,11 @@ namespace Zeng.GameFrame.UIS
                     //因为只有2个父级 所以如果不是这个就会自动帮你移动到另外一个上面
                     //如果多了还是不要自动了
                     var currentParentName = parentP.name;
-                    if (currentParentName == UISetting.UIAllViewParentName)
+                    if (currentParentName == UISettingConfigEditor.Instance.UIAllViewParentName)
                     {
                         AllCreateView.Add(current);
                     }
-                    else if (currentParentName == UISetting.UIAllPopupViewParentName)
+                    else if (currentParentName == UISettingConfigEditor.Instance.UIAllPopupViewParentName)
                     {
                         AllPopupView.Add(current);
                     }
@@ -244,9 +245,9 @@ namespace Zeng.GameFrame.UIS
 
             if (Panel != null)
             {
-                AllViewParent = Panel.transform.FindChildByName(UISetting.UIAllViewParentName)
+                AllViewParent = Panel.transform.FindChildByName(UISettingConfigEditor.Instance.UIAllViewParentName)
                     ?.GetComponent<RectTransform>();
-                AllPopupViewParent = Panel.transform.FindChildByName(UISetting.UIAllPopupViewParentName)
+                AllPopupViewParent = Panel.transform.FindChildByName(UISettingConfigEditor.Instance.UIAllPopupViewParentName)
                     ?.GetComponent<RectTransform>();
             }
 
@@ -263,7 +264,7 @@ namespace Zeng.GameFrame.UIS
             for (var i = 0; i < childCount; i++)
             {
                 var child = (RectTransform) parent.GetChild(i);
-                if (child != null && child.name.EndsWith(UISetting.UIViewParentName))
+                if (child != null && child.name.EndsWith(UISettingConfigEditor.Instance.UIViewParentName))
                 {
                     list.Add(child);
                 }

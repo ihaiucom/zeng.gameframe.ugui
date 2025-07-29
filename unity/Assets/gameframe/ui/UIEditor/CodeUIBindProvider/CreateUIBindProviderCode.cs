@@ -18,8 +18,8 @@ namespace Zeng.GameFrame.UIS.Editor
         public CreateUIBindProviderCode(out bool result, string authorName, UIBindProviderData codeData) : base(
             authorName)
         {
-            var path     = $"{UISetting.UIGenerationPath}/{codeData.Name}.cs";
-            var template = $"{UISetting.UITemplatePath}/UIBindProviderTemplate.txt";
+            var path     = $"{UISettingConfigEditor.Instance.UIGenerationPath}/{codeData.Name}.cs";
+            var template = $"{UISettingConfigEditor.Instance.UITemplatePath}/UIBindProviderTemplate.txt";
             CreateVo = new CreateVo(template, path);
 
             ValueDic["Count"]   = codeData.Count.ToString();

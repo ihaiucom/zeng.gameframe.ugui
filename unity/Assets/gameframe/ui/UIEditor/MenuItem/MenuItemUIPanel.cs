@@ -15,43 +15,43 @@ namespace Zeng.GameFrame.UIS.Editor
             if (activeObject == null)
             {
                 UnityTipsHelper.ShowError(
-                    $"请在路径 {UISetting.UIProjectResPath}/xxx/{UISetting.UISource} 下右键创建");
+                    $"请在路径 {UISettingConfigEditor.Instance.UIProjectResPath}/xxx/{UISettingConfigEditor.Instance.UISource} 下右键创建");
                 return;
             }
 
             var path = AssetDatabase.GetAssetPath(Selection.activeObject);
 
-            if ( /*activeObject.name != UISetting.UISource ||*/ 
-                !path.Contains(UISetting.UIProjectResPath))
+            if ( /*activeObject.name != UISettingConfigEditor.Instance.UISource ||*/ 
+                !path.Contains(UISettingConfigEditor.Instance.UIProjectResPath))
             {
                 UnityTipsHelper.ShowError(
-                    $"请在路径 {UISetting.UIProjectResPath}/xxx/{UISetting.UISource} 下右键创建");
+                    $"请在路径 {UISettingConfigEditor.Instance.UIProjectResPath}/xxx/{UISettingConfigEditor.Instance.UISource} 下右键创建");
                 return;
             }
             Debug.Log(path);
-            bool isSource = path.Contains(UISetting.UISource);
+            bool isSource = path.Contains(UISettingConfigEditor.Instance.UISource);
 
             CreateUIPanelByPath(path, null, isSource);
         }
 
         internal static void CreateUIPanelByPath(string path, string name = null, bool isSource = true)
         {
-            if (!path.Contains(UISetting.UIProjectResPath))
+            if (!path.Contains(UISettingConfigEditor.Instance.UIProjectResPath))
             {
                 UnityTipsHelper.ShowError(
-                    $"请在路径 {UISetting.UIProjectResPath}/xxx/{UISetting.UISource} 下右键创建");
+                    $"请在路径 {UISettingConfigEditor.Instance.UIProjectResPath}/xxx/{UISettingConfigEditor.Instance.UISource} 下右键创建");
                 return;
             }
 
             var saveName = string.IsNullOrEmpty(name)
-                ? UISetting.UIUIPanelSourceName
-                : $"{name}{UISetting.UIPanelSourceName}";
+                ? UISettingConfigEditor.Instance.UIUIPanelSourceName
+                : $"{name}{UISettingConfigEditor.Instance.UIPanelSourceName}";
 
             if (!isSource)
             {
                 saveName = string.IsNullOrEmpty(name)
-                    ? $"Xxx{UISetting.UIPanelName}"
-                    : $"{name}{UISetting.UIPanelName}";
+                    ? $"Xxx{UISettingConfigEditor.Instance.UIPanelName}"
+                    : $"{name}{UISettingConfigEditor.Instance.UIPanelName}";
             }
 
             var savePath = $"{path}/{saveName}.prefab";
@@ -100,7 +100,7 @@ namespace Zeng.GameFrame.UIS.Editor
             //cdeTable.PanelOption |= EPanelOption.DisReset; //如果想要都是默认缓存界面可开启
             var panelEditorData = cdeTable.PanelSplitData;
             panelEditorData.Panel = panelObject;
-            panelObject.name      = isSource ? UISetting.UIUIPanelSourceName : UISetting.UIUIPanelName;
+            panelObject.name      = isSource ? UISettingConfigEditor.Instance.UIUIPanelSourceName : UISettingConfigEditor.Instance.UIUIPanelName;
             if (activeObject != null)
                 panelRect.SetParent(activeObject.transform, false);
             panelRect.ResetToFullScreen();
@@ -118,7 +118,7 @@ namespace Zeng.GameFrame.UIS.Editor
             // 添加allView节点
             var allViewObject = new GameObject();
             var allViewRect   = allViewObject.GetOrAddComponent<RectTransform>();
-            allViewObject.name = UISetting.UIAllViewParentName;
+            allViewObject.name = UISettingConfigEditor.Instance.UIAllViewParentName;
             allViewRect.SetParent(panelRect, false);
             allViewRect.ResetToFullScreen();
             panelEditorData.AllViewParent = allViewRect;
@@ -126,7 +126,7 @@ namespace Zeng.GameFrame.UIS.Editor
             // 添加AllPopupView节点
             var allPopupViewObject = new GameObject();
             var allPopupViewRect   = allPopupViewObject.GetOrAddComponent<RectTransform>();
-            allPopupViewObject.name = UISetting.UIAllPopupViewParentName;
+            allPopupViewObject.name = UISettingConfigEditor.Instance.UIAllPopupViewParentName;
             allPopupViewRect.SetParent(panelRect, false);
             allPopupViewRect.ResetToFullScreen();
             panelEditorData.AllPopupViewParent = allPopupViewRect;

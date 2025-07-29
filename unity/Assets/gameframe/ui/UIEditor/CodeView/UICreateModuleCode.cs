@@ -61,7 +61,7 @@ namespace Zeng.GameFrame.UIS.Editor
             {
                 AutoRefresh   = refresh,
                 ShowTips      = tips,
-                Namespace     = UISetting.UINamespace,
+                Namespace     = UISettingConfigEditor.Instance.UINamespace,
                 PkgName       = cdeTable.PkgName,
                 ResName       = cdeTable.ResName,
                 ScriptFilePath = cdeTable.BaseScriptPath,
@@ -83,7 +83,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 {
                     AutoRefresh = refresh,
                     ShowTips    = tips,
-                    Namespace   = UISetting.UINamespace,
+                    Namespace   = UISettingConfigEditor.Instance.UINamespace,
                     PkgName     = cdeTable.PkgName,
                     ResName     = cdeTable.ResName,
                     ScriptFilePath = cdeTable.CreateScriptPath,
@@ -100,7 +100,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 {
                     AutoRefresh = refresh,
                     ShowTips    = tips,
-                    Namespace   = UISetting.UINamespace,
+                    Namespace   = UISettingConfigEditor.Instance.UINamespace,
                     PkgName     = cdeTable.PkgName,
                     ResName     = cdeTable.ResName,
                     ScriptFilePath = cdeTable.CreateScriptPath,
@@ -117,7 +117,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 {
                     AutoRefresh = refresh,
                     ShowTips    = tips,
-                    Namespace   = UISetting.UINamespace,
+                    Namespace   = UISettingConfigEditor.Instance.UINamespace,
                     PkgName     = cdeTable.PkgName,
                     ResName     = cdeTable.ResName,
                     ScriptFilePath = cdeTable.CreateScriptPath,
@@ -168,7 +168,7 @@ namespace Zeng.GameFrame.UIS.Editor
             if (string.IsNullOrEmpty(pkgName))
             {
                 UnityTipsHelper.ShowErrorContext(cdeTable,
-                    $"没有找到模块名 请在预制体上使用 且 必须在指定的文件夹下才可使用 {UISetting.UIProjectResPath}");
+                    $"没有找到模块名 请在预制体上使用 且 必须在指定的文件夹下才可使用 {UISettingConfigEditor.Instance.UIProjectResPath}");
                 return false;
             }
 
@@ -185,7 +185,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
         private static string GetPkgName(string path, string currentName = "")
         {
-            if (!path.Replace("\\", "/").Contains(UISetting.UIProjectResPath))
+            if (!path.Replace("\\", "/").Contains(UISettingConfigEditor.Instance.UIProjectResPath))
             {
                 return null;
             }
@@ -196,7 +196,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 return currentName;
             }
 
-            if (parentInfo.Name == UISetting.UIProjectName)
+            if (parentInfo.Name == UISettingConfigEditor.Instance.UIProjectName)
             {
                 return currentName;
             }

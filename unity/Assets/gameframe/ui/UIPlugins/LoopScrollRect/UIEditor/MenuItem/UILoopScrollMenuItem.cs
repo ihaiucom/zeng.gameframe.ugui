@@ -51,7 +51,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 return;
             }
 
-            var path = $"{UISetting.UIFrameworkPath}/UIPlugins/LoopScrollRect/UIEditor/TemplatePrefabs/{name}.prefab";
+            var path = $"{UISettingConfigEditor.Instance.UIFrameworkPath}/UIPlugins/LoopScrollRect/UIEditor/TemplatePrefabs/{name}.prefab";
 
             Selection.activeObject = UIMenuItemHelper.CloneGameObjectByPath(path, activeObject.transform);
         }

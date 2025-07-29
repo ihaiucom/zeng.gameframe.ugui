@@ -42,13 +42,13 @@ namespace Zeng.GameFrame.UIS.Editor
 
             createName = NameUtility.ToFirstUpper(createName);
 
-            var basePath          = $"{UISetting.UIProjectResPath}/{createName}";
-            var prefabsPath       = $"{basePath}/{UISetting.UIPrefabs}";
-            var spritesPath       = $"{basePath}/{UISetting.UISprites}";
-            var spritesAtlas1Path = $"{basePath}/{UISetting.UISprites}/{UISetting.UISpritesAtlas1}";
-            var atlasIgnorePath   = $"{basePath}/{UISetting.UISprites}/{UISetting.UIAtlasIgnore}";
-            var atlasPath         = $"{basePath}/{UISetting.UIAtlas}";
-            var sourcePath        = $"{basePath}/{UISetting.UISource}";
+            var basePath          = $"{UISettingConfigEditor.Instance.UIProjectResPath}/{createName}";
+            var prefabsPath       = $"{basePath}/{UISettingConfigEditor.Instance.UIPrefabs}";
+            var spritesPath       = $"{basePath}/{UISettingConfigEditor.Instance.UISprites}";
+            var spritesAtlas1Path = $"{basePath}/{UISettingConfigEditor.Instance.UISprites}/{UISettingConfigEditor.Instance.UISpritesAtlas1}";
+            var atlasIgnorePath   = $"{basePath}/{UISettingConfigEditor.Instance.UISprites}/{UISettingConfigEditor.Instance.UIAtlasIgnore}";
+            var atlasPath         = $"{basePath}/{UISettingConfigEditor.Instance.UIAtlas}";
+            var sourcePath        = $"{basePath}/{UISettingConfigEditor.Instance.UISource}";
 
             EditorHelper.CreateExistsDirectory(prefabsPath);
             EditorHelper.CreateExistsDirectory(spritesPath);

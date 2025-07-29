@@ -20,7 +20,7 @@ namespace Zeng.GameFrame.UIS
         {
             get
             {
-                return $"{UISetting.UIGenerationPath}/{PkgName}/{ResName}Base.cs";
+                return $"{UISettingConfigEditor.Instance.UIGenerationPath}/{PkgName}/{ResName}Base.cs";
             }
         }
 
@@ -31,7 +31,7 @@ namespace Zeng.GameFrame.UIS
         {
             get
             {
-                return $"{UISetting.UICodeScriptsPath}/{PkgName}/{ResName}.cs";
+                return $"{UISettingConfigEditor.Instance.UICodeScriptsPath}/{PkgName}/{ResName}.cs";
             }
         }
         
@@ -61,20 +61,20 @@ namespace Zeng.GameFrame.UIS
 
         private void OnValueChangedEUICodeType()
         {
-            if (name.EndsWith(UISetting.UIPanelName) || name.EndsWith(UISetting.UIPanelSourceName))
+            if (name.EndsWith(UISettingConfigEditor.Instance.UIPanelName) || name.EndsWith(UISettingConfigEditor.Instance.UIPanelSourceName))
             {
                 if (UICodeType != EUICodeType.Panel)
                 {
-                    Debug.LogWarning($"{name} 结尾{UISetting.UIPanelName} 必须设定为{UISetting.UIPanelName}类型");
+                    Debug.LogWarning($"{name} 结尾{UISettingConfigEditor.Instance.UIPanelName} 必须设定为{UISettingConfigEditor.Instance.UIPanelName}类型");
                 }
 
                 UICodeType = EUICodeType.Panel;
             }
-            else if (name.EndsWith(UISetting.UIViewName))
+            else if (name.EndsWith(UISettingConfigEditor.Instance.UIViewName))
             {
                 if (UICodeType != EUICodeType.View)
                 {
-                    Debug.LogWarning($"{name} 结尾{UISetting.UIViewName} 必须设定为{UISetting.UIViewName}类型");
+                    Debug.LogWarning($"{name} 结尾{UISettingConfigEditor.Instance.UIViewName} 必须设定为{UISettingConfigEditor.Instance.UIViewName}类型");
                 }
 
                 UICodeType = EUICodeType.View;

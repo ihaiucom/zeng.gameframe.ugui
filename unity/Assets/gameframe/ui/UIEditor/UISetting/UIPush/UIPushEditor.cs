@@ -39,7 +39,7 @@ namespace Zeng.GameFrame.UIS.Editor
         [LabelText("所有模块资源路径")]
         [ReadOnly]
         [ShowInInspector]
-        private string m_AllPkgPath = UISetting.UIProjectResPath;
+        private string m_AllPkgPath = UISettingConfigEditor.Instance.UIProjectResPath;
         
         
         
@@ -84,20 +84,20 @@ namespace Zeng.GameFrame.UIS.Editor
                     new OdinMenuItem(Tree, pkgName, newUIPublishPackageModule)).AddIcon(EditorIcons.Folder);
                 //
                 // //1 图集
-                // Tree.AddAllAssetsAtPath($"{m_PublishName}/{pkgName}/{UISetting.UIAtlasCN}",
-                //     $"{m_AllPkgPath}/{pkgName}/{UISetting.UIAtlas}", typeof(SpriteAtlas), true, false);
+                // Tree.AddAllAssetsAtPath($"{m_PublishName}/{pkgName}/{UISettingConfigEditor.Instance.UIAtlasCN}",
+                //     $"{m_AllPkgPath}/{pkgName}/{UISettingConfigEditor.Instance.UIAtlas}", typeof(SpriteAtlas), true, false);
 
                 //2 预制体
-                Tree.AddAllAssetsAtPath($"{MenuName}/{pkgName}/{UISetting.UIPrefabsCN}",
-                    $"{m_AllPkgPath}/{pkgName}/{UISetting.UIPrefabs}", typeof(UIBindCDETable), true, false);
+                Tree.AddAllAssetsAtPath($"{MenuName}/{pkgName}/{UISettingConfigEditor.Instance.UIPrefabsCN}",
+                    $"{m_AllPkgPath}/{pkgName}/{UISettingConfigEditor.Instance.UIPrefabs}", typeof(UIBindCDETable), true, false);
 
                 // //3 源文件
-                // Tree.AddAllAssetsAtPath($"{m_PublishName}/{pkgName}/{UISetting.UISourceCN}",
-                //     $"{m_AllPkgPath}/{pkgName}/{UISetting.UISource}", typeof(UIBindCDETable), true, false);
+                // Tree.AddAllAssetsAtPath($"{m_PublishName}/{pkgName}/{UISettingConfigEditor.Instance.UISourceCN}",
+                //     $"{m_AllPkgPath}/{pkgName}/{UISettingConfigEditor.Instance.UISource}", typeof(UIBindCDETable), true, false);
                 //
                 // //4 精灵
-                // Tree.AddAllAssetImporterAtPath($"{m_PublishName}/{pkgName}/{UISetting.UISpritesCN}",
-                //     $"{m_AllPkgPath}/{pkgName}/{UISetting.UISprites}", typeof(TextureImporter), true, false);
+                // Tree.AddAllAssetImporterAtPath($"{m_PublishName}/{pkgName}/{UISettingConfigEditor.Instance.UISpritesCN}",
+                //     $"{m_AllPkgPath}/{pkgName}/{UISettingConfigEditor.Instance.UISprites}", typeof(TextureImporter), true, false);
 
                 m_AllUIPublishPackageModule.Add(newUIPublishPackageModule);
             }

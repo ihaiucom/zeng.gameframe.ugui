@@ -93,7 +93,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 existName.Add(newName);
                 sb.AppendFormat("            {0} = CDETable.FindUIBase<{1}>(\"{2}\");\r\n",
                     newName,
-                    $"{UISetting.UINamespace}.{pkgName}.{resName}",
+                    $"{UISettingConfigEditor.Instance.UINamespace}.{pkgName}.{resName}",
                     name);
             }
         }

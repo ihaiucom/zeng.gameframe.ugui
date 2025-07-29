@@ -42,11 +42,11 @@ namespace Zeng.GameFrame.UIS.Editor
 
             var newSource = UIMenuItemHelper.CopyGameObject(loadSource);
             var cdeTable  = newSource.GetComponent<UIBindCDETable>();
-            newSource.name                    = newSource.name.Replace(UISetting.UISource, "");
+            newSource.name                    = newSource.name.Replace(UISettingConfigEditor.Instance.UISource, "");
             cdeTable.IsSplitData              = false;
             cdeTable.PanelSplitEditorShowData = cdeTable.PanelSplitData;
             var splitData = cdeTable.PanelSplitData;
-            var savePath  = $"{UISetting.UIProjectResPath}/{pkgName}/{UISetting.UIPrefabs}";
+            var savePath  = $"{UISettingConfigEditor.Instance.UIProjectResPath}/{pkgName}/{UISettingConfigEditor.Instance.UIPrefabs}";
 
             AllViewSaveAsPrefabAsset(oldSplitData.AllCommonView, splitData.AllCommonView, savePath, true);
             AllViewSaveAsPrefabAsset(oldSplitData.AllCreateView, splitData.AllCreateView, savePath);

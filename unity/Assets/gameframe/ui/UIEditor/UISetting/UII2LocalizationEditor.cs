@@ -76,7 +76,7 @@ namespace Zeng.GameFrame.UIS.Editor
         [LabelText("I2Localize.cs路径")]
         [ShowInInspector]
         [ReadOnly]
-        public  string I2Localize =  $"{Zeng.GameFrame.UIS.UISetting.UIGenerationPath}/I2Localization/I2Localize.cs";
+        public  string I2Localize =  $"{Zeng.GameFrame.UIS.Editor.UISettingConfigEditor.Instance.UIGenerationPath}/I2Localization/I2Localize.cs";
 
         [BoxGroup("代码", false, true)]
         [Button("生成代码", 50)]

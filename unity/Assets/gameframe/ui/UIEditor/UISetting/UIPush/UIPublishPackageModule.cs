@@ -56,14 +56,14 @@ namespace Zeng.GameFrame.UIS.Editor
         {
             m_UIPublishModule = publishModule;
             PkgName           = pkgName;
-            PkgPath           = $"{UISetting.UIProjectResPath}/{pkgName}";
+            PkgPath           = $"{UISettingConfigEditor.Instance.UIProjectResPath}/{pkgName}";
             FindUIBindCDETableResources();
         }
 
         private void FindUIBindCDETableResources()
         {
             var strings = AssetDatabase.GetAllAssetPaths().Where(x =>
-                x.StartsWith($"{PkgPath}/{UISetting.UIPrefabs}", StringComparison.InvariantCultureIgnoreCase));
+                x.StartsWith($"{PkgPath}/{UISettingConfigEditor.Instance.UIPrefabs}", StringComparison.InvariantCultureIgnoreCase));
 
             foreach (var path in strings)
             {

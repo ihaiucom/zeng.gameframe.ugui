@@ -43,7 +43,7 @@ namespace Zeng.GameFrame.UIS.Editor
             //ViewParent
             var viewParentObject = new GameObject();
             var viewParentRect   = viewParentObject.GetOrAddComponent<RectTransform>();
-            viewParentObject.name = UISetting.UIUIViewParentName;
+            viewParentObject.name = UISettingConfigEditor.Instance.UIUIViewParentName;
             viewParentRect.SetParent(activeObject.transform, false);
             viewParentRect.ResetToFullScreen();
 
@@ -54,7 +54,7 @@ namespace Zeng.GameFrame.UIS.Editor
             viewObject.GetOrAddComponent<CanvasRenderer>();
             var cdeTable = viewObject.GetOrAddComponent<UIBindCDETable>();
             cdeTable.UICodeType = EUICodeType.View;
-            viewObject.name     = UISetting.UIUIViewName;
+            viewObject.name     = UISettingConfigEditor.Instance.UIUIViewName;
             viewRect.SetParent(viewParentRect, false);
             viewRect.ResetToFullScreen();
 

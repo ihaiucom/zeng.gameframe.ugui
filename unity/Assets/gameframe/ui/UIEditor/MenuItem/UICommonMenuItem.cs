@@ -16,7 +16,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 return;
             }
 
-            var path = $"{UISetting.UIFrameworkPath}/UIEditor/PrefabTemplate/UI/{targetName}.prefab";
+            var path = $"{UISettingConfigEditor.Instance.UIFrameworkPath}/UIEditor/PrefabTemplate/UI/{targetName}.prefab";
             Selection.activeObject = UIMenuItemHelper.CloneGameObjectByPath(path, activeObject.transform);
         }
 

@@ -177,7 +177,7 @@ namespace I2.Loc
 			// return "Assets/ScriptLocalization.cs";
 			
 			
-			var path = $"{Zeng.GameFrame.UIS.UISetting.UIGenerationPath}/I2Localization";
+			var path = $"{Zeng.GameFrame.UIS.Editor.UISettingConfigEditor.Instance.UIGenerationPath}/I2Localization";
 			if (!Directory.Exists(path))
 				Directory.CreateDirectory(path);
 			

@@ -93,7 +93,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
                 existName.Add(newName);
                 sb.AppendFormat("        [ShowInInspector] public {0} {1} {{ get; private set; }}\r\n",
-                    $"{UISetting.UINamespace}.{pkgName}.{resName}", newName);
+                    $"{UISettingConfigEditor.Instance.UINamespace}.{pkgName}.{resName}", newName);
             }
         }
 

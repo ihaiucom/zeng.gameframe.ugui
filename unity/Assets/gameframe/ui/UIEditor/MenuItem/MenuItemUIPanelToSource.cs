@@ -24,10 +24,10 @@ namespace Zeng.GameFrame.UIS.Editor
 
             var path = AssetDatabase.GetAssetPath(Selection.activeObject);
 
-            if (!path.Contains(UISetting.UIProjectResPath))
+            if (!path.Contains(UISettingConfigEditor.Instance.UIProjectResPath))
             {
                 UnityTipsHelper.ShowError(
-                    $"请在路径 {UISetting.UIProjectResPath}/xxx/{UISetting.UIPanelName} 下右键选择一个Panel 进行转换");
+                    $"请在路径 {UISettingConfigEditor.Instance.UIProjectResPath}/xxx/{UISettingConfigEditor.Instance.UIPanelName} 下右键选择一个Panel 进行转换");
                 return;
             }
 
@@ -61,9 +61,9 @@ namespace Zeng.GameFrame.UIS.Editor
                 return;
             }
 
-            var newSourceName = $"{panelCdeTable.name}{UISetting.UISource}";
+            var newSourceName = $"{panelCdeTable.name}{UISettingConfigEditor.Instance.UISource}";
             var savePath =
-                $"{UISetting.UIProjectResPath}/{panelCdeTable.PkgName}/{UISetting.UISource}/{newSourceName}.prefab";
+                $"{UISettingConfigEditor.Instance.UIProjectResPath}/{panelCdeTable.PkgName}/{UISettingConfigEditor.Instance.UISource}/{newSourceName}.prefab";
 
             if (AssetDatabase.LoadAssetAtPath(savePath, typeof(Object)) != null)
             {
@@ -87,7 +87,7 @@ namespace Zeng.GameFrame.UIS.Editor
             var newSource   = UIMenuItemHelper.CopyGameObject(loadPanel);
             var oldCdeTable = newSource.GetComponent<UIBindCDETable>();
             oldCdeTable.IsSplitData = true;
-            newSource.name          = $"{loadPanel.name}{UISetting.UISource}";
+            newSource.name          = $"{loadPanel.name}{UISettingConfigEditor.Instance.UISource}";
 
             CorrelationView(oldCdeTable);
             
@@ -123,7 +123,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 var viewName = viewParent.name.Replace(UISetting.UIParentName, "");
 
                 var viewPath =
-                    $"{UISetting.UIProjectResPath}/{pkgName}/{UISetting.UIPrefabs}/{viewName}.prefab";
+                    $"{UISettingConfigEditor.Instance.UIProjectResPath}/{pkgName}/{UISettingConfigEditor.Instance.UIPrefabs}/{viewName}.prefab";
 
                 var childView = viewParent.FindChildByName(viewName);
                 if (childView != null)

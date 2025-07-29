@@ -6,14 +6,17 @@ using UnityEngine;
 
 namespace Zeng.GameFrame.UIS.Editor
 {
-    public class UISettingConfigEditor : GlobalConfig<UISettingConfigEditor>, ITreeMenu
+    [GlobalConfig("Assets/Settings")]
+    public partial class UISettingConfigEditor : GlobalConfig<UISettingConfigEditor>, ITreeMenu
     {
         public static StringPrefs UserNamePrefs = new StringPrefs("UITool_UserName", null, "UI");
         public static BoolPrefs OldCDEInspectorPrefs = new BoolPrefs("UITool_OldCDEInspector", null, false);
 
+        [TitleGroup("本地个人配置", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
         [LabelText("用户名")]
         [Required("请填写用户名")]
         [ShowInInspector]
+        [ShowIf("Load")]
         private static string m_Author;
         
         public static string Author
@@ -31,6 +34,7 @@ namespace Zeng.GameFrame.UIS.Editor
         }
         
         
+        [TitleGroup("本地个人配置", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
         [LabelText("使用老的CDEInspector显示模式")]
         [ShowInInspector]
         private static bool m_DisplayOldCDEInspector;
@@ -44,15 +48,24 @@ namespace Zeng.GameFrame.UIS.Editor
         }
 
         private static bool isLoad = false;
-        public void Load()
+        private static bool isNotLoad {
+            get { return !isLoad;}
+        }
+
+        [TitleGroup("本地个人配置", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
+        [Button("加载", ButtonSizes.Large)]
+        [ShowIf("isNotLoad")]
+        public bool Load()
         {
-            if(isLoad) return;
+            if(isLoad) return true;
             isLoad = true;
             m_Author = UserNamePrefs.Value;
             m_DisplayOldCDEInspector = OldCDEInspectorPrefs.Value;
+            return true;
         }
 
 
+        [TitleGroup("本地个人配置", "", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false)]
         [Button("确定", ButtonSizes.Large)]
         private void ClickOkButton()
         {
@@ -65,6 +78,9 @@ namespace Zeng.GameFrame.UIS.Editor
         {
             Load();
         }
+        
+        
+        
     }
 }
 #endif

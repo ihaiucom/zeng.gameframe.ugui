@@ -17,9 +17,9 @@ namespace Zeng.GameFrame.UIS.Editor
 
         public UICreateViewCode(out bool result, string authorName, UICreateViewData codeData) : base(authorName)
         {
-            // var path     = $"{UISetting.UICodeScriptsPath}/{codeData.PkgName}/{codeData.ResName}.cs";
+            // var path     = $"{UISettingConfigEditor.Instance.UICodeScriptsPath}/{codeData.PkgName}/{codeData.ResName}.cs";
             var path     = codeData.ScriptFilePath;
-            var template = $"{UISetting.UITemplatePath}/UICreateViewTemplate.txt";
+            var template = $"{UISettingConfigEditor.Instance.UITemplatePath}/UICreateViewTemplate.txt";
             CreateVo = new CreateVo(template, path);
 
             m_EventName           = $"{codeData.ResName} 继承 {codeData.ResName}Base 创建";
