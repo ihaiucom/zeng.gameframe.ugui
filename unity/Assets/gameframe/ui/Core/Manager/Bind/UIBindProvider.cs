@@ -10,7 +10,11 @@ namespace Zeng.GameFrame.UIS
     {
         //业务代码相关程序集的名字
         //默认有Unity默认程序集 可以根据需求修改
+#if UI_ET
+        internal static string[] LogicAssemblyNames = { "ET.HotfixView" };
+#else
         internal static string[] LogicAssemblyNames = { "Assembly-CSharp" };
+#endif
 
         private static Type[] GetLogicTypes()
         {

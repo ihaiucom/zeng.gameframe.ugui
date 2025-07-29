@@ -22,6 +22,9 @@ namespace Zeng.GameFrame.UIS.Editor
         [LabelText("UI项目资源路径")]
         public  string UIProjectResPath = "Assets/GameRes/UI" ; //玩家的预设/图片等资源存放的地方
 
+        [LabelText("YIUI项目指定包资源")]
+        public string UIProjectPackageResPath =  "Assets/GameRes/UI"; //指定包的资源存放的地方
+
         [LabelText("UI项目脚本路径")]
         public  string UIGenerationPath = "Assets/Scripts/UIGeneration"; //自动生成的代码
 

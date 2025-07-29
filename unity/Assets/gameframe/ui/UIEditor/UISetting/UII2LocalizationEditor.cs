@@ -4,49 +4,19 @@ using System.IO;
 using System.Text;
 using I2.Loc;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEditor;
 using UnityEngine;
 
 namespace Zeng.GameFrame.UIS.Editor
 {
-    public class UII2LocalizationEditor 
+    [GlobalConfig("Assets/Settings/I2Localization")]
+    public partial class UII2LocalizationEditor : GlobalConfig<UII2LocalizationEditor>
     {
-        private static UII2LocalizationEditor instance;
-        public static UII2LocalizationEditor Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new UII2LocalizationEditor();
-                }
-
-                return instance;
-            }
-        }
         
         
         private LanguageSourceData m_LanguageSourceData;
 
-        [BoxGroup("配置", false, true)]
-        [LabelText("全数据名称")]
-        [ShowInInspector]
-        [ReadOnly]
-        public const string UII2SourceResName = "AllSource";
-
-        [BoxGroup("配置", false, true)]
-        [LabelText("全数据保存路径")]
-        [FolderPath]
-        [ShowInInspector]
-        [ReadOnly]
-        public const string UII2SourceResPath = "Assets/Editor/I2Localization"; //这是编辑器下的数据 平台运行时 是不需要的
-
-        [BoxGroup("配置", false, true)]
-        [LabelText("指定数据保存路径")]
-        [FolderPath]
-        [ShowInInspector]
-        [ReadOnly]
-        public const string UII2TargetLanguageResPath = "Assets/GameRes/I2Localization"; //运行时的资源是拆分的 根据需求加载
 
         [BoxGroup("配置", false, true)]
         [Button("打开多语言数据", 50)]

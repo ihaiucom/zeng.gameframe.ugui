@@ -1733,7 +1733,7 @@ MonoBehaviour:
   DataTable: {fileID: 294550536910118708}
   EventTable: {fileID: 239596750120297764}
   PkgName: Login
-  ResName: LoginPanelSource
+  ResName: LoginPanel
   UICodeType: 0
   WindowOption: 0
   PanelLayer: 3

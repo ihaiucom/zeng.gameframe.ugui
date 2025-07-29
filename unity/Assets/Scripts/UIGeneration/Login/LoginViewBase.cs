@@ -14,6 +14,7 @@ namespace Games.UI.Login
     /// <summary>
     /// 由UI工具自动创建 请勿手动修改
     /// </summary>
+    [ET.DisableAnalyzer]
     public abstract class LoginViewBase:UIView
     {
         [ShowInInspector]

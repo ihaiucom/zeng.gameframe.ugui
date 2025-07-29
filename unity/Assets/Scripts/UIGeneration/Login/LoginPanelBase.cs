@@ -9,11 +9,17 @@ using Zeng.GameFrame.UIS;
 namespace Games.UI.Login
 {
 
-
+    public enum ELoginPanelViewEnum
+    {
+        ReigisterView = 1,
+        LoginView = 2,
+        TestPopupView = 3,
+    }
 
     /// <summary>
     /// 由UI工具自动创建 请勿手动修改
     /// </summary>
+    [ET.DisableAnalyzer]
     public abstract class LoginPanelBase:UIPanel
     {
         [ShowInInspector]

@@ -4794,9 +4794,9 @@ MonoBehaviour:
   ComponentTable: {fileID: 1981835919704816451}
   DataTable: {fileID: 294550536910118708}
   EventTable: {fileID: 239596750120297764}
-  PkgName: 
-  ResName: 
-  UICodeType: 2
+  PkgName: Login
+  ResName: LoginView
+  UICodeType: 1
   WindowOption: 0
   PanelLayer: 3
   PanelOption: 0

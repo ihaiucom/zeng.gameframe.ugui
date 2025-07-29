@@ -38,10 +38,10 @@ namespace Zeng.GameFrame.UIS.Editor
         {
             if (!string.IsNullOrEmpty(TemplateBasePath))
             {
-                if (TemplateBasePath.Contains("Assets/") && templatePath.Contains("Assets/"))
-                {
-                    templatePath = templatePath.Replace("Assets/", "");
-                }
+                // if (TemplateBasePath.Contains("Assets/") && templatePath.Contains("Assets/"))
+                // {
+                //     templatePath = templatePath.Replace("Assets/", "");
+                // }
 
                 templatePath = TemplateBasePath + templatePath;
             }
@@ -147,7 +147,7 @@ namespace Zeng.GameFrame.UIS.Editor
         {
             try
             {
-                path = path.Contains("Assets/") ? path : "Assets/" + path;
+                // path = path.Contains("Assets/") ? path : "Assets/" + path;
                 path = EditorHelper.GetProjPath(path);
                 return File.Exists(path);
             }
@@ -160,7 +160,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
         public static bool CreateCodeFile(string path, string templateName, Dictionary<string, string> valueDic)
         {
-            templateName = templateName.Contains("Assets/") ? templateName : "Assets/" + templateName;
+            // templateName = templateName.Contains("Assets/") ? templateName : "Assets/" + templateName;
             templateName = templateName.Contains(".txt") ? templateName : templateName + ".txt";
             string clsStr = Do(templateName, valueDic, null, false);
             if (clsStr == null)
@@ -171,7 +171,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
             try
             {
-                path = path.Contains("Assets/") ? path : "Assets/" + path;
+                // path = path.Contains("Assets/") ? path : "Assets/" + path;
                 path = EditorHelper.GetProjPath(path);
                 string dir = Path.GetDirectoryName(path);
                 if (dir == null)
@@ -278,7 +278,7 @@ namespace Zeng.GameFrame.UIS.Editor
         /// <returns></returns>
         public static bool OverrideCodeFile(string path, Dictionary<string, string> valueDic, bool otherRetain = true)
         {
-            path = path.Contains("Assets/") ? path : "Assets/" + path;
+            // path = path.Contains("Assets/") ? path : "Assets/" + path;
             path = EditorHelper.GetProjPath(path);
             foreach (var pair in valueDic)
             {
@@ -383,7 +383,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
             try
             {
-                path = path.Contains("Assets/") ? path : "Assets/" + path;
+                // path = path.Contains("Assets/") ? path : "Assets/" + path;
                 path = EditorHelper.GetProjPath(path);
                 string dir = Path.GetDirectoryName(path);
                 if (dir == null)
