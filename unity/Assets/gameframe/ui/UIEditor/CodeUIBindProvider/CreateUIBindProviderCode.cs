@@ -18,7 +18,12 @@ namespace Zeng.GameFrame.UIS.Editor
         public CreateUIBindProviderCode(out bool result, string authorName, UIBindProviderData codeData) : base(
             authorName)
         {
+            #if UI_ET
             var path     = $"{UISettingConfigEditor.Instance.UICodeScriptsPath}/{codeData.Name}.cs";
+            #else
+            var path     = $"{UISettingConfigEditor.Instance.UIGenerationPath}/{codeData.Name}.cs";
+            #endif
+            
             var template = $"{UISettingConfigEditor.Instance.UITemplatePath}/UIBindProviderTemplate.txt";
             CreateVo = new CreateVo(template, path);
 
