@@ -3,7 +3,6 @@
     "rootNamespace": "Zeng.GameFrame.UIS",
     "references": [
         "UniTask",
-        "UniTask.DOTween",
         "YooAsset",
         "Unity.TextMeshPro",
         "LitMotion",

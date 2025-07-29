@@ -1,6 +1,8 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 
@@ -12,14 +14,22 @@ namespace Zeng.GameFrame.UIS
         //默认有Unity默认程序集 可以根据需求修改
 #if UI_ET
         internal static string[] LogicAssemblyNames = { "ET.HotfixView" };
+        private static Type[] GetLogicTypes()
+        {
+            string CodeDir = "Packages/cn.etetet.loader/Bundles/Code";
+            byte[] modelViewAssBytes = File.ReadAllBytes(Path.Combine(CodeDir, "ET.HotfixView.dll.bytes"));
+            byte[] modelViewPdbBytes = File.ReadAllBytes(Path.Combine(CodeDir, "ET.HotfixView.pdb.bytes"));
+            Assembly modelViewAssembly = Assembly.Load(modelViewAssBytes, modelViewPdbBytes);
+            return modelViewAssembly.GetTypes();
+        }
 #else
         internal static string[] LogicAssemblyNames = { "Assembly-CSharp" };
-#endif
-
         private static Type[] GetLogicTypes()
         {
             return AppDomain.CurrentDomain.GetTypesByAssemblyName(LogicAssemblyNames);
         }
+#endif
+
 
         private Type m_BaseUIWindowType        = typeof(UIPanel);
         private Type m_BaseUISubPanelType      = typeof(UIView);
