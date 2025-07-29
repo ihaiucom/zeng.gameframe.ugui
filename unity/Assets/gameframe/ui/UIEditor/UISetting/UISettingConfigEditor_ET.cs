@@ -14,25 +14,28 @@ namespace Zeng.GameFrame.UIS.Editor
         [LabelText("UI项目命名空间")]
         public  string UINamespace = "Games.UI"; //所有生成文件的命名空间
 
-        [LabelText("UI项目编辑器资源路径")]
-        public  string UIProjectEditorPath = "Assets/Editor/UI" ; //编辑器才会用到的资源
+        // [LabelText("UI项目编辑器资源路径")]
+        // public  string UIProjectEditorPath = "Assets/Editor/UI" ; //编辑器才会用到的资源
 
         [LabelText("UI项目资源路径")]
         public  string UIProjectResPath = "Assets/GameRes/UI" ; //玩家的预设/图片等资源存放的地方
 
+        [LabelText("YIUI项目指定包资源")]
+        public string UIProjectPackageResPath = "Packages/cn.etetet.gameui/Assets/GameRes/UI"; //指定包的资源存放的地方
+
         [LabelText("UI项目脚本路径")]
-        public  string UIGenerationPath = "Assets/Scripts/UIGeneration"; //自动生成的代码
+        public  string UIGenerationPath = "Packages/cn.etetet.gameui/Scripts/ModelView/Client/UIGeneration"; //自动生成的代码
 
         [LabelText("UI项目自定义脚本路径")]
-        public  string UICodeScriptsPath = "Assets/Scripts/UI"; //玩家可编写的核心代码部分
+        public  string UICodeScriptsPath =  "Packages/cn.etetet.gameui/Scripts/HotfixView/Client/UI"; //玩家可编写的核心代码部分
 
         [LabelText("UI框架所处位置路径")]
-        public  string UIFrameworkPath = "Assets/gameframe/ui";
+        public  string UIFrameworkPath = "Packages/zeng.gameframe.ugui";
 
         [LabelText("UI项目代码模板路径")]
-        public  string UITemplatePath = "Assets/gameframe/ui/UIEditor/CodeTemplate";
+        public  string UITemplatePath = "Packages/zeng.gameframe.ugui/UIEditor/CodeTemplate";
 
-        public  string UIRootPrefabPath =  "Assets/gameframe/ui/UIEditor/UIRootPrefab/UIRoot.prefab";
+        public  string UIRootPrefabPath =  "Packages/zeng.gameframe.ugui/UIEditor/UIRootPrefab/UIRoot.prefab";
         
         
         [Space(20)]

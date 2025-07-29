@@ -63,7 +63,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
             var newSourceName = $"{panelCdeTable.name}{UISettingConfigEditor.Instance.UISource}";
             var savePath =
-                $"{UISettingConfigEditor.Instance.UIProjectResPath}/{panelCdeTable.PkgName}/{UISettingConfigEditor.Instance.UISource}/{newSourceName}.prefab";
+                $"{UISettingConfigEditor.Instance.UIProjectPackageResPath}/{panelCdeTable.PkgName}/{UISettingConfigEditor.Instance.UISource}/{newSourceName}.prefab";
 
             if (AssetDatabase.LoadAssetAtPath(savePath, typeof(Object)) != null)
             {
@@ -123,7 +123,7 @@ namespace Zeng.GameFrame.UIS.Editor
                 var viewName = viewParent.name.Replace(UISetting.UIParentName, "");
 
                 var viewPath =
-                    $"{UISettingConfigEditor.Instance.UIProjectResPath}/{pkgName}/{UISettingConfigEditor.Instance.UIPrefabs}/{viewName}.prefab";
+                    $"{UISettingConfigEditor.Instance.UIProjectPackageResPath}/{pkgName}/{UISettingConfigEditor.Instance.UIPrefabs}/{viewName}.prefab";
 
                 var childView = viewParent.FindChildByName(viewName);
                 if (childView != null)

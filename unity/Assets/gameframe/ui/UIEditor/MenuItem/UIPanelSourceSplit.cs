@@ -46,7 +46,7 @@ namespace Zeng.GameFrame.UIS.Editor
             cdeTable.IsSplitData              = false;
             cdeTable.PanelSplitEditorShowData = cdeTable.PanelSplitData;
             var splitData = cdeTable.PanelSplitData;
-            var savePath  = $"{UISettingConfigEditor.Instance.UIProjectResPath}/{pkgName}/{UISettingConfigEditor.Instance.UIPrefabs}";
+            var savePath  = $"{UISettingConfigEditor.Instance.UIProjectPackageResPath}/{pkgName}/{UISettingConfigEditor.Instance.UIPrefabs}";
 
             AllViewSaveAsPrefabAsset(oldSplitData.AllCommonView, splitData.AllCommonView, savePath, true);
             AllViewSaveAsPrefabAsset(oldSplitData.AllCreateView, splitData.AllCreateView, savePath);

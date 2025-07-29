@@ -21,3 +21,17 @@ MonoBehaviour:
   UIFrameworkPath: Assets/gameframe/ui
   UITemplatePath: Assets/gameframe/ui/UIEditor/CodeTemplate
   UIRootPrefabPath: Assets/gameframe/ui/UIEditor/UIRootPrefab/UIRoot.prefab
+  UIPanelName: Panel
+  UIViewName: View
+  UIPrefabs: Prefabs
+  UIPrefabsCN: "\u9884\u5236"
+  UISprites: Sprites
+  UISpritesCN: "\u7CBE\u7075"
+  UIAtlas: Atlas
+  UIAtlasCN: "\u56FE\u96C6"
+  UISource: Source
+  UISourceCN: "\u6E90\u6587\u4EF6"
+  UIAtlasIgnore: AtlasIgnore
+  UISpritesAtlas1: Atlas1
+  UIAllViewParentName: AllViewParent
+  UIAllPopupViewParentName: AllPopupViewParent

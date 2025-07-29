@@ -42,7 +42,7 @@ namespace Zeng.GameFrame.UIS.Editor
 
             createName = NameUtility.ToFirstUpper(createName);
 
-            var basePath          = $"{UISettingConfigEditor.Instance.UIProjectResPath}/{createName}";
+            var basePath          = $"{UISettingConfigEditor.Instance.UIProjectPackageResPath}/{createName}";
             var prefabsPath       = $"{basePath}/{UISettingConfigEditor.Instance.UIPrefabs}";
             var spritesPath       = $"{basePath}/{UISettingConfigEditor.Instance.UISprites}";
             var spritesAtlas1Path = $"{basePath}/{UISettingConfigEditor.Instance.UISprites}/{UISettingConfigEditor.Instance.UISpritesAtlas1}";

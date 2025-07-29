@@ -16,8 +16,8 @@ namespace Zeng.GameFrame.UIS.Editor
         [LabelText("UI项目命名空间")]
         public  string UINamespace = "Games.UI"; //所有生成文件的命名空间
 
-        [LabelText("UI项目编辑器资源路径")]
-        public  string UIProjectEditorPath = "Assets/Editor/UI" ; //编辑器才会用到的资源
+        // [LabelText("UI项目编辑器资源路径")]
+        // public  string UIProjectEditorPath = "Assets/Editor/UI" ; //编辑器才会用到的资源
 
         [LabelText("UI项目资源路径")]
         public  string UIProjectResPath = "Assets/GameRes/UI" ; //玩家的预设/图片等资源存放的地方
