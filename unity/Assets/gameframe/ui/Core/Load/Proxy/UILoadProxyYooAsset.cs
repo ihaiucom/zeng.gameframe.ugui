@@ -17,6 +17,7 @@ namespace Zeng.GameFrame.UIS
 
         public void Init(ResourcePackage package)
         {
+            if (package == null) package = YooAssets.GetPackage("DefaultPackage");
             this.package = package;
 
             //UI会用到的各种加载 需要自行实现 Demo中使用的是YooAsset 根据自己项目的资源管理器实现下面的方法

@@ -32,30 +32,32 @@ namespace Zeng.Demos
 
         private async UniTask InitAsync()
         {
-            SingletonMgr.Initialize();
             await YooAssetInit.I.InitAsync(YooAssetPlayMode, YooAssetDefaultHostServer, YooAsetFallbackHostServer);
             
             if (YooAssetInit.I.isInitSuccess)
             {
-                UILoadProxyYooAsset.I.Init(YooAssetInit.I.package);
-                
-                UIBindHelper.InternalGameGetUIBindVoFunc = UICodeGenerated.UIBindProvider.Get;
-                
-                
-                await MgrCenter.I.Register(SchedulerMgr.I);
-                await MgrCenter.I.Register(AsyncLockMgr.I);
-                await MgrCenter.I.Register(I2LocalizeMgr.I);
-                await MgrCenter.I.Register(CountDownMgr.I);
-                await MgrCenter.I.Register(UIManager.I);
-                
-                UIManager.I.OpenPanel<LoginPanel>();
-                // UIManager.I.OpenPanel<HomePanel>();
-                // UIManager.I.OpenPanel<RoleSelectPanel>();
+                await InitUIAsync();
             }
-            
-            
+        }
 
-           
+        private async UniTask InitUIAsync()
+        {
+            SingletonMgr.Initialize();
+            UILoadProxyYooAsset.I.Init(YooAssetInit.I.package);
+                
+            UIBindHelper.InternalGameGetUIBindVoFunc = UICodeGenerated.UIBindProvider.Get;
+                
+                
+            await MgrCenter.I.Register(SchedulerMgr.I);
+            await MgrCenter.I.Register(AsyncLockMgr.I);
+            await MgrCenter.I.Register(I2LocalizeMgr.I);
+            await MgrCenter.I.Register(CountDownMgr.I);
+            await MgrCenter.I.Register(UIManager.I);
+                
+            UIManager.I.OpenPanel<LoginPanel>();
+            // UIManager.I.OpenPanel<HomePanel>();
+            // UIManager.I.OpenPanel<RoleSelectPanel>();
+            
         }
         
         

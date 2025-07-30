@@ -64,8 +64,11 @@ namespace Zeng.GameFrame.UIS
             {
                 Debug.LogError($"panel={info.ResName}, err={e.Message}{e.StackTrace}");
             }
+            
+            UIPanel panel = await OpenPanelAfter(info, success);
+            T result = (T)panel;
 
-            return (T)await OpenPanelAfter(info, success);
+            return result;
         }
 
         public async UniTask<T> OpenPanelAsync<T, P1>(P1 p1)
