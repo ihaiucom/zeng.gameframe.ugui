@@ -17,25 +17,25 @@ namespace Games.UI.Home
         private UI3DDisplayExtend m_Ui3DDisplay;
         #region 生命周期
         
-        protected override void OnUIInit()
+        protected override void Initialize()
         {
-            Debug.Log($"HomePanel OnUIInit");
+            Debug.Log($"HomePanel Initialize");
             m_Ui3DDisplay = new UI3DDisplayExtend(u_ComModel);
         }
 
-        protected override void OnUIEnable()
+        protected override void OnEnable()
         {
-            Debug.Log($"HomePanel OnUIEnable");
+            Debug.Log($"HomePanel OnEnable");
         }
 
-        protected override void OnUIDisable()
+        protected override void OnDisable()
         {
-            Debug.Log($"HomePanel OnUIDisable");
+            Debug.Log($"HomePanel OnDisable");
         }
 
-        protected override void OnUIDestroy()
+        protected override void OnDestroy()
         {
-            Debug.Log($"HomePanel OnUIDestroy");
+            Debug.Log($"HomePanel OnDestroy");
         }
 
         protected override async UniTask<bool> OnOpen()

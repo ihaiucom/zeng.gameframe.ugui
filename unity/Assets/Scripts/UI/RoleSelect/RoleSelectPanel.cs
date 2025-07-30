@@ -27,9 +27,9 @@ namespace Games.UI.RoleSelect
         
         private UILoopScroll<RoleData, RoleItem> m_LoopScroll;
         private List<RoleData>                   m_AllData;
-        protected override void OnUIInit()
+        protected override void Initialize()
         {
-            Debug.Log($"RoleSelectPanel OnUIInit");
+            Debug.Log($"RoleSelectPanel Initialize");
             m_AllData = new List<RoleData>();
             for (int i = 1; i <= 18; i++)
             {
@@ -60,19 +60,19 @@ namespace Games.UI.RoleSelect
             item.Select(select);
         }
 
-        protected override void OnUIEnable()
+        protected override void OnEnable()
         {
-            Debug.Log($"RoleSelectPanel OnUIEnable");
+            Debug.Log($"RoleSelectPanel OnEnable");
         }
 
-        protected override void OnUIDisable()
+        protected override void OnDisable()
         {
-            Debug.Log($"RoleSelectPanel OnUIDisable");
+            Debug.Log($"RoleSelectPanel OnDisable");
         }
 
-        protected override void OnUIDestroy()
+        protected override void OnDestroy()
         {
-            Debug.Log($"RoleSelectPanel OnUIDestroy");
+            Debug.Log($"RoleSelectPanel OnDestroy");
         }
 
         protected override async UniTask<bool> OnOpen()

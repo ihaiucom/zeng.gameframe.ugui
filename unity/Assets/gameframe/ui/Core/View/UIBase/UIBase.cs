@@ -7,7 +7,8 @@ namespace Zeng.GameFrame.UIS
     /// <summary>
     /// UI基类
     /// </summary>
-    public abstract partial class UIBase : MonoBehaviour
+    // public abstract partial class UIBase : MonoBehaviour
+    public abstract partial class UIBase
     {
         //用这个不用.单例而已
         protected UIManager uiManager { get; private set; }
@@ -113,15 +114,21 @@ namespace Zeng.GameFrame.UIS
 
         private void UIBaseInitialize()
         {
+            CDETable.UIBaseStart     = UIBaseStart;
+            CDETable.UIBaseOnDestroy = UIBaseOnDestroy;
             try
             {
                 SealedInitialize();
                 UIBind();
-                OnUIInit();
+                Initialize();
                 if (ActiveSelf)
-                    OnUIEnable();
+                    UIBaseOnEnable();
                 else
-                    OnUIDisable();
+                    UIBaseOnDisable();
+                
+                
+                CDETable.UIBaseOnEnable  = UIBaseOnEnable;
+                CDETable.UIBaseOnDisable = UIBaseOnDisable;
             }
             catch (Exception e)
             {
@@ -130,82 +137,100 @@ namespace Zeng.GameFrame.UIS
             }
         }
         
-        private void OnEnable()
-        {
-            if (UIBaseInit)
-            {
-                OnUIEnable();
-            }
-        }
         
-        private void OnDisable()
-        {
-            if (UIBaseInit)
-            {
-                OnUIDisable();
-            }
-        }
-
-
-
-        private void OnDestroy()
-        {
-            UnUIBind();
-            OnUIDestroy();
-            SealedOnDestroy();
-            UIFactory.Destroy(this);
-        }
-
+        //------------------ Initialize ---------------
         
         
-        //这是给基类用的生命周期(UIPanel,UIView) 为了防止有人重写时不调用基类 所以直接独立
-        //没有什么穿插需求怎么办
-        //基类会重写这个类且会密封你也调用不到
-        //不要问为什么...
         //UIBase 生命周期顺序 1
         protected virtual void SealedInitialize()
         {
         }
 
-        
         //UIBase 生命周期顺序 2
         protected virtual void UIBind()
         {
         }
-
+        
         //UIBase 生命周期顺序 3
-        protected virtual void OnUIInit()
+        protected virtual void Initialize()
         {
+        }
+        
+        //------------------ Start ---------------
+        private void UIBaseStart()
+        {
+            SealedStart();
+            Start();
+        }
+        
+        protected virtual void SealedStart()
+        {
+        }
+        
+        protected virtual void Start()
+        {
+        }
+        
+        
+        
+        
+        //------------------ OnEnable ---------------
+        private void UIBaseOnEnable()
+        {
+            OnEnable();
+        }
+        
+        //UIBase 生命周期顺序 4
+        protected virtual void OnEnable()
+        {
+        }
+
+        //------------------ OnDisable ---------------
+
+        private void UIBaseOnDisable()
+        {
+            OnDisable();
         }
         
         
         //UIBase 生命周期顺序 4
-        protected virtual void OnUIEnable()
+        protected virtual void OnDisable()
         {
         }
         
         
-        
-        
-        //UIBase 生命周期顺序 6
-        protected virtual void OnUIDisable()
+        //------------------ OnDestroy ---------------
+        private void UIBaseOnDestroy()
         {
+            UnUIBind();
+            OnDestroy();
+            SealedOnDestroy();
+            UIFactory.Destroy(this);
         }
+        
         
         //UIBase 生命周期顺序 7
         protected virtual void UnUIBind()
         {
         }
         
+        
         //UIBase 生命周期顺序 8
-        protected virtual void OnUIDestroy()
+        protected virtual void OnDestroy()
         {
         }
+
         
         //UIBase 生命周期顺序 9
         protected virtual void SealedOnDestroy()
         {
         }
+        
+
+
+
+        
+        
 
     }
 }

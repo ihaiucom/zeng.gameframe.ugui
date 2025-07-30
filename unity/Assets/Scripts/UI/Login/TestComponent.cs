@@ -16,24 +16,24 @@ namespace Games.UI.Login
     
         #region 生命周期
         
-        protected override void OnUIInit()
+        protected override void Initialize()
         {
-            Debug.Log($"TestComponent OnUIInit");
+            Debug.Log($"TestComponent Initialize");
         }
 
-        protected override void OnUIEnable()
+        protected override void OnEnable()
         {
-            Debug.Log($"TestComponent OnUIEnable");
+            Debug.Log($"TestComponent OnEnable");
         }
 
-        protected override void OnUIDisable()
+        protected override void OnDisable()
         {
-            Debug.Log($"TestComponent OnUIDisable");
+            Debug.Log($"TestComponent OnDisable");
         }
 
-        protected override void OnUIDestroy()
+        protected override void OnDestroy()
         {
-            Debug.Log($"TestComponent OnUIDestroy");
+            Debug.Log($"TestComponent OnDestroy");
         }
 
         #endregion

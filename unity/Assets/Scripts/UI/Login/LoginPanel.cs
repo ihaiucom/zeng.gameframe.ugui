@@ -16,24 +16,24 @@ namespace Games.UI.Login
     
         #region 生命周期
         
-        protected override void OnUIInit()
+        protected override void Initialize()
         {
-            Debug.Log($"LoginPanel OnUIInit");
+            Debug.Log($"LoginPanel Initialize");
         }
 
-        protected override void OnUIEnable()
+        protected override void OnEnable()
         {
-            Debug.Log($"LoginPanel OnUIEnable");
+            Debug.Log($"LoginPanel OnEnable");
         }
 
-        protected override void OnUIDisable()
+        protected override void OnDisable()
         {
-            Debug.Log($"LoginPanel OnUIDisable");
+            Debug.Log($"LoginPanel OnDisable");
         }
 
-        protected override void OnUIDestroy()
+        protected override void OnDestroy()
         {
-            Debug.Log($"LoginPanel OnUIDestroy");
+            Debug.Log($"LoginPanel OnDestroy");
         }
 
         protected override async UniTask<bool> OnOpen()

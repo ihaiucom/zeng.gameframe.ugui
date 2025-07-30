@@ -16,24 +16,24 @@ namespace ${Namespace}.${PkgName}
 
         #region 生命周期
         
-        protected override void OnUIInit()
+        protected override void Initialize()
         {
-            Debug.Log($"${ResName} OnUIInit");
+            Debug.Log($"${ResName} Initialize");
         }
 
-        protected override void OnUIEnable()
+        protected override void OnEnable()
         {
-            Debug.Log($"${ResName} OnUIEnable");
+            Debug.Log($"${ResName} OnEnable");
         }
 
-        protected override void OnUIDisable()
+        protected override void OnDisable()
         {
-            Debug.Log($"${ResName} OnUIDisable");
+            Debug.Log($"${ResName} OnDisable");
         }
 
-        protected override void OnUIDestroy()
+        protected override void OnDestroy()
         {
-            Debug.Log($"${ResName} OnUIDestroy");
+            Debug.Log($"${ResName} OnDestroy");
         }
 
         protected override async UniTask<bool> OnOpen()
