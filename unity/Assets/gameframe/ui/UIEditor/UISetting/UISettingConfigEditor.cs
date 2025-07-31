@@ -1,14 +1,33 @@
 #if UNITY_EDITOR
 
+using System;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
+using UnityEditor;
 using UnityEngine;
 
 namespace Zeng.GameFrame.UIS.Editor
 {
-    [GlobalConfig("Assets/Settings")]
-    public partial class UISettingConfigEditor : GlobalConfig<UISettingConfigEditor>, ITreeMenu
+    public partial class UISettingConfigEditor : ScriptableObject, ITreeMenu
     {
+        private static UISettingConfigEditor _Instance;
+        public static UISettingConfigEditor Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = AssetDatabase.LoadAssetAtPath<UISettingConfigEditor>("Assets/Settings/UISettingConfigEditor.asset");
+                    if (_Instance == null)
+                    {
+                        _Instance = ScriptableObject.CreateInstance<UISettingConfigEditor>();
+                        AssetDatabase.CreateAsset(_Instance, "Assets/Settings/UISettingConfigEditor.asset");
+                    }
+                }
+                return _Instance;
+            }
+        }
+        
         public static StringPrefs UserNamePrefs = new StringPrefs("UITool_UserName", null, "UI");
         public static BoolPrefs OldCDEInspectorPrefs = new BoolPrefs("UITool_OldCDEInspector", null, false);
 

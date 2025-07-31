@@ -11,9 +11,26 @@ using UnityEngine;
 namespace Zeng.GameFrame.UIS.Editor
 {
     [GlobalConfig("Assets/Settings/I2Localization")]
-    public partial class UII2LocalizationEditor : GlobalConfig<UII2LocalizationEditor>
+    public partial class UII2LocalizationEditor : ScriptableObject
     {
         
+        private static UII2LocalizationEditor _Instance;
+        public static UII2LocalizationEditor Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = AssetDatabase.LoadAssetAtPath<UII2LocalizationEditor>("Assets/Settings/I2Localization/UII2LocalizationEditor.asset");
+                    if (_Instance == null)
+                    {
+                        _Instance = ScriptableObject.CreateInstance<UII2LocalizationEditor>();
+                        AssetDatabase.CreateAsset(_Instance, "Assets/Settings/I2Localization/UII2LocalizationEditor.asset");
+                    }
+                }
+                return _Instance;
+            }
+        }
         
         private LanguageSourceData m_LanguageSourceData;
 
@@ -46,7 +63,9 @@ namespace Zeng.GameFrame.UIS.Editor
         [LabelText("I2Localize.cs路径")]
         [ShowInInspector]
         [ReadOnly]
-        public  string I2Localize =  $"{Zeng.GameFrame.UIS.Editor.UISettingConfigEditor.Instance.UIGenerationPath}/I2Localization/I2Localize.cs";
+        public  string I2Localize {
+            get { return $"{UISettingConfigEditor.Instance.UIGenerationPath}/I2Localization/I2Localize.cs";}
+        }  
 
         [BoxGroup("代码", false, true)]
         [Button("生成代码", 50)]

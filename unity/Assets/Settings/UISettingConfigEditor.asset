@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIProjectName: UI
   UINamespace: Games.UI
-  UIProjectEditorPath: Assets/Editor/UI
   UIProjectResPath: Assets/GameRes/UI
+  UIProjectPackageResPath: Assets/GameRes/UI
   UIGenerationPath: Assets/Scripts/UIGeneration
   UICodeScriptsPath: Assets/Scripts/UI
   UIFrameworkPath: Assets/gameframe/ui
