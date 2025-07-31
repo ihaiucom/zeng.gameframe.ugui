@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a42efcf30648299b6976edbc396655, type: 3}
   m_Name: UII2LocalizationEditor
   m_EditorClassIdentifier: 
-  I2Localize: Assets/Scripts/UIGeneration/I2Localization/I2Localize.cs
   UII2SourceResName: AllSource
   UII2SourceResPath: Assets/Settings/I2Localization
   I2GlobalSourcesEditorPath: Assets/Settings/I2Localization/I2Languages.asset
