@@ -41,7 +41,7 @@ namespace Zeng.GameFrame.UIS
         /// Editor下是反射
         /// 其他 是序列化的文件 打包的时候一定要生成一次文件
         /// </summary>
-        internal static bool InitAllBind()
+        public static bool InitAllBind()
         {
             if (IsInit)
             {
@@ -194,19 +194,19 @@ namespace Zeng.GameFrame.UIS
             if (g_UITypeToPkgInfo != null)
             {
                 g_UITypeToPkgInfo.Clear();
-                g_UITypeToPkgInfo = null;
+                // g_UITypeToPkgInfo = null;
             }
 
             if (g_UIPathToPkgInfo != null)
             {
                 g_UIPathToPkgInfo.Clear();
-                g_UIPathToPkgInfo = null;
+                // g_UIPathToPkgInfo = null;
             }
 
             if (g_UIPanelNameToPkgInfo != null)
             {
                 g_UIPanelNameToPkgInfo.Clear();
-                g_UIPanelNameToPkgInfo = null;
+                // g_UIPanelNameToPkgInfo = null;
             }
 
             IsInit = false;

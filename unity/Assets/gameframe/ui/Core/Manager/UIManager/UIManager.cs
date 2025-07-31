@@ -37,6 +37,11 @@ namespace Zeng.GameFrame.UIS
             uiRoot = null;
             uiBlockLayer = null;
         }
+
+        public void Reset()
+        {
+            m_PanelCfgMap.Clear();
+        }
         
         
     }
