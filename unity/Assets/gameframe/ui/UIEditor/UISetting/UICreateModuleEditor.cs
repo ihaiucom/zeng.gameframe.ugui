@@ -23,6 +23,16 @@ namespace Zeng.GameFrame.UIS.Editor
         [LabelText("新增模块名称")]
         public string Name;
 
+        [LabelText("模块路径")]
+        [ShowInInspector]
+        public string ModulePath
+        {
+            get
+            {
+                return $"{UISettingConfigEditor.Instance.UIProjectPackageResPath}/{Name}";
+            }
+        }
+
         [GUIColor(0, 1, 0)]
         [Button("创建", 30)]
         private void Create()
